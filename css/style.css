@@ -369,11 +369,36 @@ ul, ol { list-style: none; padding: 0; }
 /* ============================================================
    EXPERIENCE / TIMELINE
    ============================================================ */
-.timeline { display: grid; gap: var(--space-4); }
-.timeline__item { display: grid; grid-template-columns: 120px 1fr; gap: 2rem; }
-.timeline__when { font-family: var(--font-mono); font-size: var(--step--1); color: var(--ink-soft); padding-top: .35rem; }
-.timeline__what h3 { font-family: var(--font-display); font-size: var(--step-1); font-weight: 600; letter-spacing: -0.01em; }
-.timeline__org { color: var(--accent) !important; font-weight: 500; margin-bottom: .75rem !important; font-size: var(--step--1); }
+.timeline { display: grid; }
+/* Each item carries a segment of the spine via its left border; spacing
+   lives in padding-bottom so the border stays continuous through the gap.
+   The last item drops its border so the line ends exactly at the last node. */
+.timeline__item {
+  position: relative;
+  margin-left: 6px;
+  padding: 0 0 var(--space-4) 2rem;
+  border-left: 2px solid var(--line);
+}
+.timeline__item:last-child { padding-bottom: 0; border-color: transparent; }
+.timeline__item::before {
+  content: "";
+  position: absolute; left: -8px; top: .2rem;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--bg); border: 2px solid var(--accent);
+  transition: background .25s var(--ease);
+}
+.timeline__item:hover::before { background: var(--accent); }
+.timeline__when {
+  font-family: var(--font-mono); font-size: var(--step--2);
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--accent); margin-bottom: .5rem;
+}
+.timeline__what h3 {
+  font-family: var(--font-display); font-size: var(--step-1);
+  font-weight: 600; letter-spacing: -0.01em; margin-bottom: .25rem;
+}
+.timeline__org { color: var(--ink-soft) !important; font-weight: 500; margin-bottom: .6rem !important; font-size: var(--step--1); }
+.timeline__what > p:last-child { margin-bottom: 0; }
 
 /* ============================================================
    SKILLS
@@ -450,7 +475,6 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 
   .section__grid { grid-template-columns: 1fr; gap: 1.5rem; }
   .section__label { position: static; }
-  .timeline__item { grid-template-columns: 1fr; gap: .5rem; }
   .facts { grid-template-columns: 1fr 1fr; }
 }
 
