@@ -307,12 +307,23 @@ ul, ol { list-style: none; padding: 0; }
    ============================================================ */
 .projects { display: grid; border-block: 1px solid var(--line); }
 .project {
+  position: relative;
   background: var(--bg);
   padding: clamp(2.25rem, 4vw, 3.25rem) 0;
-  transition: background .3s var(--ease), box-shadow .3s var(--ease);
+  transition: background .3s var(--ease);
 }
 .project + .project { border-top: 1px solid var(--line); }
-.project:hover { background: var(--bg-alt); box-shadow: inset 2px 0 0 var(--accent); }
+/* Accent rail sits in the left gutter (clear of the text) and grows
+   from the vertical centre outward on hover. */
+.project::before {
+  content: "";
+  position: absolute; left: -1rem; top: 0; bottom: 0;
+  width: 2px; background: var(--accent);
+  transform: scaleY(0); transform-origin: center;
+  transition: transform .35s var(--ease);
+}
+.project:hover { background: var(--bg-alt); }
+.project:hover::before { transform: scaleY(1); }
 .project__meta { display: flex; flex-direction: row; align-items: baseline; gap: 1rem; margin-bottom: 1rem; }
 .project__body { min-width: 0; }
 .project__year { font-family: var(--font-mono); font-size: var(--step--1); }
