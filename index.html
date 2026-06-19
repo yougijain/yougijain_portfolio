@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ============================================================
+       SEO / META  —  edit these freely
+       ============================================================ -->
+  <title>Yougi Jain — Data Science & Informatics</title>
+  <meta name="description" content="Madhiyougi (Yougi) Jain — Informatics & Psychology student at UMass Amherst. Data science, analytics, and machine learning projects." />
+  <meta name="author" content="Madhiyougi Jain" />
+  <link rel="canonical" href="https://yougijain.com" />
+
+  <!-- Open Graph (link previews) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Yougi Jain — Data Science & Informatics" />
+  <meta property="og:description" content="Data science, analytics, and machine learning projects." />
+  <meta property="og:url" content="https://yougijain.com" />
+  <!-- <meta property="og:image" content="https://yougijain.com/assets/og-image.png" /> -->
+
+  <!-- Fonts — swap these later for a more creative look -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Skip link for accessibility -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============================================================
+       NAV
+       ============================================================ -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="nav__brand" href="#top">Yougi Jain<span class="nav__dot">.</span></a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <section class="hero" id="top">
+      <div class="container">
+        <p class="hero__eyebrow reveal">Data Science · Informatics · Psychology</p>
+        <h1 class="hero__title reveal">
+          Turning messy data<br />into decisions.
+        </h1>
+        <p class="hero__lede reveal">
+          I'm Yougi — an Informatics &amp; Psychology student at UMass Amherst building
+          dashboards, models, and data pipelines that help people make better calls.
+        </p>
+        <div class="hero__actions reveal">
+          <a class="btn btn--primary" href="#work">View work</a>
+          <a class="btn btn--ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="hero__scroll" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ABOUT
+         ============================================================ -->
+    <section class="section" id="about">
+      <div class="container section__grid">
+        <div class="section__label"><span class="section__num">01</span> About</div>
+        <div class="section__body">
+          <p class="lead">
+            I work at the intersection of data and human behavior — pairing technical
+            analysis with a psychology background to ask better questions of the numbers.
+          </p>
+          <p>
+            Currently pursuing a B.S. in Informatics &amp; Psychology at the University of
+            Massachusetts Amherst (expected May 2027). My projects span the full pipeline:
+            building datasets, writing SQL, training models, and shipping dashboards that
+            non-technical stakeholders can actually use.
+          </p>
+          <!-- Add a photo, longer bio, or "currently exploring" note here later. -->
+          <dl class="facts">
+            <div class="fact">
+              <dt>Focus</dt>
+              <dd>Analytics, ML, data engineering</dd>
+            </div>
+            <div class="fact">
+              <dt>Education</dt>
+              <dd>UMass Amherst — Informatics &amp; Psychology</dd>
+            </div>
+            <div class="fact">
+              <dt>Graduating</dt>
+              <dd>May 2027</dd>
+            </div>
+            <div class="fact">
+              <dt>Based in</dt>
+              <dd>Amherst, MA</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         WORK / PROJECTS
+         Duplicate an <article class="project"> block to add more.
+         ============================================================ -->
+    <section class="section" id="work">
+      <div class="container">
+        <div class="section__head">
+          <div class="section__label"><span class="section__num">02</span> Selected Work</div>
+        </div>
+
+        <div class="projects">
+
+          <!-- Project 1 -->
+          <article class="project reveal">
+            <div class="project__meta">
+              <span class="project__year">Jan 2026</span>
+              <span class="project__type">Dashboard / Analytics</span>
+            </div>
+            <h3 class="project__title">NYC Motor Vehicle Collisions Dashboard</h3>
+            <p class="project__desc">
+              A public Streamlit dashboard over a 27,164-record NYC collisions dataset
+              (Jan 2020 – May 2025). Four SQL analyses cover severity filtering, borough
+              aggregation, hour-of-day patterns, and monthly trends — with caching and
+              pytest/CI for reliable delivery.
+            </p>
+            <ul class="tags">
+              <li>Python</li><li>SQL</li><li>SQLite</li><li>Streamlit</li><li>PyDeck</li>
+            </ul>
+            <div class="project__links">
+              <a href="https://github.com/yougijain" target="_blank" rel="noopener">GitHub ↗</a>
+              <!-- <a href="#" target="_blank" rel="noopener">Live demo ↗</a> -->
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project reveal">
+            <div class="project__meta">
+              <span class="project__year">Dec 2025</span>
+              <span class="project__type">Machine Learning</span>
+            </div>
+            <h3 class="project__title">Bank Customer Churn Prediction</h3>
+            <p class="project__desc">
+              An end-to-end R report identifying customers at risk of leaving. EDA across
+              10,000 customers and 14 features, with logistic regression vs. Random Forest
+              compared under 5-fold cross-validation — framed around retention strategy and
+              risk appetite.
+            </p>
+            <ul class="tags">
+              <li>R</li><li>Classification</li><li>Random Forest</li><li>Cross-validation</li>
+            </ul>
+            <div class="project__links">
+              <a href="https://github.com/yougijain" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project reveal">
+            <div class="project__meta">
+              <span class="project__year">Aug 2025</span>
+              <span class="project__type">Data Architecture</span>
+            </div>
+            <h3 class="project__title">Plug — Campus Marketplace</h3>
+            <p class="project__desc">
+              Selected for Purdue's Market Readiness Incubator. As project manager, I
+              architected an analytics-ready PostgreSQL (Supabase) backend supporting
+              listings, transactions, and reporting — with validated schema design and SQL
+              for CRUD, search, filtering, and pagination.
+            </p>
+            <ul class="tags">
+              <li>PostgreSQL</li><li>Supabase</li><li>SQL</li><li>Data Modeling</li>
+            </ul>
+            <div class="project__links">
+              <a href="https://github.com/yougijain" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
+          </article>
+
+          <!-- Add new projects above this line. -->
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         EXPERIENCE
+         ============================================================ -->
+    <section class="section" id="experience">
+      <div class="container section__grid">
+        <div class="section__label"><span class="section__num">03</span> Experience</div>
+        <div class="section__body">
+          <ol class="timeline">
+
+            <li class="timeline__item reveal">
+              <div class="timeline__when">May 2025</div>
+              <div class="timeline__what">
+                <h3>AI &amp; Psychology Research Intern</h3>
+                <p class="timeline__org">Spiritual Data · Remote</p>
+                <p>
+                  Built a benchmarking harness comparing a proprietary model against
+                  baselines on 3+ metrics, designed evaluation splits and error slices to
+                  surface failure modes, and produced a stakeholder evaluation report aligned
+                  to business and compliance needs.
+                </p>
+              </div>
+            </li>
+
+            <li class="timeline__item reveal">
+              <div class="timeline__when">Jun 2022</div>
+              <div class="timeline__what">
+                <h3>Research Intern — Impact of Social Media</h3>
+                <p class="timeline__org">UC Berkeley · Lawrence Hall of Science · Berkeley, CA</p>
+                <p>
+                  Cleaned and prepared survey data from 700+ participants into analysis-ready
+                  datasets, then ran quantitative analysis (EDA, regression) on how video
+                  content influences public attitudes.
+                </p>
+              </div>
+            </li>
+
+            <!-- Add new roles above this line. -->
+
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SKILLS
+         ============================================================ -->
+    <section class="section" id="skills">
+      <div class="container section__grid">
+        <div class="section__label"><span class="section__num">04</span> Skills</div>
+        <div class="section__body">
+          <div class="skills">
+            <div class="skills__group">
+              <h4>Languages</h4>
+              <ul><li>Python</li><li>SQL</li><li>R</li><li>Java</li></ul>
+            </div>
+            <div class="skills__group">
+              <h4>Data</h4>
+              <ul><li>Pandas</li><li>NumPy</li><li>ETL</li><li>SQLite</li><li>PostgreSQL</li></ul>
+            </div>
+            <div class="skills__group">
+              <h4>Analytics / BI</h4>
+              <ul><li>Streamlit</li><li>Tableau</li><li>Power BI</li><li>Excel</li><li>KPI design</li></ul>
+            </div>
+            <div class="skills__group">
+              <h4>ML / Stats</h4>
+              <ul><li>scikit-learn</li><li>Classification</li><li>Regression</li><li>Model evaluation</li><li>Statistics</li></ul>
+            </div>
+            <div class="skills__group">
+              <h4>Tools</h4>
+              <ul><li>Git / GitHub</li><li>pytest</li><li>CI/CD</li><li>LangChain</li><li>Copilot</li></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT
+         ============================================================ -->
+    <section class="section section--contact" id="contact">
+      <div class="container">
+        <div class="section__label"><span class="section__num">05</span> Contact</div>
+        <h2 class="contact__title">Let's build something with data.</h2>
+        <p class="contact__lede">
+          Open to data science and analytics roles, internships, and collaborations.
+        </p>
+        <a class="contact__email" href="mailto:yougi@yougijain.com">yougi@yougijain.com</a>
+        <div class="contact__socials">
+          <a href="https://linkedin.com/in/yougijain" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="https://github.com/yougijain" target="_blank" rel="noopener">GitHub ↗</a>
+          <a href="assets/Madhiyougi_Jain_Resume.pdf" target="_blank" rel="noopener">Résumé ↗</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© <span id="year"></span> Madhiyougi Jain</span>
+      <span class="footer__meta">yougijain.com</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
