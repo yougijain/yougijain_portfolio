@@ -10,6 +10,7 @@
   /* Color — minimal monochrome with a single accent */
   --bg:        #f7f6f3;   /* warm off-white */
   --bg-alt:    #efede8;   /* subtle panel */
+  --bg-hero:   #fcfbf9;   /* landing: a hair lighter than --bg */
   --ink:       #14130f;   /* near-black text */
   --ink-soft:  #57544d;   /* muted text */
   --line:      #d9d6cf;   /* hairlines / borders */
@@ -50,7 +51,7 @@
 /* Dark theme — applied by the inline <head> script + nav toggle. */
 [data-theme="dark"] {
   color-scheme: dark;
-  --bg:#0d0d0f; --bg-alt:#161618; --ink:#f4f3ef;
+  --bg:#0d0d0f; --bg-alt:#161618; --bg-hero:#131317; --ink:#f4f3ef;
   --ink-soft:#a3a097; --line:#2a2a2e; --accent:#7c8bff; --accent-ink:#0d0d0f;
 }
 
@@ -172,6 +173,12 @@ ul, ol { list-style: none; padding: 0; }
   min-height: 100svh;
   display: flex; flex-direction: column; justify-content: center;
   padding-block: 8rem 4rem; position: relative;
+  /* Landing reads a touch lighter than the content below, with a faint
+     accent glow from the top for depth. The 1px border-top on the first
+     section keeps the scroll transition crisp. */
+  background:
+    radial-gradient(135% 95% at 50% 0%, color-mix(in srgb, var(--accent) 5%, transparent), transparent 55%),
+    var(--bg-hero);
 }
 .hero__eyebrow {
   font-family: var(--font-mono);
