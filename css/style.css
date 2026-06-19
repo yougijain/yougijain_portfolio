@@ -233,10 +233,12 @@ ul, ol { list-style: none; padding: 0; }
   background: var(--bg);
   padding: clamp(1.75rem, 4vw, 3rem) 0;
   display: grid; grid-template-columns: 180px 1fr; gap: 2rem;
+  align-items: start;
   transition: background .3s var(--ease);
 }
 .project:hover { background: var(--bg-alt); }
 .project__meta { display: flex; flex-direction: column; gap: .4rem; }
+.project__body { min-width: 0; }
 .project__year { font-family: var(--font-mono); font-size: var(--step--1); }
 .project__type {
   font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em;
@@ -252,7 +254,7 @@ ul, ol { list-style: none; padding: 0; }
 /* Tech stack — filled pill chips (active).
    Translucent fill so pills stay visibly filled on any background,
    including the project's lighter hover state. */
-.tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.25rem; }
+.tags { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-bottom: 1.25rem; }
 .tags li {
   font-family: var(--font-mono);
   font-size: var(--step--1);
