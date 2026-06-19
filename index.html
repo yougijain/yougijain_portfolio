@@ -4,6 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Set theme before first paint to avoid a flash; flag JS so the
+       reveal animation only hides content when scripting is available. -->
+  <script>
+    (function () {
+      try {
+        var s = localStorage.getItem("theme");
+        var dark = s ? s === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme = dark ? "dark" : "light";
+        document.documentElement.classList.add("js");
+      } catch (e) {}
+    })();
+  </script>
+
   <!-- ============================================================
        SEO / META  —  edit these freely
        ============================================================ -->
@@ -24,7 +37,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/style.css?v=3" />
+  <link rel="stylesheet" href="css/style.css?v=5" />
 </head>
 <body>
   <!-- Skip link for accessibility -->
@@ -37,17 +50,29 @@
     <div class="container nav__inner">
       <a class="nav__brand" href="#top">Yougi Jain<span class="nav__dot">.</span></a>
 
-      <nav class="nav__links" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#work">Work</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <div class="nav__right">
+        <nav class="nav__links" aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#work">Work</a>
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </nav>
 
-      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span>
-      </button>
+        <button class="nav__theme" id="themeToggle" type="button" aria-label="Switch theme" aria-pressed="false">
+          <svg class="nav__theme-sun" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2 2M17 17l2 2M19.1 4.9l-2 2M7 17l-2 2" />
+          </svg>
+          <svg class="nav__theme-moon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+          </svg>
+        </button>
+
+        <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -64,7 +89,8 @@
         </h1>
         <p class="hero__lede reveal">
           I'm Yougi — an Informatics &amp; Psychology student at UMass Amherst building
-          dashboards, models, and data pipelines that help people make better calls.
+          dashboards, models, and data pipelines, including a live NYC collisions app
+          over 27K records.
         </p>
         <div class="hero__actions reveal">
           <a class="btn btn--primary" href="#work">View work</a>
@@ -113,6 +139,14 @@
               <dd>Amherst, MA</dd>
             </div>
           </dl>
+
+          <!-- At-a-glance footprint. Keep this the ONLY stat strip on the page. -->
+          <dl class="stat-strip reveal">
+            <div><dt>Projects shipped</dt><dd>3</dd></div>
+            <div><dt>Records analyzed</dt><dd>37K+</dd></div>
+            <div><dt>Survey participants</dt><dd>700+</dd></div>
+            <div><dt>Live apps</dt><dd>1</dd></div>
+          </dl>
         </div>
       </div>
     </section>
@@ -122,85 +156,101 @@
          Duplicate an <article class="project"> block to add more.
          ============================================================ -->
     <section class="section" id="work">
-      <div class="container">
-        <div class="section__head">
-          <div class="section__label"><span class="section__num">02</span> Selected Work</div>
-        </div>
+      <div class="container section__grid">
+        <div class="section__label"><span class="section__num">02</span> Selected Work</div>
+        <div class="section__body">
 
-        <div class="projects">
+          <div class="projects">
 
-          <!-- Project 1 -->
-          <article class="project reveal">
-            <div class="project__meta">
-              <span class="project__year">Jan 2026</span>
-              <span class="project__type">Dashboard / Analytics</span>
-            </div>
-            <div class="project__body">
-              <h3 class="project__title">NYC Motor Vehicle Collisions Dashboard</h3>
-              <p class="project__desc">
-                A public Streamlit dashboard over a 27,164-record NYC collisions dataset
-                (Jan 2020 – May 2025). Four SQL analyses cover severity filtering, borough
-                aggregation, hour-of-day patterns, and monthly trends — with caching and
-                pytest/CI for reliable delivery.
-              </p>
-              <ul class="tags">
-                <li>Python</li><li>SQL</li><li>SQLite</li><li>Streamlit</li><li>PyDeck</li>
-              </ul>
-              <div class="project__links">
-                <a href="https://github.com/yougijain" target="_blank" rel="noopener">GitHub ↗</a>
-                <a href="https://nyc-collisions-2020-2025.streamlit.app/" target="_blank" rel="noopener">Live demo ↗</a>
+            <!-- Project 1 -->
+            <article class="project reveal">
+              <div class="project__meta">
+                <span class="project__year">Jan 2026</span>
+                <span class="project__badge">Live</span>
+                <span class="project__type">Dashboard / Analytics</span>
               </div>
-            </div>
-          </article>
-
-          <!-- Project 2 -->
-          <article class="project reveal">
-            <div class="project__meta">
-              <span class="project__year">Dec 2025</span>
-              <span class="project__type">Machine Learning</span>
-            </div>
-            <div class="project__body">
-              <h3 class="project__title">Bank Customer Churn Prediction</h3>
-              <p class="project__desc">
-                An end-to-end R report identifying customers at risk of leaving. EDA across
-                10,000 customers and 14 features, with logistic regression vs. Random Forest
-                compared under 5-fold cross-validation — framed around retention strategy and
-                risk appetite.
-              </p>
-              <ul class="tags">
-                <li>R</li><li>Classification</li><li>Random Forest</li><li>Cross-validation</li>
-              </ul>
-              <div class="project__links">
-                <a href="https://github.com/yougijain" target="_blank" rel="noopener">GitHub ↗</a>
+              <div class="project__body">
+                <h3 class="project__title">NYC Motor Vehicle Collisions Dashboard</h3>
+                <p class="project__desc">
+                  A public Streamlit app analyzing 27,164 NYC collisions (Jan 2020 – May 2025)
+                  — 13,508 injuries and 64 fatalities across all five boroughs. Four SQL
+                  analyses (severity, borough, hour-of-day, monthly trends) sit on a validated
+                  23-field schema, with caching and pytest/CI for fast, reliable loads.
+                </p>
+                <dl class="stats">
+                  <div class="stat"><dt>Records</dt><dd>27,164</dd></div>
+                  <div class="stat"><dt>Injuries</dt><dd>13,508</dd></div>
+                  <div class="stat"><dt>Fatalities</dt><dd>64</dd></div>
+                </dl>
+                <ul class="tags">
+                  <li>Python</li><li>SQL</li><li>SQLite</li><li>Streamlit</li><li>PyDeck</li>
+                </ul>
+                <div class="project__links">
+                  <a href="https://nyc-collisions-2020-2025.streamlit.app/" target="_blank" rel="noopener">Live app ↗</a>
+                  <a href="https://github.com/yougijain/NYC-Collisions" target="_blank" rel="noopener">GitHub ↗</a>
+                </div>
               </div>
-            </div>
-          </article>
+            </article>
 
-          <!-- Project 3 -->
-          <article class="project reveal">
-            <div class="project__meta">
-              <span class="project__year">Aug 2025</span>
-              <span class="project__type">Data Architecture</span>
-            </div>
-            <div class="project__body">
-              <h3 class="project__title">Plug — Campus Marketplace</h3>
-              <p class="project__desc">
-                Selected for Purdue's Market Readiness Incubator. As project manager, I
-                architected an analytics-ready PostgreSQL (Supabase) backend supporting
-                listings, transactions, and reporting — with validated schema design and SQL
-                for CRUD, search, filtering, and pagination.
-              </p>
-              <ul class="tags">
-                <li>PostgreSQL</li><li>Supabase</li><li>SQL</li><li>Data Modeling</li>
-              </ul>
-              <div class="project__links">
-                <a href="https://github.com/yougijain" target="_blank" rel="noopener">GitHub ↗</a>
+            <!-- Project 2 -->
+            <article class="project reveal">
+              <div class="project__meta">
+                <span class="project__year">Dec 2025</span>
+                <span class="project__type">Machine Learning</span>
               </div>
-            </div>
-          </article>
+              <div class="project__body">
+                <h3 class="project__title">Bank Customer Churn Prediction</h3>
+                <p class="project__desc">
+                  An end-to-end R report flagging at-risk customers across 10,000 records and
+                  14 features. Logistic regression vs. Random Forest under 5-fold
+                  cross-validation, handling a 20.4% churn class imbalance, with decision
+                  thresholds tied to retention strategy.
+                </p>
+                <dl class="stats">
+                  <div class="stat"><dt>Records</dt><dd>10,000</dd></div>
+                  <div class="stat"><dt>Features</dt><dd>14</dd></div>
+                  <div class="stat"><dt>Churn rate</dt><dd>20.4%</dd></div>
+                </dl>
+                <ul class="tags">
+                  <li>R</li><li>Classification</li><li>Random Forest</li><li>Class imbalance</li><li>Cross-validation</li>
+                </ul>
+                <div class="project__links">
+                  <a href="https://drive.google.com/file/d/1z5jXN66sjxblivLzVYl0mpibCz6VO1iD/view" target="_blank" rel="noopener">Read report ↗</a>
+                </div>
+              </div>
+            </article>
 
-          <!-- Add new projects above this line. -->
+            <!-- Project 3 -->
+            <article class="project reveal">
+              <div class="project__meta">
+                <span class="project__year">Aug 2025</span>
+                <span class="project__type">Data Architecture</span>
+              </div>
+              <div class="project__body">
+                <h3 class="project__title">Plug — Campus Marketplace</h3>
+                <p class="project__desc">
+                  Selected for Purdue's Market Readiness Incubator. As project manager, I
+                  designed the analytics-ready PostgreSQL (Supabase) backend — a relational
+                  schema with SQL CRUD plus multi-field search, sorting, and pagination,
+                  backed by integrity checks.
+                </p>
+                <dl class="stats">
+                  <div class="stat"><dt>Backend</dt><dd>PostgreSQL</dd></div>
+                  <div class="stat"><dt>Queries</dt><dd>CRUD + search</dd></div>
+                  <div class="stat"><dt>Selected</dt><dd>Purdue Incubator</dd></div>
+                </dl>
+                <ul class="tags">
+                  <li>PostgreSQL</li><li>Supabase</li><li>SQL</li><li>Data Modeling</li>
+                </ul>
+                <div class="project__links">
+                  <a href="https://github.com/yougijain/plug" target="_blank" rel="noopener">GitHub ↗</a>
+                </div>
+              </div>
+            </article>
 
+            <!-- Add new projects above this line. -->
+
+          </div>
         </div>
       </div>
     </section>
@@ -235,8 +285,8 @@
                 <p class="timeline__org">UC Berkeley · Lawrence Hall of Science · Berkeley, CA</p>
                 <p>
                   Cleaned and prepared survey data from 700+ participants into analysis-ready
-                  datasets, then ran quantitative analysis (EDA, regression) on how video
-                  content influences public attitudes.
+                  datasets, then ran quantitative analysis (EDA, regression) on how social
+                  media use relates to public attitudes.
                 </p>
               </div>
             </li>
@@ -274,7 +324,7 @@
             </div>
             <div class="skills__group">
               <h4>Tools</h4>
-              <ul><li>Git / GitHub</li><li>pytest</li><li>CI/CD</li><li>LangChain</li><li>Copilot</li></ul>
+              <ul><li>Git / GitHub</li><li>pytest</li><li>CI/CD</li><li>Caching</li><li>LangChain</li></ul>
             </div>
           </div>
         </div>
@@ -285,17 +335,19 @@
          CONTACT
          ============================================================ -->
     <section class="section section--contact" id="contact">
-      <div class="container">
+      <div class="container section__grid">
         <div class="section__label"><span class="section__num">05</span> Contact</div>
-        <h2 class="contact__title">Let's build something with data.</h2>
-        <p class="contact__lede">
-          Open to data science and analytics roles, internships, and collaborations.
-        </p>
-        <a class="contact__email" href="mailto:yougi@yougijain.com">yougi@yougijain.com</a>
-        <div class="contact__socials">
-          <a href="https://linkedin.com/in/yougijain" target="_blank" rel="noopener">LinkedIn ↗</a>
-          <a href="https://github.com/yougijain" target="_blank" rel="noopener">GitHub ↗</a>
-          <a href="assets/Madhiyougi_Jain_Resume.pdf" target="_blank" rel="noopener">Résumé ↗</a>
+        <div class="section__body">
+          <h2 class="contact__title">Let's build something with data.</h2>
+          <p class="contact__lede">
+            Open to data science and analytics roles, internships, and collaborations.
+          </p>
+          <a class="contact__email" href="mailto:yougi@yougijain.com">yougi@yougijain.com</a>
+          <div class="contact__socials">
+            <a href="https://linkedin.com/in/yougijain" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="https://github.com/yougijain" target="_blank" rel="noopener">GitHub ↗</a>
+            <a href="assets/Madhiyougi_Jain_Resume.pdf" target="_blank" rel="noopener">Résumé ↗</a>
+          </div>
         </div>
       </div>
     </section>
