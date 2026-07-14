@@ -35,9 +35,9 @@
   <!-- Fonts — swap these later for a more creative look -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/style.css?v=9" />
+  <link rel="stylesheet" href="css/style.css?v=10" />
 </head>
 <body>
   <!-- Skip link for accessibility -->
@@ -75,6 +75,7 @@
         </button>
       </div>
     </div>
+    <span class="nav__progress" aria-hidden="true"></span>
   </header>
 
   <main id="main">
@@ -83,10 +84,11 @@
          HERO
          ============================================================ -->
     <section class="hero" id="top">
-      <div class="container">
-        <p class="hero__eyebrow reveal">Data Science · Informatics · Psychology</p>
-        <h1 class="hero__title reveal">
-          Turning messy data<br />into decisions.
+      <div class="container hero__content">
+        <p class="hero__eyebrow reveal" id="eyebrow">Data Science · Informatics · Psychology</p>
+        <h1 class="hero__title">
+          <span class="hero__line"><span class="hero__line-inner">Turning messy data</span></span>
+          <span class="hero__line"><span class="hero__line-inner">into <em class="hero__accent-word">decisions.</em></span></span>
         </h1>
         <p class="hero__lede reveal">
           I'm Yougi — an Informatics &amp; Psychology student at UMass Amherst building
@@ -96,6 +98,10 @@
         <div class="hero__actions reveal">
           <a class="btn btn--primary" href="#work">View work</a>
           <a class="btn btn--ghost" href="#contact">Get in touch</a>
+          <span class="hero__avail">
+            <span class="hero__avail-dot" aria-hidden="true"></span>
+            Open to Summer 2026 internships
+          </span>
         </div>
       </div>
       <div class="hero__scroll" aria-hidden="true">
@@ -386,10 +392,10 @@
   <footer class="footer">
     <div class="container footer__inner">
       <span>© <span id="year"></span> Madhiyougi Jain</span>
-      <span class="footer__meta">yougijain.com</span>
+      <span class="footer__meta">Amherst, MA · <span id="localTime"></span></span>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=2"></script>
 </body>
 </html>

@@ -64,7 +64,7 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
-  .reveal { opacity: 1 !important; transform: none !important; }
+  .reveal, .stat-strip.reveal > div { opacity: 1 !important; transform: none !important; }
   .hero__scroll-line::after { width: 100%; }
 }
 
@@ -84,6 +84,17 @@ a { color: inherit; text-decoration: none; }
 ul, ol { list-style: none; padding: 0; }
 
 ::selection { background: var(--accent); color: var(--accent-ink); }
+
+/* Film grain — a whisper of texture so large flat areas don't read sterile.
+   Pure SVG noise, fixed, non-interactive. */
+body::after {
+  content: "";
+  position: fixed; inset: 0; z-index: 90;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: .035;
+}
+[data-theme="dark"] body::after { opacity: .05; }
 
 /* Consistent, token-driven focus ring for keyboard users only */
 :where(a, button, [tabindex]):focus-visible {
@@ -151,9 +162,9 @@ ul, ol { list-style: none; padding: 0; }
 }
 .nav__theme:hover { color: var(--ink); }
 .nav__theme svg { display: block; }
-.nav__theme-moon { display: none; }
-[data-theme="dark"] .nav__theme-sun { display: none; }
-[data-theme="dark"] .nav__theme-moon { display: block; }
+.nav__theme .nav__theme-moon { display: none; }
+[data-theme="dark"] .nav__theme .nav__theme-sun { display: none; }
+[data-theme="dark"] .nav__theme .nav__theme-moon { display: block; }
 
 .nav__toggle {
   display: none; flex-direction: column; gap: 5px;
@@ -166,6 +177,15 @@ ul, ol { list-style: none; padding: 0; }
 .nav.is-open .nav__toggle span:nth-child(1) { transform: translateY(3.5px) rotate(45deg); }
 .nav.is-open .nav__toggle span:nth-child(2) { transform: translateY(-3.5px) rotate(-45deg); }
 
+/* Reading progress — a hairline of accent along the nav's bottom edge.
+   Width driven by --scroll (0–1) from JS; sits on the border line. */
+.nav__progress {
+  position: absolute; left: 0; right: 0; bottom: -1px;
+  height: 2px; background: var(--accent);
+  transform: scaleX(var(--scroll, 0)); transform-origin: left;
+  pointer-events: none;
+}
+
 /* ============================================================
    HERO
    ============================================================ */
@@ -173,6 +193,7 @@ ul, ol { list-style: none; padding: 0; }
   min-height: 100svh;
   display: flex; flex-direction: column; justify-content: center;
   padding-block: 8rem 4rem; position: relative;
+  overflow: hidden;
   /* Landing reads a touch lighter than the content below, with a faint
      accent glow from the top for depth. The 1px border-top on the first
      section keeps the scroll transition crisp. */
@@ -180,6 +201,28 @@ ul, ol { list-style: none; padding: 0; }
     radial-gradient(135% 95% at 50% 0%, color-mix(in srgb, var(--accent) 5%, transparent), transparent 55%),
     var(--bg-hero);
 }
+/* Data grid — a faint dot lattice fading out toward the fold… */
+.hero::before {
+  content: "";
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(color-mix(in srgb, var(--ink) 30%, transparent) 1px, transparent 1.5px);
+  background-size: 30px 30px;
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent 72%);
+  mask-image: linear-gradient(to bottom, black, transparent 72%);
+  opacity: .3;
+}
+/* …and an accent layer of the same lattice, unmasked only in a circle
+   around the cursor (--mx/--my from JS) so dots light up as you move. */
+.hero::after {
+  content: "";
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(var(--accent) 1.2px, transparent 1.8px);
+  background-size: 30px 30px;
+  -webkit-mask-image: radial-gradient(240px circle at var(--mx, -999px) var(--my, -999px), black, transparent 70%);
+  mask-image: radial-gradient(240px circle at var(--mx, -999px) var(--my, -999px), black, transparent 70%);
+  opacity: .55;
+}
+.hero__content { position: relative; z-index: 1; }
 .hero__eyebrow {
   font-family: var(--font-mono);
   font-size: var(--step--1);
@@ -194,6 +237,24 @@ ul, ol { list-style: none; padding: 0; }
   letter-spacing: -0.03em;
   margin-bottom: 1.75rem;
 }
+/* Masked line reveal — each line slides up out of its own overflow-clipped
+   wrapper on load. Hidden state comes from the animation itself (fill-mode
+   both), so no-JS and reduced-motion visitors just see the text. */
+.hero__line {
+  display: block; overflow: hidden;
+  padding-block: .1em; margin-block: -.1em; /* keep descenders unclipped */
+}
+.hero__line-inner { display: inline-block; }
+html.js .hero__line-inner { animation: heroLineUp .9s var(--ease) both; animation-delay: .1s; }
+html.js .hero__line:nth-child(2) .hero__line-inner { animation-delay: .22s; }
+@keyframes heroLineUp { from { transform: translateY(112%); } }
+/* The one editorial flourish: a serif italic on the payoff word. */
+.hero__accent-word {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-style: italic; font-weight: 400;
+  font-size: 1.06em; letter-spacing: -0.01em;
+  color: var(--accent);
+}
 .hero__lede {
   max-width: 48ch;
   font-size: var(--step-1);
@@ -201,7 +262,31 @@ ul, ol { list-style: none; padding: 0; }
   color: var(--ink-soft);
   margin-bottom: var(--space-4);
 }
-.hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero__actions { display: flex; align-items: center; gap: 1rem 1.5rem; flex-wrap: wrap; }
+/* Load-in choreography: eyebrow → title lines → lede → actions. */
+.hero__lede.reveal { transition-delay: .3s; }
+.hero__actions.reveal { transition-delay: .42s; }
+
+/* Availability — quiet, next to the CTAs, with a slow-pulsing dot. */
+.hero__avail {
+  display: inline-flex; align-items: center; gap: .55rem;
+  font-family: var(--font-mono); font-size: var(--step--2);
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--ink-soft);
+}
+.hero__avail-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent); position: relative; flex: none;
+}
+.hero__avail-dot::after {
+  content: ""; position: absolute; inset: 0; border-radius: 50%;
+  background: var(--accent);
+  animation: availPing 2.4s var(--ease) infinite;
+}
+@keyframes availPing {
+  0% { transform: scale(1); opacity: .6; }
+  70%, 100% { transform: scale(2.6); opacity: 0; }
+}
 
 .hero__scroll {
   position: absolute; bottom: 2rem; left: var(--gutter);
@@ -291,6 +376,16 @@ ul, ol { list-style: none; padding: 0; }
   font-family: var(--font-mono); font-size: var(--step-2);
   font-weight: 500; letter-spacing: -0.02em; line-height: 1;
 }
+/* Children cascade in one after another once the strip is revealed
+   (hidden state gated on html.js, same contract as .reveal). */
+html.js .stat-strip.reveal > div {
+  opacity: 0; transform: translateY(14px);
+  transition: opacity .6s var(--ease), transform .6s var(--ease);
+}
+html.js .stat-strip.reveal.is-visible > div { opacity: 1; transform: none; }
+.stat-strip.reveal > div:nth-child(2) { transition-delay: .08s; }
+.stat-strip.reveal > div:nth-child(3) { transition-delay: .16s; }
+.stat-strip.reveal > div:nth-child(4) { transition-delay: .24s; }
 
 .stats {
   display: flex; flex-wrap: wrap; gap: .9rem 0;
