@@ -103,7 +103,7 @@ body::after {
 :where(a, button, [tabindex]):focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 :focus:not(:focus-visible) { outline: none; }
 .btn:focus-visible { outline-offset: 4px; }
@@ -118,7 +118,7 @@ body::after {
 .skip-link {
   position: absolute; left: -999px; top: 0;
   background: var(--ink); color: var(--bg);
-  padding: .6rem 1rem; z-index: 100; border-radius: 0 0 8px 0;
+  padding: .6rem 1rem; z-index: 100; border-radius: 0 0 2px 0;
 }
 .skip-link:focus { left: 0; }
 
@@ -138,19 +138,22 @@ body::after {
   height: var(--nav-h);
 }
 .nav__brand {
-  font-family: var(--font-display);
-  font-weight: 700; font-size: 1.05rem; letter-spacing: -0.01em;
+  font-family: var(--font-mono);
+  font-weight: 500; font-size: 0.95rem;
+  text-transform: uppercase; letter-spacing: 0.06em;
 }
 .nav__dot { color: var(--accent); }
 .nav__right { display: flex; align-items: center; gap: 1.5rem; }
-.nav__links { display: flex; gap: 2rem; }
+.nav__links { display: flex; gap: 1.75rem; }
 .nav__links a {
-  font-size: var(--step--1); color: var(--ink-soft);
+  font-family: var(--font-mono);
+  font-size: var(--step--2); text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--ink-soft);
   position: relative; transition: color .2s var(--ease);
 }
 .nav__links a::after {
   content: ""; position: absolute; left: 0; bottom: -4px;
-  width: 0; height: 1px; background: var(--ink);
+  width: 0; height: 1px; background: var(--accent);
   transition: width .25s var(--ease);
 }
 .nav__links a:hover, .nav__links a.is-active { color: var(--ink); }
@@ -310,12 +313,13 @@ html.js .hero__line:nth-child(2) .hero__line-inner { animation-delay: .22s; }
    ============================================================ */
 .btn {
   display: inline-flex; align-items: center; gap: .5rem;
+  font-family: var(--font-mono);
   font-size: var(--step--1); font-weight: 500;
-  padding: .85rem 1.5rem; border-radius: 999px;
+  text-transform: uppercase; letter-spacing: 0.07em;
+  padding: .8rem 1.35rem; border-radius: 2px;
   border: 1px solid var(--ink);
-  transition: transform .2s var(--ease), background .2s var(--ease), color .2s var(--ease);
+  transition: transform .2s var(--ease), background .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease);
 }
-.btn:hover { transform: translateY(-2px); }
 .btn--primary { background: var(--ink); color: var(--bg); }
 .btn--primary:hover { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
 .btn--ghost { background: transparent; color: var(--ink); }
@@ -448,24 +452,22 @@ html.js .stat-strip.reveal.is-visible > div { opacity: 1; transform: none; }
 }
 .project__desc { color: var(--ink-soft); max-width: 58ch; margin-bottom: 1.25rem; }
 
-/* Tech stack — filled pill chips, token-relative so they adapt to dark mode. */
-.tags { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-bottom: 1.25rem; }
+/* Tech stack — a quiet slash-separated metadata line, not a chip cloud. */
+.tags { display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem .65rem; margin-bottom: 1.25rem; }
 .tags li {
   font-family: var(--font-mono);
   font-size: var(--step--1);
-  line-height: 1;
-  padding: .45rem .85rem;
-  background: color-mix(in srgb, var(--ink) 6%, transparent);
-  border: 1px solid color-mix(in srgb, var(--ink) 14%, transparent);
-  border-radius: 999px;
-  color: var(--ink);
+  line-height: 1.5;
+  color: var(--ink-soft);
   white-space: nowrap;
-  transition: border-color .2s var(--ease), background .2s var(--ease);
+  transition: color .2s var(--ease);
 }
-.tags li:hover { border-color: color-mix(in srgb, var(--accent) 50%, transparent); }
+.tags li:not(:last-child)::after { content: " /"; color: var(--line); margin-left: .65rem; }
+.tags li:hover { color: var(--ink); }
 
 .project__links { display: flex; gap: 1.5rem; }
 .project__links a {
+  font-family: var(--font-mono);
   font-size: var(--step--1); font-weight: 500;
   border-bottom: 1px solid var(--line); padding-bottom: 2px;
   transition: border-color .2s var(--ease), color .2s var(--ease);
@@ -555,14 +557,15 @@ html.js .stat-strip.reveal.is-visible > div { opacity: 1; transform: none; }
 }
 .contact__lede { color: var(--ink-soft); max-width: 50ch; margin-bottom: 2rem; }
 .contact__email {
-  display: inline-block; font-family: var(--font-display);
-  font-size: var(--step-2); font-weight: 500; letter-spacing: -0.02em;
+  display: inline-block; font-family: var(--font-mono);
+  font-size: var(--step-2); font-weight: 500; letter-spacing: -0.03em;
   border-bottom: 2px solid var(--line); padding-bottom: 4px;
   transition: border-color .25s var(--ease), color .25s var(--ease);
 }
 .contact__email:hover { border-color: var(--accent); color: var(--accent); }
 .contact__socials { display: flex; gap: 2rem; margin-top: var(--space-4); flex-wrap: wrap; }
 .contact__socials a {
+  font-family: var(--font-mono);
   font-size: var(--step--1); color: var(--ink-soft);
   transition: color .2s var(--ease);
 }
@@ -615,4 +618,9 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   .btn { flex: 1; justify-content: center; }
   .project__type { margin-left: 0; }
   .stat { border-right: 0; margin-right: 1.6rem; }
+}
+
+/* Narrowest phones: the mono-caps CTAs stack instead of squeezing. */
+@media (max-width: 350px) {
+  .btn { flex-basis: 100%; }
 }
