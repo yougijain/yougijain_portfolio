@@ -50,12 +50,15 @@
     }
   });
 
-  /* ---- Shadow/border on nav once scrolled ---- */
+  /* ---- Shadow/border on nav once scrolled + reading progress ---- */
   const onScroll = () => {
     nav.classList.toggle("is-scrolled", window.scrollY > 8);
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    nav.style.setProperty("--scroll", max > 0 ? Math.min(window.scrollY / max, 1) : 0);
   };
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll, { passive: true });
 
   /* ---- Mobile menu toggle ---- */
   if (navToggle) {
@@ -121,5 +124,127 @@
     };
     clearAtTop();
     window.addEventListener("scroll", clearAtTop, { passive: true });
+  }
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const finePointer = window.matchMedia("(pointer: fine)").matches;
+
+  /* ---- Hero data grid: light up dots around the cursor ----
+     Feeds --mx/--my into the CSS mask on .hero::after. rAF-throttled. */
+  const hero = document.querySelector(".hero");
+  if (hero && finePointer && !reduceMotion) {
+    let mx = -999, my = -999, queued = false;
+    const paint = () => {
+      queued = false;
+      hero.style.setProperty("--mx", mx + "px");
+      hero.style.setProperty("--my", my + "px");
+    };
+    hero.addEventListener("mousemove", (e) => {
+      const r = hero.getBoundingClientRect();
+      mx = e.clientX - r.left;
+      my = e.clientY - r.top;
+      if (!queued) { queued = true; requestAnimationFrame(paint); }
+    });
+    hero.addEventListener("mouseleave", () => {
+      mx = -999; my = -999;
+      requestAnimationFrame(paint);
+    });
+  }
+
+  /* ---- Count-up stats ----
+     Any numeric dd in the stat strip / project stats counts up from 0
+     when scrolled into view, preserving prefix, commas, decimals, and
+     suffix ("37K+", "20.4%", "27,164"). Non-numeric values are skipped. */
+  const statEls = document.querySelectorAll(".stat-strip dd, .stats dd");
+  if (statEls.length && "IntersectionObserver" in window && !reduceMotion) {
+    const animateCount = (el) => {
+      const original = el.textContent;
+      const m = original.match(/^([^\d]*)([\d,]*\.?\d+)(.*)$/);
+      if (!m) return;
+      const [, prefix, num, suffix] = m;
+      const target = parseFloat(num.replace(/,/g, ""));
+      const decimals = (num.split(".")[1] || "").length;
+      const useCommas = num.indexOf(",") !== -1;
+      const start = performance.now();
+      const dur = 1200;
+      // rAF pauses in hidden/occluded tabs — make sure the exact final
+      // value lands regardless.
+      setTimeout(() => { el.textContent = original; }, dur + 100);
+      const tick = (now) => {
+        const t = Math.min((now - start) / dur, 1);
+        const eased = 1 - Math.pow(1 - t, 3);
+        let v = (target * eased).toFixed(decimals);
+        if (useCommas) v = Number(v).toLocaleString("en-US", { minimumFractionDigits: decimals });
+        el.textContent = prefix + v + suffix;
+        if (t < 1) requestAnimationFrame(tick);
+        else el.textContent = original;
+      };
+      requestAnimationFrame(tick);
+    };
+    const counter = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateCount(entry.target);
+            counter.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+    statEls.forEach((el) => counter.observe(el));
+  }
+
+  /* ---- Eyebrow scramble-in ----
+     Letters settle from noise, left to right — a small data-flavored
+     signature. Skipped entirely under reduced motion. */
+  const eyebrow = document.getElementById("eyebrow");
+  if (eyebrow && !reduceMotion) {
+    const finalText = eyebrow.textContent;
+    const GLYPHS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ01";
+    const dur = 900;
+    const start = performance.now();
+    const tick = (now) => {
+      const t = Math.min((now - start) / dur, 1);
+      const settled = Math.floor(t * finalText.length);
+      let out = "";
+      for (let i = 0; i < finalText.length; i++) {
+        const ch = finalText[i];
+        out += i < settled || !/[a-z]/i.test(ch)
+          ? ch
+          : GLYPHS[(Math.random() * GLYPHS.length) | 0];
+      }
+      eyebrow.textContent = out;
+      if (t < 1) requestAnimationFrame(tick);
+      else eyebrow.textContent = finalText;
+    };
+    requestAnimationFrame(tick);
+  }
+
+  /* ---- Magnetic buttons ----
+     Hero CTAs lean gently toward the cursor. Fine pointers only. */
+  if (finePointer && !reduceMotion) {
+    document.querySelectorAll(".btn").forEach((btn) => {
+      btn.addEventListener("mousemove", (e) => {
+        const r = btn.getBoundingClientRect();
+        const dx = e.clientX - (r.left + r.width / 2);
+        const dy = e.clientY - (r.top + r.height / 2);
+        btn.style.transform = "translate(" + dx * 0.12 + "px, " + dy * 0.3 + "px)";
+      });
+      btn.addEventListener("mouseleave", () => {
+        btn.style.transform = "";
+      });
+    });
+  }
+
+  /* ---- Local time in footer (Amherst, MA = Eastern) ---- */
+  const timeEl = document.getElementById("localTime");
+  if (timeEl) {
+    const fmt = new Intl.DateTimeFormat("en-US", {
+      hour: "numeric", minute: "2-digit", timeZone: "America/New_York",
+    });
+    const showTime = () => { timeEl.textContent = fmt.format(new Date()) + " ET"; };
+    showTime();
+    setInterval(showTime, 30000);
   }
 })();
