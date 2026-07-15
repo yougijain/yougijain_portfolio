@@ -434,6 +434,15 @@ html.js .stat-strip.reveal.is-visible > div { opacity: 1; transform: none; }
 }
 .project:hover { background: var(--bg-alt); }
 .project:hover::before { transform: scaleY(1); }
+
+/* Featured project — the live, demoable dashboard carries more weight than
+   the other rows so a scanning eye lands on the clickable proof first. Same
+   editorial language, turned up: a persistent accent rail, a larger title,
+   and a faint tint that sets the block apart (no card, no radius). */
+.project--featured { background: color-mix(in srgb, var(--accent) 4%, var(--bg)); }
+.project--featured:hover { background: color-mix(in srgb, var(--accent) 7%, var(--bg)); }
+.project--featured::before { transform: scaleY(1); }
+.project--featured .project__title { font-size: var(--step-3); }
 .project__meta { display: flex; flex-direction: row; align-items: baseline; gap: 1rem; margin-bottom: 1rem; }
 .project__body { min-width: 0; }
 .project__year { font-family: var(--font-mono); font-size: var(--step--1); }
