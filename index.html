@@ -41,7 +41,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/style.css?v=11" />
+  <link rel="stylesheet" href="css/style.css?v=12" />
 </head>
 <body>
   <!-- Skip link for accessibility -->
@@ -56,8 +56,8 @@
 
       <div class="nav__right">
         <nav class="nav__links" aria-label="Primary">
-          <a href="#about">About</a>
           <a href="#work">Work</a>
+          <a href="#about">About</a>
           <a href="#experience">Experience</a>
           <a href="#education">Education</a>
           <a href="#skills">Skills</a>
@@ -115,66 +115,18 @@
     </section>
 
     <!-- ============================================================
-         ABOUT
-         ============================================================ -->
-    <section class="section" id="about">
-      <div class="container section__grid">
-        <div class="section__label"><span class="section__num">01</span> About</div>
-        <div class="section__body">
-          <p class="lead">
-            I work at the intersection of data and human behavior — pairing technical
-            analysis with a psychology background to ask better questions of the numbers.
-          </p>
-          <p>
-            Currently pursuing a B.S. in Informatics &amp; Psychology at the University of
-            Massachusetts Amherst (expected May 2027). My projects span the full pipeline:
-            building datasets, writing SQL, training models, and shipping dashboards that
-            non-technical stakeholders can actually use.
-          </p>
-          <!-- Add a photo, longer bio, or "currently exploring" note here later. -->
-          <dl class="facts">
-            <div class="fact">
-              <dt>Focus</dt>
-              <dd>Analytics, ML, data engineering</dd>
-            </div>
-            <div class="fact">
-              <dt>Education</dt>
-              <dd>UMass Amherst — Informatics &amp; Psychology</dd>
-            </div>
-            <div class="fact">
-              <dt>Graduating</dt>
-              <dd>May 2027</dd>
-            </div>
-            <div class="fact">
-              <dt>Based in</dt>
-              <dd>Amherst, MA</dd>
-            </div>
-          </dl>
-
-          <!-- At-a-glance footprint. Keep this the ONLY stat strip on the page. -->
-          <dl class="stat-strip reveal">
-            <div><dt>Projects shipped</dt><dd>3</dd></div>
-            <div><dt>Records analyzed</dt><dd>37K+</dd></div>
-            <div><dt>Survey participants</dt><dd>700+</dd></div>
-            <div><dt>Live apps</dt><dd>1</dd></div>
-          </dl>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
          WORK / PROJECTS
          Duplicate an <article class="project"> block to add more.
          ============================================================ -->
     <section class="section" id="work">
       <div class="container section__grid">
-        <div class="section__label"><span class="section__num">02</span> Selected Work</div>
+        <div class="section__label"><span class="section__num">01</span> Selected Work</div>
         <div class="section__body">
 
           <div class="projects">
 
-            <!-- Project 1 -->
-            <article class="project reveal">
+            <!-- Project 1 — featured: the live, demoable flagship -->
+            <article class="project project--featured reveal">
               <div class="project__meta">
                 <span class="project__year">Jan 2026</span>
                 <span class="project__badge">Live</span>
@@ -264,6 +216,54 @@
           </div>
 
           <a class="work__more" href="https://github.com/yougijain" target="_blank" rel="noopener">More projects on GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ABOUT
+         ============================================================ -->
+    <section class="section" id="about">
+      <div class="container section__grid">
+        <div class="section__label"><span class="section__num">02</span> About</div>
+        <div class="section__body">
+          <p class="lead">
+            I work at the intersection of data and human behavior — pairing technical
+            analysis with a psychology background to ask better questions of the numbers.
+          </p>
+          <p>
+            Currently pursuing a B.S. in Informatics &amp; Psychology at the University of
+            Massachusetts Amherst (expected May 2027). My projects span the full pipeline:
+            building datasets, writing SQL, training models, and shipping dashboards that
+            non-technical stakeholders can actually use.
+          </p>
+          <!-- Add a photo, longer bio, or "currently exploring" note here later. -->
+          <dl class="facts">
+            <div class="fact">
+              <dt>Focus</dt>
+              <dd>Analytics, ML, data engineering</dd>
+            </div>
+            <div class="fact">
+              <dt>Education</dt>
+              <dd>UMass Amherst — Informatics &amp; Psychology</dd>
+            </div>
+            <div class="fact">
+              <dt>Graduating</dt>
+              <dd>May 2027</dd>
+            </div>
+            <div class="fact">
+              <dt>Based in</dt>
+              <dd>Amherst, MA</dd>
+            </div>
+          </dl>
+
+          <!-- At-a-glance footprint. Keep this the ONLY stat strip on the page. -->
+          <dl class="stat-strip reveal">
+            <div><dt>Projects shipped</dt><dd>3</dd></div>
+            <div><dt>Records analyzed</dt><dd>37K+</dd></div>
+            <div><dt>Survey participants</dt><dd>700+</dd></div>
+            <div><dt>Live apps</dt><dd>1</dd></div>
+          </dl>
         </div>
       </div>
     </section>
