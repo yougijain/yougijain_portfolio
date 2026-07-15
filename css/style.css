@@ -435,13 +435,9 @@ html.js .stat-strip.reveal.is-visible > div { opacity: 1; transform: none; }
 .project:hover { background: var(--bg-alt); }
 .project:hover::before { transform: scaleY(1); }
 
-/* Featured project — the live, demoable dashboard carries more weight than
-   the other rows so a scanning eye lands on the clickable proof first. Same
-   editorial language, turned up: a persistent accent rail, a larger title,
-   and a faint tint that sets the block apart (no card, no radius). */
-.project--featured { background: color-mix(in srgb, var(--accent) 4%, var(--bg)); }
-.project--featured:hover { background: color-mix(in srgb, var(--accent) 7%, var(--bg)); }
-.project--featured::before { transform: scaleY(1); }
+/* Featured project — the live, demoable dashboard leads the section on the
+   strength of a larger title alone, so it reads as the hero without borrowing
+   the hover treatment (a persistent tint/rail made it look permanently hovered). */
 .project--featured .project__title { font-size: var(--step-3); }
 .project__meta { display: flex; flex-direction: row; align-items: baseline; gap: 1rem; margin-bottom: 1rem; }
 .project__body { min-width: 0; }
@@ -505,6 +501,7 @@ html.js .stat-strip.reveal.is-visible > div { opacity: 1; transform: none; }
   margin-left: 6px;
   padding: 0 0 var(--space-4) 2rem;
   border-left: 2px solid var(--line);
+  transition: border-color .3s var(--ease);
 }
 .timeline__item:last-child { padding-bottom: 0; border-color: transparent; }
 .timeline__item::before {
@@ -512,9 +509,15 @@ html.js .stat-strip.reveal.is-visible > div { opacity: 1; transform: none; }
   position: absolute; left: -8px; top: .2rem;
   width: 14px; height: 14px; border-radius: 50%;
   background: var(--bg); border: 2px solid var(--accent);
-  transition: background .25s var(--ease);
+  transition: background .25s var(--ease), transform .3s var(--ease);
 }
-.timeline__item:hover::before { background: var(--accent); }
+.timeline__what { transition: transform .3s var(--ease); }
+/* Hover: the segment's node lights up and grows while its copy steps off the
+   spine, so each role reads as an active point on the timeline. */
+.timeline__item:not(:last-child):hover { border-color: var(--accent); }
+.timeline__item:hover::before { background: var(--accent); transform: scale(1.3); }
+.timeline__item:hover .timeline__what { transform: translateX(8px); }
+.timeline__item:hover .timeline__what h3 { color: var(--accent); }
 .timeline__when {
   font-family: var(--font-mono); font-size: var(--step--2);
   text-transform: uppercase; letter-spacing: 0.12em;
@@ -523,6 +526,7 @@ html.js .stat-strip.reveal.is-visible > div { opacity: 1; transform: none; }
 .timeline__what h3 {
   font-family: var(--font-display); font-size: var(--step-1);
   font-weight: 560; letter-spacing: -0.008em; margin-bottom: .25rem;
+  transition: color .25s var(--ease);
 }
 .timeline__org { color: var(--ink-soft) !important; font-weight: 500; margin-bottom: .6rem !important; font-size: var(--step--1); }
 .timeline__what > p:last-child { margin-bottom: 0; }
