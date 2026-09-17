@@ -180,6 +180,124 @@
             <!-- Project 2 -->
             <article class="project reveal">
               <div class="project__meta">
+                <span class="project__year">Jul 2026</span>
+                <span class="project__type">Automation / LLM Pipeline</span>
+              </div>
+              <div class="project__body">
+                <h3 class="project__title">Seed Miner</h3>
+                <p class="project__desc">
+                  A scheduled GitHub Actions pipeline that samples one domain × technique
+                  pairing each weekday from an 89-cell matrix and has the Claude API draft a
+                  small, standalone analysis project for it. A manual promote/reject gate
+                  feeds back into sampling weights — decay-weighted, Laplace-smoothed
+                  promotion rates with a novelty bonus — so exploration never shuts off.
+                </p>
+                <dl class="stats">
+                  <div class="stat"><dt>Seeds generated</dt><dd>40+</dd></div>
+                  <div class="stat"><dt>Matrix cells</dt><dd>89</dd></div>
+                  <div class="stat"><dt>Cadence</dt><dd>Weekdays</dd></div>
+                </dl>
+                <ul class="tags">
+                  <li>Python</li><li>Claude API</li><li>GitHub Actions</li><li>Weighted sampling</li>
+                </ul>
+                <div class="project__links">
+                  <a href="https://github.com/yougijain/seed-miner" target="_blank" rel="noopener">GitHub ↗</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 3 -->
+            <article class="project reveal">
+              <div class="project__meta">
+                <span class="project__year">Jun 2026</span>
+                <span class="project__type">Experimentation / Causal</span>
+              </div>
+              <div class="project__body">
+                <h3 class="project__title">When Average Effects Lie</h3>
+                <p class="project__desc">
+                  Turns a 64,000-customer randomized email A/B test into a targeting strategy.
+                  The Women's email's +4.5pp average visit lift is really +7.3pp for prior
+                  women's-merch buyers and +1.1pp for everyone else. Balance checks,
+                  Lin-adjusted effects, FDR-corrected interactions, and uplift models yield a
+                  policy that roughly doubles net value while sending 41% fewer emails.
+                </p>
+                <dl class="stats">
+                  <div class="stat"><dt>Customers</dt><dd>64,000</dd></div>
+                  <div class="stat"><dt>Experiment arms</dt><dd>3</dd></div>
+                  <div class="stat"><dt>Contacts saved</dt><dd>41%</dd></div>
+                </dl>
+                <ul class="tags">
+                  <li>Python</li><li>A/B testing</li><li>Causal inference</li><li>Uplift modeling</li><li>statsmodels</li>
+                </ul>
+                <div class="project__links">
+                  <a href="https://github.com/yougijain/When-Average-Effects-Lie/blob/main/RESULTS.md" target="_blank" rel="noopener">Read results ↗</a>
+                  <a href="https://github.com/yougijain/When-Average-Effects-Lie" target="_blank" rel="noopener">GitHub ↗</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 4 -->
+            <article class="project reveal">
+              <div class="project__meta">
+                <span class="project__year">Jun 2026</span>
+                <span class="project__type">Product Analytics</span>
+              </div>
+              <div class="project__body">
+                <h3 class="project__title">Spotify Listening Analysis</h3>
+                <p class="project__desc">
+                  "Wrapped, but honest" — a SQL-first DuckDB pipeline over Spotify's Extended
+                  Streaming History: 30-minute sessionization, skip-rate and taste-concentration
+                  (HHI) metrics, artist cohort retention, and a two-proportion z-test on whether
+                  shuffle is skippier. Built-in QA reconciles every raw row, and it runs
+                  end-to-end on a synthetic sample so no personal data is committed.
+                </p>
+                <dl class="stats">
+                  <div class="stat"><dt>SQL stages</dt><dd>5</dd></div>
+                  <div class="stat"><dt>Plays modeled</dt><dd>7,978</dd></div>
+                  <div class="stat"><dt>QA checks</dt><dd>4</dd></div>
+                </dl>
+                <ul class="tags">
+                  <li>SQL</li><li>DuckDB</li><li>Python</li><li>Cohort retention</li><li>Hypothesis testing</li>
+                </ul>
+                <div class="project__links">
+                  <a href="https://github.com/yougijain/spotify-listening-analysis/blob/main/REPORT.md" target="_blank" rel="noopener">Read report ↗</a>
+                  <a href="https://github.com/yougijain/spotify-listening-analysis" target="_blank" rel="noopener">GitHub ↗</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 5 -->
+            <article class="project reveal">
+              <div class="project__meta">
+                <span class="project__year">Jun 2026</span>
+                <span class="project__type">Simulation / Full-Stack</span>
+              </div>
+              <div class="project__body">
+                <h3 class="project__title">LineLab — Decision Coach</h3>
+                <p class="project__desc">
+                  A beginner-focused Teamfight Tactics coach built on an original Monte Carlo
+                  expected-value engine. Describe a game state and the FastAPI solver simulates
+                  thousands of rollouts, then collapses the EV table into one move — roll,
+                  level, save, or stabilize — with a plain-English why. Includes a playable
+                  Arena that grades every decision post-game.
+                </p>
+                <dl class="stats">
+                  <div class="stat"><dt>Lessons</dt><dd>14</dd></div>
+                  <div class="stat"><dt>Modules</dt><dd>5</dd></div>
+                  <div class="stat"><dt>Coach verbs</dt><dd>4</dd></div>
+                </dl>
+                <ul class="tags">
+                  <li>Python</li><li>FastAPI</li><li>Monte Carlo</li><li>Next.js</li><li>TypeScript</li><li>Supabase</li>
+                </ul>
+                <div class="project__links">
+                  <a href="https://github.com/yougijain/LineLab" target="_blank" rel="noopener">GitHub ↗</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 6 -->
+            <article class="project reveal">
+              <div class="project__meta">
                 <span class="project__year">Dec 2025</span>
                 <span class="project__type">Machine Learning</span>
               </div>
@@ -205,7 +323,7 @@
               </div>
             </article>
 
-            <!-- Project 3 -->
+            <!-- Project 7 -->
             <article class="project reveal">
               <div class="project__meta">
                 <span class="project__year">Aug 2025</span>
