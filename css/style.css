@@ -417,22 +417,35 @@ html.js .stat-strip.reveal.is-visible > div { opacity: 1; transform: none; }
    ============================================================ */
 .projects { display: grid; border-block: 1px solid var(--line); }
 .project {
+  /* How far the hover tint reaches past the text column on each side.
+     Always narrower than --gutter and the rail gap, so it never overflows. */
+  --card-pad-x: clamp(1rem, 2.5vw, 2rem);
   position: relative;
+  isolation: isolate;
   background: var(--bg);
   padding: clamp(2.25rem, 4vw, 3.25rem) 0;
-  transition: background .3s var(--ease);
 }
 .project + .project { border-top: 1px solid var(--line); }
-/* Accent rail sits in the left gutter (clear of the text) and grows
-   from the vertical centre outward on hover. */
+/* Hover tint is a layer wider than the card, giving the copy breathing
+   room while the text and rules stay aligned with the rest of the page. */
+.project::after {
+  content: "";
+  position: absolute; inset: 0 calc(-1 * var(--card-pad-x));
+  z-index: -1;
+  background: var(--bg-alt);
+  opacity: 0;
+  transition: opacity .3s var(--ease);
+}
+/* Accent rail marks the tint's left edge and grows from the vertical
+   centre outward on hover. */
 .project::before {
   content: "";
-  position: absolute; left: -1rem; top: 0; bottom: 0;
+  position: absolute; left: calc(-1 * var(--card-pad-x)); top: 0; bottom: 0;
   width: 2px; background: var(--accent);
   transform: scaleY(0); transform-origin: center;
   transition: transform .35s var(--ease);
 }
-.project:hover { background: var(--bg-alt); }
+.project:hover::after { opacity: 1; }
 .project:hover::before { transform: scaleY(1); }
 
 /* Featured project — the live, demoable dashboard leads the section on the
