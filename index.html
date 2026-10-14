@@ -154,15 +154,14 @@
                 <span class="project__type">Inference / Performance</span>
               </div>
               <div class="project__body">
-                <h3 class="project__title">tinyinfer — CNN Inference Engine in C++</h3>
+                <h3 class="project__title">tinyinfer</h3>
                 <p class="project__desc">
-                  A CIFAR-10 classifier trained in PyTorch and run by a from-scratch C++ engine
-                  that agrees with PyTorch on 10,000 of 10,000 test predictions. The matrix
-                  multiply under every convolution goes from a naive triple loop to a packed,
-                  register-blocked AVX2/NEON micro-kernel on all cores, and an INT8 path with
-                  per-channel scales runs 1.5× faster than FP32 at the same accuracy. Every
-                  speedup is a median of repeated runs, placed on a measured roofline and
-                  chased down with gprof and callgrind.
+                  A CIFAR-10 classifier trained in PyTorch and run by a C++ engine I wrote from
+                  scratch. The FP32 path matches PyTorch's prediction on all 10,000 test images.
+                  I took the matrix multiply behind each convolution from a naive triple loop to a
+                  packed AVX2/NEON micro-kernel running on all cores, then added an INT8 path that
+                  is 1.5× faster than FP32 at the same accuracy. Each speedup is the median of
+                  repeated runs, checked against a roofline measured on the same machine.
                 </p>
                 <dl class="stats">
                   <div class="stat"><dt>INT8 latency</dt><dd>0.097 ms</dd></div>
@@ -187,15 +186,15 @@
                 <span class="project__type">ML / Calibrated Risk Model</span>
               </div>
               <div class="project__body">
-                <h3 class="project__title">NYC Collisions — Injury-Risk Model &amp; Watchlist</h3>
+                <h3 class="project__title">NYC Collisions</h3>
                 <p class="project__desc">
-                  A gradient-boosted model scores how likely each of 637K NYC crashes was to
-                  injure someone from what was involved — never where — so intersections can be
-                  ranked by how far they run above their own crash mix. Time-split
-                  train/calibrate/test folds, a log-odds shift for reporting drift, out-of-sample
-                  scoring, and a backtest against a permutation null that admits where the model
-                  only ties a naive ranking. The pipeline refreshes, retrains, and re-scores
-                  itself every week.
+                  A gradient-boosted model estimates how likely each of 637K NYC crashes was to
+                  injure someone. It sees what was involved in a crash but not where it happened,
+                  so each intersection can be compared with what its own crashes predict. The model
+                  is fit on 2020–2023, calibrated on 2024, and tested on 2025 onward. A backtest
+                  against a permutation null shows the ranking does predict later excess injuries,
+                  though about as well as a plain injury-rate sort. New data and a retrain land
+                  every Monday.
                 </p>
                 <dl class="stats">
                   <div class="stat"><dt>Crashes</dt><dd>637,256</dd></div>
@@ -221,14 +220,15 @@
                 <span class="project__type">Real-Time CV / Forecasting</span>
               </div>
               <div class="project__body">
-                <h3 class="project__title">Hall Check — Live Dining Hall Occupancy</h3>
+                <h3 class="project__title">Hall Check</h3>
                 <p class="project__desc">
-                  Counts the line at UMass dining halls from their public video streams every
-                  two minutes: YOLO11n on CPU, a foot-anchored queue polygon, and the frame
-                  discarded in the same call — a test fails the build if any code path could
-                  persist pixels. A 30-minute forecast has to beat last-week, yesterday, and
-                  persistence baselines on an embargoed time split before it ships, and a
-                  same-slot median check separates a moved camera from an outage.
+                  Counts the people in line at UMass dining halls from the public video streams
+                  every two minutes. YOLO11n runs on a CPU and counts people whose feet fall inside
+                  a queue polygon. The frame is discarded in the same function call, and a test
+                  fails the build if any code path could save pixels. The 30-minute forecast only
+                  ships if it beats last-week, yesterday, and persistence baselines on an embargoed
+                  time split. A separate check compares each camera with its own last two weeks to
+                  catch one that has been moved.
                 </p>
                 <dl class="stats">
                   <div class="stat"><dt>Cadence</dt><dd>2 min</dd></div>
@@ -254,12 +254,13 @@
               <div class="project__body">
                 <h3 class="project__title">When Average Effects Lie</h3>
                 <p class="project__desc">
-                  Turns a 64,000-customer randomized email A/B test into a targeting strategy.
-                  The Women's email's +4.5pp average visit lift is really +7.3pp for prior
-                  women's-merch buyers and +1.1pp for everyone else. Balance checks,
-                  Lin-adjusted effects, FDR-corrected interactions, and T-, S-, and DR-learners
-                  chosen by cross-fitted Qini yield a policy worth +$16.95 per 1,000 customers
-                  (95% bootstrap interval +$2.99 to +$30.60) while sending 41% fewer emails.
+                  Turns a 64,000-customer randomized email test into a targeting plan. The Women's
+                  email raises site visits by 4.5 points on average, but that splits into 7.3 points
+                  for past buyers of women's merchandise and 1.1 for everyone else. After balance
+                  checks, Lin-adjusted effects, and FDR-corrected interaction tests, I compared T-,
+                  S-, and DR-learners by cross-fitted Qini. The chosen policy is worth $16.95 more
+                  per 1,000 customers (95% bootstrap interval $2.99 to $30.60) and sends 41% fewer
+                  emails.
                 </p>
                 <dl class="stats">
                   <div class="stat"><dt>Customers</dt><dd>64,000</dd></div>
@@ -284,15 +285,15 @@
                 <span class="project__type">Applied Statistics</span>
               </div>
               <div class="project__body">
-                <h3 class="project__title">Crate Intelligence — Spotify Listening Analysis</h3>
+                <h3 class="project__title">Crate Intelligence</h3>
                 <p class="project__desc">
-                  A DJ's questions run as product analytics over Spotify history in DuckDB.
-                  Shuffle drives both skips and clashing key changes, so the harmonic-mixing
-                  test is a Cochran–Mantel–Haenszel stratified on shuffle; on the bundled
-                  synthetic sample, pooling would overstate the clash effect by 38%. Tracks
-                  rank on Wilson lower bounds, and a beam-search set builder is benchmarked
-                  against greedy and 200 random orderings. The whole pipeline runs on that
-                  sample, so no personal data is committed.
+                  Product analytics on Spotify listening history, pointed at DJ questions and built
+                  on DuckDB. Shuffle causes more skips and also more key clashes, so I tested
+                  harmonic mixing with a Cochran–Mantel–Haenszel test stratified on shuffle. On the
+                  bundled synthetic sample, pooling the data would overstate the clash effect by
+                  38%. Tracks are ranked by Wilson lower bounds, and the beam-search set builder is
+                  benchmarked against greedy and 200 random orderings. None of my own listening
+                  data is in the repo.
                 </p>
                 <dl class="stats">
                   <div class="stat"><dt>Adjusted OR</dt><dd>1.70</dd></div>
@@ -318,14 +319,14 @@
                 <span class="project__type">Monte Carlo / Full-Stack</span>
               </div>
               <div class="project__body">
-                <h3 class="project__title">LineLab — Decision Coach</h3>
+                <h3 class="project__title">LineLab</h3>
                 <p class="project__desc">
-                  A beginner-focused Teamfight Tactics coach built on an original Monte Carlo
-                  expected-value engine. Describe a game state and the FastAPI solver runs
-                  3,000 seeded rollouts per candidate move, sharing random numbers across
-                  moves so the comparison isn't drowned in simulation noise, then collapses
-                  the EV table into one call — roll, level, save, or stabilize — with a
-                  plain-English why. A playable Arena grades every decision post-game.
+                  A Teamfight Tactics coach for beginners, built on a Monte Carlo expected-value
+                  engine I wrote. You describe a game state and the FastAPI solver plays out 3,000
+                  seeded games for each candidate move. Every move is simulated with the same random
+                  numbers, which cuts the variance of the comparison. It recommends one move (roll,
+                  level, save, or stabilize) and says why. A playable Arena grades your decisions
+                  after each game.
                 </p>
                 <dl class="stats">
                   <div class="stat"><dt>Rollouts / move</dt><dd>3,000</dd></div>
@@ -355,28 +356,28 @@
                 <a href="https://github.com/yougijain/text-vs-timing" target="_blank" rel="noopener">
                   <span class="also__name">Text vs. Timing</span>
                   <span class="also__year">Oct 2026</span>
-                  <span class="also__desc">Engagement-prediction ablation: TF-IDF, frozen MiniLM, and fine-tuned BERT, each with and without the timestamp, on one split. 401 offline tests; real-corpus results pending.</span>
+                  <span class="also__desc">Does posting time predict engagement beyond what a post says? TF-IDF, frozen MiniLM, and fine-tuned BERT, each run with and without the timestamp on the same split. 401 offline tests. Real-corpus results pending.</span>
                 </a>
               </li>
               <li class="also__item">
                 <a href="https://github.com/yougijain/seed-miner" target="_blank" rel="noopener">
                   <span class="also__name">Seed Miner</span>
                   <span class="also__year">Jul 2026</span>
-                  <span class="also__desc">Weekday GitHub Actions pipeline that drafts analysis-project seeds with the Claude API; promote/reject reviews re-weight sampling through decay-weighted, Laplace-smoothed rates.</span>
+                  <span class="also__desc">A weekday GitHub Actions job that drafts small analysis-project ideas with the Claude API. My promote/reject reviews change which topics get sampled next, through decay-weighted, Laplace-smoothed rates.</span>
                 </a>
               </li>
               <li class="also__item">
                 <a href="https://drive.google.com/file/d/1z5jXN66sjxblivLzVYl0mpibCz6VO1iD/view" target="_blank" rel="noopener">
                   <span class="also__name">Bank Customer Churn</span>
                   <span class="also__year">Dec 2025</span>
-                  <span class="also__desc">Logistic regression vs. Random Forest in R on 10,000 customers: 5-fold cross-validation, a 20.4% churn class, and decision thresholds tied to retention strategy.</span>
+                  <span class="also__desc">Logistic regression vs. Random Forest in R on 10,000 customers (20.4% churned), compared with 5-fold cross-validation. Decision thresholds were set around retention strategy.</span>
                 </a>
               </li>
               <li class="also__item">
                 <a href="https://github.com/yougijain/plug" target="_blank" rel="noopener">
                   <span class="also__name">Plug</span>
                   <span class="also__year">Aug 2025</span>
-                  <span class="also__desc">Campus marketplace selected for Purdue's Market Readiness Incubator; as project manager I designed its PostgreSQL (Supabase) schema and search queries.</span>
+                  <span class="also__desc">Campus marketplace selected for Purdue's Market Readiness Incubator. I was project manager and designed the PostgreSQL (Supabase) schema and search queries.</span>
                 </a>
               </li>
             </ul>
