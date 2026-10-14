@@ -182,28 +182,32 @@
             <!-- Project 2 -->
             <article class="project reveal">
               <div class="project__meta">
-                <span class="project__year">Jan 2026</span>
+                <span class="project__year">Sep 2026</span>
                 <span class="project__badge">Live</span>
-                <span class="project__type">Dashboard / Analytics</span>
+                <span class="project__type">ML / Calibrated Risk Model</span>
               </div>
               <div class="project__body">
-                <h3 class="project__title">NYC Motor Vehicle Collisions Dashboard</h3>
+                <h3 class="project__title">NYC Collisions — Injury-Risk Model &amp; Watchlist</h3>
                 <p class="project__desc">
-                  A public Streamlit app analyzing 27,164 NYC collisions (Jan 2020 – May 2025)
-                  — 13,508 injuries and 64 fatalities across all five boroughs. Four SQL
-                  analyses (severity, borough, hour-of-day, monthly trends) sit on a validated
-                  23-field schema, with caching and pytest/CI for fast, reliable loads.
+                  A gradient-boosted model scores how likely each of 637K NYC crashes was to
+                  injure someone from what was involved — never where — so intersections can be
+                  ranked by how far they run above their own crash mix. Time-split
+                  train/calibrate/test folds, a log-odds shift for reporting drift, out-of-sample
+                  scoring, and a backtest against a permutation null that admits where the model
+                  only ties a naive ranking. The pipeline refreshes, retrains, and re-scores
+                  itself every week.
                 </p>
                 <dl class="stats">
-                  <div class="stat"><dt>Records</dt><dd>27,164</dd></div>
-                  <div class="stat"><dt>Injuries</dt><dd>13,508</dd></div>
-                  <div class="stat"><dt>Fatalities</dt><dd>64</dd></div>
+                  <div class="stat"><dt>Crashes</dt><dd>637,256</dd></div>
+                  <div class="stat"><dt>ROC-AUC</dt><dd>0.794</dd></div>
+                  <div class="stat"><dt>Brier skill</dt><dd>+26.9%</dd></div>
                 </dl>
                 <ul class="tags">
-                  <li>Python</li><li>SQL</li><li>SQLite</li><li>Streamlit</li><li>PyDeck</li>
+                  <li>Python</li><li>scikit-learn</li><li>DuckDB</li><li>Parquet</li><li>GitHub Actions</li><li>Streamlit</li>
                 </ul>
                 <div class="project__links">
-                  <a href="https://nyc-collisions-2020-2025.streamlit.app/" target="_blank" rel="noopener">Live app ↗</a>
+                  <a href="https://nyc-collisions-current.streamlit.app/" target="_blank" rel="noopener">Live app ↗</a>
+                  <a href="https://github.com/yougijain/NYC-Collisions/blob/main/docs/model_card.md" target="_blank" rel="noopener">Model card ↗</a>
                   <a href="https://github.com/yougijain/NYC-Collisions" target="_blank" rel="noopener">GitHub ↗</a>
                 </div>
               </div>
