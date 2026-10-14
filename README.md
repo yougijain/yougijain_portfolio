@@ -1,7 +1,7 @@
 # yougijain.com
 
-Personal portfolio for Madhiyougi (Yougi) Jain — ML engineering, low-latency
-inference, and applied statistics.
+Personal portfolio for Madhiyougi (Yougi) Jain, focused on low-latency ML and
+statistics.
 Plain HTML/CSS/JS, no build step. Clean and minimal now, easy to push toward a
 more creative direction later.
 
@@ -10,7 +10,7 @@ more creative direction later.
 ```
 .
 ├── index.html        # all content + page structure
-├── css/style.css     # design tokens at the top — start there
+├── css/style.css     # design tokens at the top (start there)
 ├── js/main.js        # nav, mobile menu, scroll reveals
 ├── assets/           # résumé PDF (add images/og-image here)
 ├── CNAME             # custom domain for GitHub Pages
@@ -36,7 +36,7 @@ role, copy a `<li class="timeline__item">`.
 
 ## Changing the look
 
-Open `css/style.css` — the `:root` block at the top holds all colors, fonts,
+Open `css/style.css`. The `:root` block at the top holds all colors, fonts,
 spacing, and the single accent color. Change `--accent`, swap the Google Fonts
 in `index.html`, and the whole site follows. A `[data-theme="dark"]` palette is
 already stubbed in if you want to wire up a light/dark toggle.
