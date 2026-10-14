@@ -286,19 +286,20 @@
                   Turns a 64,000-customer randomized email A/B test into a targeting strategy.
                   The Women's email's +4.5pp average visit lift is really +7.3pp for prior
                   women's-merch buyers and +1.1pp for everyone else. Balance checks,
-                  Lin-adjusted effects, FDR-corrected interactions, and uplift models yield a
-                  policy that roughly doubles net value while sending 41% fewer emails.
+                  Lin-adjusted effects, FDR-corrected interactions, and T-, S-, and DR-learners
+                  chosen by cross-fitted Qini yield a policy worth +$16.95 per 1,000 customers
+                  (95% bootstrap interval +$2.99 to +$30.60) while sending 41% fewer emails.
                 </p>
                 <dl class="stats">
                   <div class="stat"><dt>Customers</dt><dd>64,000</dd></div>
-                  <div class="stat"><dt>Experiment arms</dt><dd>3</dd></div>
+                  <div class="stat"><dt>Gain / 1K</dt><dd>+$16.95</dd></div>
                   <div class="stat"><dt>Contacts saved</dt><dd>41%</dd></div>
                 </dl>
                 <ul class="tags">
-                  <li>Python</li><li>A/B testing</li><li>Causal inference</li><li>Uplift modeling</li><li>statsmodels</li>
+                  <li>Python</li><li>Causal inference</li><li>Uplift modeling</li><li>Bootstrap</li><li>Randomization inference</li><li>statsmodels</li>
                 </ul>
                 <div class="project__links">
-                  <a href="https://github.com/yougijain/When-Average-Effects-Lie/blob/main/RESULTS.md" target="_blank" rel="noopener">Read results ↗</a>
+                  <a href="https://yougijain.github.io/When-Average-Effects-Lie/" target="_blank" rel="noopener">Interactive write-up ↗</a>
                   <a href="https://github.com/yougijain/When-Average-Effects-Lie" target="_blank" rel="noopener">GitHub ↗</a>
                 </div>
               </div>
