@@ -147,8 +147,40 @@
 
           <div class="projects">
 
-            <!-- Project 1 — featured: the live, demoable flagship -->
+            <!-- Project 1 — featured: the flagship for the inference/performance target -->
             <article class="project project--featured reveal">
+              <div class="project__meta">
+                <span class="project__year">Oct 2026</span>
+                <span class="project__type">Inference / Performance</span>
+              </div>
+              <div class="project__body">
+                <h3 class="project__title">tinyinfer — CNN Inference Engine in C++</h3>
+                <p class="project__desc">
+                  A CIFAR-10 classifier trained in PyTorch and run by a from-scratch C++ engine
+                  that agrees with PyTorch on 10,000 of 10,000 test predictions. The matrix
+                  multiply under every convolution goes from a naive triple loop to a packed,
+                  register-blocked AVX2/NEON micro-kernel on all cores, and an INT8 path with
+                  per-channel scales runs 1.5× faster than FP32 at the same accuracy. Every
+                  speedup is a median of repeated runs, placed on a measured roofline and
+                  chased down with gprof and callgrind.
+                </p>
+                <dl class="stats">
+                  <div class="stat"><dt>INT8 latency</dt><dd>0.097 ms</dd></div>
+                  <div class="stat"><dt>GEMM speedup</dt><dd>500×</dd></div>
+                  <div class="stat"><dt>AVX2 peak, 1 core</dt><dd>84%</dd></div>
+                </dl>
+                <ul class="tags">
+                  <li>C++17</li><li>AVX2 / NEON</li><li>OpenMP</li><li>INT8 quantization</li><li>PyTorch</li><li>CMake</li>
+                </ul>
+                <div class="project__links">
+                  <a href="https://github.com/yougijain/oigeswhlijs#results" target="_blank" rel="noopener">Benchmarks ↗</a>
+                  <a href="https://github.com/yougijain/oigeswhlijs" target="_blank" rel="noopener">GitHub ↗</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 2 -->
+            <article class="project reveal">
               <div class="project__meta">
                 <span class="project__year">Jan 2026</span>
                 <span class="project__badge">Live</span>
@@ -177,7 +209,7 @@
               </div>
             </article>
 
-            <!-- Project 2 -->
+            <!-- Project 3 -->
             <article class="project reveal">
               <div class="project__meta">
                 <span class="project__year">Jul 2026</span>
@@ -206,7 +238,7 @@
               </div>
             </article>
 
-            <!-- Project 3 -->
+            <!-- Project 4 -->
             <article class="project reveal">
               <div class="project__meta">
                 <span class="project__year">Jun 2026</span>
@@ -236,7 +268,7 @@
               </div>
             </article>
 
-            <!-- Project 4 -->
+            <!-- Project 5 -->
             <article class="project reveal">
               <div class="project__meta">
                 <span class="project__year">Jun 2026</span>
@@ -266,7 +298,7 @@
               </div>
             </article>
 
-            <!-- Project 5 -->
+            <!-- Project 6 -->
             <article class="project reveal">
               <div class="project__meta">
                 <span class="project__year">Jun 2026</span>
@@ -295,7 +327,7 @@
               </div>
             </article>
 
-            <!-- Project 6 -->
+            <!-- Project 7 -->
             <article class="project reveal">
               <div class="project__meta">
                 <span class="project__year">Dec 2025</span>
@@ -323,7 +355,7 @@
               </div>
             </article>
 
-            <!-- Project 7 -->
+            <!-- Project 8 -->
             <article class="project reveal">
               <div class="project__meta">
                 <span class="project__year">Aug 2025</span>

@@ -448,9 +448,9 @@ html.js .stat-strip.reveal.is-visible > div { opacity: 1; transform: none; }
 .project:hover::after { opacity: 1; }
 .project:hover::before { transform: scaleY(1); }
 
-/* Featured project — the live, demoable dashboard leads the section on the
-   strength of a larger title alone, so it reads as the hero without borrowing
-   the hover treatment (a persistent tint/rail made it look permanently hovered). */
+/* Featured project — the flagship leads the section on the strength of a
+   larger title alone, so it reads as the hero without borrowing the hover
+   treatment (a persistent tint/rail made it look permanently hovered). */
 .project--featured .project__title { font-size: var(--step-3); }
 .project__meta { display: flex; flex-direction: row; align-items: baseline; gap: 1rem; margin-bottom: 1rem; }
 .project__body { min-width: 0; }
