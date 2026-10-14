@@ -308,28 +308,32 @@
             <!-- Project 6 -->
             <article class="project reveal">
               <div class="project__meta">
-                <span class="project__year">Jun 2026</span>
-                <span class="project__type">Product Analytics</span>
+                <span class="project__year">Sep 2026</span>
+                <span class="project__badge">Live</span>
+                <span class="project__type">Applied Statistics</span>
               </div>
               <div class="project__body">
-                <h3 class="project__title">Spotify Listening Analysis</h3>
+                <h3 class="project__title">Crate Intelligence — Spotify Listening Analysis</h3>
                 <p class="project__desc">
-                  "Wrapped, but honest" — a SQL-first DuckDB pipeline over Spotify's Extended
-                  Streaming History: 30-minute sessionization, skip-rate and taste-concentration
-                  (HHI) metrics, artist cohort retention, and a two-proportion z-test on whether
-                  shuffle is skippier. Built-in QA reconciles every raw row, and it runs
-                  end-to-end on a synthetic sample so no personal data is committed.
+                  A DJ's questions run as product analytics over Spotify history in DuckDB.
+                  Shuffle drives both skips and clashing key changes, so the harmonic-mixing
+                  test is a Cochran–Mantel–Haenszel stratified on shuffle; on the bundled
+                  synthetic sample, pooling would overstate the clash effect by 38%. Tracks
+                  rank on Wilson lower bounds, and a beam-search set builder is benchmarked
+                  against greedy and 200 random orderings. The whole pipeline runs on that
+                  sample, so no personal data is committed.
                 </p>
                 <dl class="stats">
-                  <div class="stat"><dt>SQL stages</dt><dd>5</dd></div>
-                  <div class="stat"><dt>Plays modeled</dt><dd>7,978</dd></div>
-                  <div class="stat"><dt>QA checks</dt><dd>4</dd></div>
+                  <div class="stat"><dt>Adjusted OR</dt><dd>1.70</dd></div>
+                  <div class="stat"><dt>Pooled OR</dt><dd>2.35</dd></div>
+                  <div class="stat"><dt>Data</dt><dd>Synthetic</dd></div>
                 </dl>
                 <ul class="tags">
-                  <li>SQL</li><li>DuckDB</li><li>Python</li><li>Cohort retention</li><li>Hypothesis testing</li>
+                  <li>SQL</li><li>DuckDB</li><li>Python</li><li>Stratified testing</li><li>Wilson intervals</li><li>Beam search</li>
                 </ul>
                 <div class="project__links">
-                  <a href="https://github.com/yougijain/spotify-listening-analysis/blob/main/REPORT.md" target="_blank" rel="noopener">Read report ↗</a>
+                  <a href="https://crate-intelligence-yougijain.vercel.app" target="_blank" rel="noopener">Live dashboard ↗</a>
+                  <a href="https://github.com/yougijain/spotify-listening-analysis/blob/main/REPORT.md" target="_blank" rel="noopener">Report ↗</a>
                   <a href="https://github.com/yougijain/spotify-listening-analysis" target="_blank" rel="noopener">GitHub ↗</a>
                 </div>
               </div>
