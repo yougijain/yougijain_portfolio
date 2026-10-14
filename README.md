@@ -1,7 +1,7 @@
 # yougijain.com
 
-Personal portfolio for Madhiyougi (Yougi) Jain, focused on low-latency ML and
-statistics.
+Personal portfolio for Madhiyougi (Yougi) Jain, focused on machine learning and
+applied statistics.
 Plain HTML/CSS/JS, no build step. Clean and minimal now, easy to push toward a
 more creative direction later.
 

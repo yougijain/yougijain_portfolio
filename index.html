@@ -21,14 +21,14 @@
        SEO / META: edit these freely
        ============================================================ -->
   <title>Yougi Jain | ML Engineer</title>
-  <meta name="description" content="Madhiyougi (Yougi) Jain is an ML engineer and Informatics &amp; Psychology student at UMass Amherst. Projects include a C++ inference engine that classifies an image in 0.097 ms and an injury-risk model trained on 637K NYC crashes." />
+  <meta name="description" content="Madhiyougi (Yougi) Jain is an ML engineer and Informatics &amp; Psychology student at UMass Amherst. Projects include an injury-risk model trained on 637K NYC crashes and a targeting policy built from a 64K-customer randomized experiment." />
   <meta name="author" content="Madhiyougi Jain" />
   <link rel="canonical" href="https://yougijain.com" />
 
   <!-- Open Graph (link previews) -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Yougi Jain | ML Engineer" />
-  <meta property="og:description" content="Low-latency ML and applied statistics. Projects include a C++ inference engine at 0.097 ms per image and an injury-risk model trained on 637K NYC crashes." />
+  <meta property="og:description" content="Machine learning and applied statistics. Projects include an injury-risk model trained on 637K NYC crashes and a targeting policy built from a 64K-customer randomized experiment." />
   <meta property="og:url" content="https://yougijain.com" />
   <!-- <meta property="og:image" content="https://yougijain.com/assets/og-image.png" /> -->
 
@@ -46,7 +46,7 @@
       "@type": "CollegeOrUniversity",
       "name": "University of Massachusetts Amherst"
     },
-    "knowsAbout": ["Machine Learning", "Low-Latency Inference", "C++", "SIMD", "Quantization", "PyTorch", "Python", "Statistics", "Causal Inference", "A/B Testing", "Model Calibration", "SQL", "DuckDB"],
+    "knowsAbout": ["Machine Learning", "PyTorch", "Python", "Statistics", "Causal Inference", "A/B Testing", "Model Calibration", "Forecasting", "Computer Vision", "SQL", "DuckDB"],
     "sameAs": [
       "https://linkedin.com/in/yougijain",
       "https://github.com/yougijain"
@@ -111,15 +111,15 @@
          ============================================================ -->
     <section class="hero" id="top">
       <div class="container hero__content">
-        <p class="hero__eyebrow reveal" id="eyebrow">ML Engineer · C++ · Python · Statistics</p>
+        <p class="hero__eyebrow reveal" id="eyebrow">ML Engineer · Python · SQL · Statistics</p>
         <h1 class="hero__title">
-          <span class="hero__line"><span class="hero__line-inner">I make models</span></span>
-          <span class="hero__line"><span class="hero__line-inner">run <em class="hero__accent-word">faster.</em></span></span>
+          <span class="hero__line"><span class="hero__line-inner">Hi, I'm</span></span>
+          <span class="hero__line"><span class="hero__line-inner"><em class="hero__accent-word">Yougi.</em></span></span>
         </h1>
         <p class="hero__lede reveal">
-          I'm Yougi. I study Informatics and Psychology at UMass Amherst. Lately I've
-          built a C++ inference engine that classifies an image in under 0.1 ms and an
-          injury-risk model that retrains every week on 637K NYC crashes.
+          I study Informatics and Psychology at UMass Amherst. Lately I've built an
+          injury-risk model that retrains every week on 637K NYC crashes and a live
+          counter for UMass dining hall lines.
         </p>
         <div class="hero__actions reveal">
           <a class="btn btn--primary" href="#work">View work</a>
@@ -149,37 +149,6 @@
 
             <!-- Project 1 (featured) -->
             <article class="project project--featured reveal">
-              <div class="project__meta">
-                <span class="project__year">Oct 2026</span>
-                <span class="project__type">Inference / Performance</span>
-              </div>
-              <div class="project__body">
-                <h3 class="project__title">tinyinfer</h3>
-                <p class="project__desc">
-                  A CIFAR-10 classifier trained in PyTorch and run by a C++ engine I wrote from
-                  scratch. The FP32 path matches PyTorch's prediction on all 10,000 test images.
-                  I took the matrix multiply behind each convolution from a naive triple loop to a
-                  packed AVX2/NEON micro-kernel running on all cores, then added an INT8 path that
-                  is 1.5× faster than FP32 at the same accuracy. Each speedup is the median of
-                  repeated runs, checked against a roofline measured on the same machine.
-                </p>
-                <dl class="stats">
-                  <div class="stat"><dt>INT8 latency</dt><dd>0.097 ms</dd></div>
-                  <div class="stat"><dt>GEMM speedup</dt><dd>500×</dd></div>
-                  <div class="stat"><dt>AVX2 peak, 1 core</dt><dd>84%</dd></div>
-                </dl>
-                <ul class="tags">
-                  <li>C++17</li><li>AVX2 / NEON</li><li>OpenMP</li><li>INT8 quantization</li><li>PyTorch</li><li>CMake</li>
-                </ul>
-                <div class="project__links">
-                  <a href="https://github.com/yougijain/oigeswhlijs#results" target="_blank" rel="noopener">Benchmarks ↗</a>
-                  <a href="https://github.com/yougijain/oigeswhlijs" target="_blank" rel="noopener">GitHub ↗</a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Project 2 -->
-            <article class="project reveal">
               <div class="project__meta">
                 <span class="project__year">Sep 2026</span>
                 <span class="project__badge">Live</span>
@@ -212,7 +181,7 @@
               </div>
             </article>
 
-            <!-- Project 3 -->
+            <!-- Project 2 -->
             <article class="project reveal">
               <div class="project__meta">
                 <span class="project__year">Sep 2026</span>
@@ -245,7 +214,7 @@
               </div>
             </article>
 
-            <!-- Project 4 -->
+            <!-- Project 3 -->
             <article class="project reveal">
               <div class="project__meta">
                 <span class="project__year">Jun 2026</span>
@@ -277,7 +246,7 @@
               </div>
             </article>
 
-            <!-- Project 5 -->
+            <!-- Project 4 -->
             <article class="project reveal">
               <div class="project__meta">
                 <span class="project__year">Sep 2026</span>
@@ -311,7 +280,7 @@
               </div>
             </article>
 
-            <!-- Project 6 -->
+            <!-- Project 5 -->
             <article class="project reveal">
               <div class="project__meta">
                 <span class="project__year">Jun 2026</span>
@@ -398,7 +367,7 @@
           <dl class="facts">
             <div class="fact">
               <dt>Focus</dt>
-              <dd>Low-latency ML and statistics</dd>
+              <dd>ML and applied statistics</dd>
             </div>
             <div class="fact">
               <dt>Education</dt>
@@ -416,18 +385,16 @@
 
           <!-- At-a-glance footprint. Keep this the ONLY stat strip on the page.
                Counts are derived from the public GitHub portfolio + resume:
-               shipped = tinyinfer, NYC Collisions, Hall Check, When Average
-               Effects Lie, Crate Intelligence, LineLab, Seed Miner, Bank Churn,
-               Plug, UMap, Retail Margin Intelligence (refactored-engine).
+               shipped = NYC Collisions, Hall Check, When Average Effects Lie,
+               Crate Intelligence, LineLab, Seed Miner, Bank Churn, Plug, UMap,
+               Retail Margin Intelligence (refactored-engine).
                records = 637,256 (NYC, grows weekly) + 64,000 (Hillstrom)
                + 10,000 (Churn); Crate Intelligence runs on a synthetic sample,
                so it isn't counted.
-               latency = tinyinfer INT8, 10,000 images streamed (results/int8.md).
                live = NYC Collisions, Hall Check, Crate Intelligence, LineLab. -->
           <dl class="stat-strip reveal">
-            <div><dt>Projects shipped</dt><dd>11</dd></div>
+            <div><dt>Projects shipped</dt><dd>10</dd></div>
             <div><dt>Records modeled</dt><dd>700K+</dd></div>
-            <div><dt>Inference / image</dt><dd>0.097 ms</dd></div>
             <div><dt>Live apps</dt><dd>4</dd></div>
           </dl>
         </div>
@@ -527,15 +494,11 @@
           <div class="skills">
             <div class="skills__group">
               <h4>Languages</h4>
-              <ul><li>Python</li><li>C++</li><li>SQL</li><li>TypeScript</li><li>R</li></ul>
+              <ul><li>Python</li><li>SQL</li><li>TypeScript</li><li>R</li></ul>
             </div>
             <div class="skills__group">
               <h4>ML</h4>
-              <ul><li>PyTorch</li><li>scikit-learn</li><li>Gradient boosting</li><li>Probability calibration</li><li>INT8 quantization</li><li>Transformers (BERT)</li><li>YOLO / CV</li><li>Uplift modeling</li></ul>
-            </div>
-            <div class="skills__group">
-              <h4>Performance</h4>
-              <ul><li>SIMD (AVX2, NEON)</li><li>OpenMP</li><li>Cache blocking</li><li>Roofline analysis</li><li>gprof / callgrind</li><li>CMake</li><li>ASan / UBSan</li></ul>
+              <ul><li>PyTorch</li><li>scikit-learn</li><li>Gradient boosting</li><li>Probability calibration</li><li>Transformers (BERT)</li><li>YOLO / CV</li><li>Uplift modeling</li></ul>
             </div>
             <div class="skills__group">
               <h4>Statistics</h4>
@@ -559,8 +522,8 @@
         <div class="section__body">
           <h2 class="contact__title">Looking for full-time roles from summer 2027.</h2>
           <p class="contact__lede">
-            ML engineering, especially inference performance or modeling that depends on
-            getting the statistics right. Email is the fastest way to reach me.
+            ML engineering, especially modeling where the statistics have to be right.
+            Email is the fastest way to reach me.
           </p>
           <a class="contact__email" href="mailto:yougi@yougijain.com">yougi@yougijain.com</a>
           <div class="contact__socials">
