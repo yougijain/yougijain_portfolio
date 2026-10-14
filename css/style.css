@@ -448,9 +448,9 @@ html.js .stat-strip.reveal.is-visible > div { opacity: 1; transform: none; }
 .project:hover::after { opacity: 1; }
 .project:hover::before { transform: scaleY(1); }
 
-/* Featured project — the live, demoable dashboard leads the section on the
-   strength of a larger title alone, so it reads as the hero without borrowing
-   the hover treatment (a persistent tint/rail made it look permanently hovered). */
+/* Featured project — the flagship leads the section on the strength of a
+   larger title alone, so it reads as the hero without borrowing the hover
+   treatment (a persistent tint/rail made it look permanently hovered). */
 .project--featured .project__title { font-size: var(--step-3); }
 .project__meta { display: flex; flex-direction: row; align-items: baseline; gap: 1rem; margin-bottom: 1rem; }
 .project__body { min-width: 0; }
@@ -491,6 +491,35 @@ html.js .stat-strip.reveal.is-visible > div { opacity: 1; transform: none; }
   transition: border-color .2s var(--ease), color .2s var(--ease);
 }
 .project__links a:hover { border-color: var(--accent); color: var(--accent); }
+
+/* "Also built" — a compact index under the full cards. Same hairline rhythm
+   as .projects, one row per item: name and year on a line, the summary below
+   on narrow screens, three columns once there's room. */
+.also { margin-top: var(--space-4); }
+.also__label {
+  font-family: var(--font-mono); font-size: var(--step--2); font-weight: 400;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--ink-soft); margin-bottom: .75rem;
+}
+.also__list { border-top: 1px solid var(--line); }
+.also__item { border-bottom: 1px solid var(--line); }
+.also__item a {
+  display: grid;
+  grid-template-columns: minmax(8rem, 11rem) 1fr auto;
+  grid-template-areas: "name desc year";
+  gap: .3rem 1.5rem; align-items: baseline;
+  padding-block: 1.1rem;
+}
+.also__name {
+  grid-area: name;
+  font-family: var(--font-display); font-weight: 560; font-size: var(--step-1);
+  letter-spacing: -0.008em; line-height: 1.2;
+  transition: color .2s var(--ease);
+}
+.also__name::after { content: " ↗"; font-family: var(--font-mono); font-size: var(--step--1); color: var(--ink-soft); }
+.also__desc { grid-area: desc; color: var(--ink-soft); font-size: var(--step--1); line-height: 1.55; max-width: 58ch; }
+.also__year { grid-area: year; font-family: var(--font-mono); font-size: var(--step--1); color: var(--ink-soft); white-space: nowrap; }
+.also__item a:hover .also__name { color: var(--accent); }
 
 /* "See more" link below the projects list */
 .work__more {
@@ -636,6 +665,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   .section__grid { grid-template-columns: 1fr; gap: 1.5rem; }
   .section__label { position: static; }
   .facts { grid-template-columns: 1fr 1fr; }
+  .also__item a { grid-template-columns: 1fr auto; grid-template-areas: "name year" "desc desc"; }
 }
 
 @media (max-width: 460px) {

@@ -18,21 +18,21 @@
   </script>
 
   <!-- ============================================================
-       SEO / META  —  edit these freely
+       SEO / META: edit these freely
        ============================================================ -->
-  <title>Yougi Jain — Data Analyst</title>
-  <meta name="description" content="Madhiyougi (Yougi) Jain — data analyst at UMass Amherst (Informatics & Psychology). Python, SQL, and Tableau projects across 101K+ records, from A/B test uplift modeling to a live NYC collisions dashboard." />
+  <title>Yougi Jain | ML Engineer</title>
+  <meta name="description" content="Madhiyougi (Yougi) Jain is an ML engineer and Informatics &amp; Psychology student at UMass Amherst. Projects include an injury-risk model trained on 637K NYC crashes and a targeting policy built from a 64K-customer randomized experiment." />
   <meta name="author" content="Madhiyougi Jain" />
   <link rel="canonical" href="https://yougijain.com" />
 
   <!-- Open Graph (link previews) -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Yougi Jain — Data Analyst" />
-  <meta property="og:description" content="Python, SQL, and Tableau projects across 101K+ records, from A/B test uplift modeling to a live NYC collisions dashboard." />
+  <meta property="og:title" content="Yougi Jain | ML Engineer" />
+  <meta property="og:description" content="Machine learning and applied statistics. Projects include an injury-risk model trained on 637K NYC crashes and a targeting policy built from a 64K-customer randomized experiment." />
   <meta property="og:url" content="https://yougijain.com" />
   <!-- <meta property="og:image" content="https://yougijain.com/assets/og-image.png" /> -->
 
-  <!-- Structured data — how the site introduces itself to a name search -->
+  <!-- Structured data: how the site introduces itself to a name search -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -41,12 +41,12 @@
     "alternateName": "Yougi Jain",
     "url": "https://yougijain.com",
     "email": "mailto:yougi@yougijain.com",
-    "jobTitle": "Data Analyst",
+    "jobTitle": "Machine Learning Engineer",
     "affiliation": {
       "@type": "CollegeOrUniversity",
       "name": "University of Massachusetts Amherst"
     },
-    "knowsAbout": ["Data Analysis", "Python", "SQL", "R", "Tableau", "Power BI", "Machine Learning", "A/B Testing", "Causal Inference", "DuckDB"],
+    "knowsAbout": ["Machine Learning", "PyTorch", "Python", "Statistics", "Causal Inference", "A/B Testing", "Model Calibration", "Forecasting", "Computer Vision", "SQL", "DuckDB"],
     "sameAs": [
       "https://linkedin.com/in/yougijain",
       "https://github.com/yougijain"
@@ -58,12 +58,12 @@
   <meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0c100e" media="(prefers-color-scheme: dark)" />
 
-  <!-- Fonts — Fraunces (editorial display) + IBM Plex Sans/Mono (report body + data voice) -->
+  <!-- Fonts: Fraunces (display) + IBM Plex Sans/Mono (body + data) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/style.css?v=15" />
+  <link rel="stylesheet" href="css/style.css?v=16" />
 </head>
 <body>
   <!-- Skip link for accessibility -->
@@ -111,15 +111,15 @@
          ============================================================ -->
     <section class="hero" id="top">
       <div class="container hero__content">
-        <p class="hero__eyebrow reveal" id="eyebrow">Data Analyst · Python · SQL · Tableau</p>
+        <p class="hero__eyebrow reveal" id="eyebrow">ML Engineer · Python · SQL · Statistics</p>
         <h1 class="hero__title">
-          <span class="hero__line"><span class="hero__line-inner">Turning messy data</span></span>
-          <span class="hero__line"><span class="hero__line-inner">into <em class="hero__accent-word">decisions.</em></span></span>
+          <span class="hero__line"><span class="hero__line-inner">Hi, I'm</span></span>
+          <span class="hero__line"><span class="hero__line-inner"><em class="hero__accent-word">Yougi.</em></span></span>
         </h1>
         <p class="hero__lede reveal">
-          I'm Yougi — an Informatics &amp; Psychology student at UMass Amherst building
-          dashboards, models, and data pipelines, including a live NYC collisions app
-          over 27K records.
+          I study Informatics and Psychology at UMass Amherst. Lately I've built an
+          injury-risk model that retrains every week on 637K NYC crashes and a live
+          counter for UMass dining hall lines.
         </p>
         <div class="hero__actions reveal">
           <a class="btn btn--primary" href="#work">View work</a>
@@ -147,31 +147,35 @@
 
           <div class="projects">
 
-            <!-- Project 1 — featured: the live, demoable flagship -->
+            <!-- Project 1 (featured) -->
             <article class="project project--featured reveal">
               <div class="project__meta">
-                <span class="project__year">Jan 2026</span>
+                <span class="project__year">Sep 2026</span>
                 <span class="project__badge">Live</span>
-                <span class="project__type">Dashboard / Analytics</span>
+                <span class="project__type">ML / Calibrated Risk Model</span>
               </div>
               <div class="project__body">
-                <h3 class="project__title">NYC Motor Vehicle Collisions Dashboard</h3>
+                <h3 class="project__title">NYC Collisions</h3>
                 <p class="project__desc">
-                  A public Streamlit app analyzing 27,164 NYC collisions (Jan 2020 – May 2025)
-                  — 13,508 injuries and 64 fatalities across all five boroughs. Four SQL
-                  analyses (severity, borough, hour-of-day, monthly trends) sit on a validated
-                  23-field schema, with caching and pytest/CI for fast, reliable loads.
+                  A gradient-boosted model estimates how likely each of 637K NYC crashes was to
+                  injure someone. It sees what was involved in a crash but not where it happened,
+                  so each intersection can be compared with what its own crashes predict. The model
+                  is fit on 2020–2023, calibrated on 2024, and tested on 2025 onward. A backtest
+                  against a permutation null shows the ranking does predict later excess injuries,
+                  though about as well as a plain injury-rate sort. New data and a retrain land
+                  every Monday.
                 </p>
                 <dl class="stats">
-                  <div class="stat"><dt>Records</dt><dd>27,164</dd></div>
-                  <div class="stat"><dt>Injuries</dt><dd>13,508</dd></div>
-                  <div class="stat"><dt>Fatalities</dt><dd>64</dd></div>
+                  <div class="stat"><dt>Crashes</dt><dd>637,256</dd></div>
+                  <div class="stat"><dt>ROC-AUC</dt><dd>0.794</dd></div>
+                  <div class="stat"><dt>Brier skill</dt><dd>+26.9%</dd></div>
                 </dl>
                 <ul class="tags">
-                  <li>Python</li><li>SQL</li><li>SQLite</li><li>Streamlit</li><li>PyDeck</li>
+                  <li>Python</li><li>scikit-learn</li><li>DuckDB</li><li>Parquet</li><li>GitHub Actions</li><li>Streamlit</li>
                 </ul>
                 <div class="project__links">
-                  <a href="https://nyc-collisions-2020-2025.streamlit.app/" target="_blank" rel="noopener">Live app ↗</a>
+                  <a href="https://nyc-collisions-current.streamlit.app/" target="_blank" rel="noopener">Live app ↗</a>
+                  <a href="https://github.com/yougijain/NYC-Collisions/blob/main/docs/model_card.md" target="_blank" rel="noopener">Model card ↗</a>
                   <a href="https://github.com/yougijain/NYC-Collisions" target="_blank" rel="noopener">GitHub ↗</a>
                 </div>
               </div>
@@ -180,28 +184,32 @@
             <!-- Project 2 -->
             <article class="project reveal">
               <div class="project__meta">
-                <span class="project__year">Jul 2026</span>
-                <span class="project__type">Automation / LLM Pipeline</span>
+                <span class="project__year">Sep 2026</span>
+                <span class="project__badge">Live</span>
+                <span class="project__type">Real-Time CV / Forecasting</span>
               </div>
               <div class="project__body">
-                <h3 class="project__title">Seed Miner</h3>
+                <h3 class="project__title">Hall Check</h3>
                 <p class="project__desc">
-                  A scheduled GitHub Actions pipeline that samples one domain × technique
-                  pairing each weekday from an 89-cell matrix and has the Claude API draft a
-                  small, standalone analysis project for it. A manual promote/reject gate
-                  feeds back into sampling weights — decay-weighted, Laplace-smoothed
-                  promotion rates with a novelty bonus — so exploration never shuts off.
+                  Counts the people in line at UMass dining halls from the public video streams
+                  every two minutes. YOLO11n runs on a CPU and counts people whose feet fall inside
+                  a queue polygon. The frame is discarded in the same function call, and a test
+                  fails the build if any code path could save pixels. The 30-minute forecast only
+                  ships if it beats last-week, yesterday, and persistence baselines on an embargoed
+                  time split. A separate check compares each camera with its own last two weeks to
+                  catch one that has been moved.
                 </p>
                 <dl class="stats">
-                  <div class="stat"><dt>Seeds generated</dt><dd>40+</dd></div>
-                  <div class="stat"><dt>Matrix cells</dt><dd>89</dd></div>
-                  <div class="stat"><dt>Cadence</dt><dd>Weekdays</dd></div>
+                  <div class="stat"><dt>Cadence</dt><dd>2 min</dd></div>
+                  <div class="stat"><dt>Frames stored</dt><dd>0</dd></div>
+                  <div class="stat"><dt>Worker tests</dt><dd>225</dd></div>
                 </dl>
                 <ul class="tags">
-                  <li>Python</li><li>Claude API</li><li>GitHub Actions</li><li>Weighted sampling</li>
+                  <li>Python</li><li>YOLO11</li><li>HistGradientBoosting</li><li>PostgreSQL</li><li>Next.js</li><li>Docker</li>
                 </ul>
                 <div class="project__links">
-                  <a href="https://github.com/yougijain/seed-miner" target="_blank" rel="noopener">GitHub ↗</a>
+                  <a href="https://hall-check.vercel.app" target="_blank" rel="noopener">Live site ↗</a>
+                  <a href="https://github.com/yougijain/hall-check" target="_blank" rel="noopener">GitHub ↗</a>
                 </div>
               </div>
             </article>
@@ -215,22 +223,24 @@
               <div class="project__body">
                 <h3 class="project__title">When Average Effects Lie</h3>
                 <p class="project__desc">
-                  Turns a 64,000-customer randomized email A/B test into a targeting strategy.
-                  The Women's email's +4.5pp average visit lift is really +7.3pp for prior
-                  women's-merch buyers and +1.1pp for everyone else. Balance checks,
-                  Lin-adjusted effects, FDR-corrected interactions, and uplift models yield a
-                  policy that roughly doubles net value while sending 41% fewer emails.
+                  Turns a 64,000-customer randomized email test into a targeting plan. The Women's
+                  email raises site visits by 4.5 points on average, but that splits into 7.3 points
+                  for past buyers of women's merchandise and 1.1 for everyone else. After balance
+                  checks, Lin-adjusted effects, and FDR-corrected interaction tests, I compared T-,
+                  S-, and DR-learners by cross-fitted Qini. The chosen policy is worth $16.95 more
+                  per 1,000 customers (95% bootstrap interval $2.99 to $30.60) and sends 41% fewer
+                  emails.
                 </p>
                 <dl class="stats">
                   <div class="stat"><dt>Customers</dt><dd>64,000</dd></div>
-                  <div class="stat"><dt>Experiment arms</dt><dd>3</dd></div>
+                  <div class="stat"><dt>Gain / 1K</dt><dd>+$16.95</dd></div>
                   <div class="stat"><dt>Contacts saved</dt><dd>41%</dd></div>
                 </dl>
                 <ul class="tags">
-                  <li>Python</li><li>A/B testing</li><li>Causal inference</li><li>Uplift modeling</li><li>statsmodels</li>
+                  <li>Python</li><li>Causal inference</li><li>Uplift modeling</li><li>Bootstrap</li><li>Randomization inference</li><li>statsmodels</li>
                 </ul>
                 <div class="project__links">
-                  <a href="https://github.com/yougijain/When-Average-Effects-Lie/blob/main/RESULTS.md" target="_blank" rel="noopener">Read results ↗</a>
+                  <a href="https://yougijain.github.io/When-Average-Effects-Lie/" target="_blank" rel="noopener">Interactive write-up ↗</a>
                   <a href="https://github.com/yougijain/When-Average-Effects-Lie" target="_blank" rel="noopener">GitHub ↗</a>
                 </div>
               </div>
@@ -239,28 +249,32 @@
             <!-- Project 4 -->
             <article class="project reveal">
               <div class="project__meta">
-                <span class="project__year">Jun 2026</span>
-                <span class="project__type">Product Analytics</span>
+                <span class="project__year">Sep 2026</span>
+                <span class="project__badge">Live</span>
+                <span class="project__type">Applied Statistics</span>
               </div>
               <div class="project__body">
-                <h3 class="project__title">Spotify Listening Analysis</h3>
+                <h3 class="project__title">Crate Intelligence</h3>
                 <p class="project__desc">
-                  "Wrapped, but honest" — a SQL-first DuckDB pipeline over Spotify's Extended
-                  Streaming History: 30-minute sessionization, skip-rate and taste-concentration
-                  (HHI) metrics, artist cohort retention, and a two-proportion z-test on whether
-                  shuffle is skippier. Built-in QA reconciles every raw row, and it runs
-                  end-to-end on a synthetic sample so no personal data is committed.
+                  Product analytics on Spotify listening history, pointed at DJ questions and built
+                  on DuckDB. Shuffle causes more skips and also more key clashes, so I tested
+                  harmonic mixing with a Cochran–Mantel–Haenszel test stratified on shuffle. On the
+                  bundled synthetic sample, pooling the data would overstate the clash effect by
+                  38%. Tracks are ranked by Wilson lower bounds, and the beam-search set builder is
+                  benchmarked against greedy and 200 random orderings. None of my own listening
+                  data is in the repo.
                 </p>
                 <dl class="stats">
-                  <div class="stat"><dt>SQL stages</dt><dd>5</dd></div>
-                  <div class="stat"><dt>Plays modeled</dt><dd>7,978</dd></div>
-                  <div class="stat"><dt>QA checks</dt><dd>4</dd></div>
+                  <div class="stat"><dt>Adjusted OR</dt><dd>1.70</dd></div>
+                  <div class="stat"><dt>Pooled OR</dt><dd>2.35</dd></div>
+                  <div class="stat"><dt>Data</dt><dd>Synthetic</dd></div>
                 </dl>
                 <ul class="tags">
-                  <li>SQL</li><li>DuckDB</li><li>Python</li><li>Cohort retention</li><li>Hypothesis testing</li>
+                  <li>SQL</li><li>DuckDB</li><li>Python</li><li>Stratified testing</li><li>Wilson intervals</li><li>Beam search</li>
                 </ul>
                 <div class="project__links">
-                  <a href="https://github.com/yougijain/spotify-listening-analysis/blob/main/REPORT.md" target="_blank" rel="noopener">Read report ↗</a>
+                  <a href="https://crate-intelligence-yougijain.vercel.app" target="_blank" rel="noopener">Live dashboard ↗</a>
+                  <a href="https://github.com/yougijain/spotify-listening-analysis/blob/main/REPORT.md" target="_blank" rel="noopener">Report ↗</a>
                   <a href="https://github.com/yougijain/spotify-listening-analysis" target="_blank" rel="noopener">GitHub ↗</a>
                 </div>
               </div>
@@ -270,89 +284,72 @@
             <article class="project reveal">
               <div class="project__meta">
                 <span class="project__year">Jun 2026</span>
-                <span class="project__type">Simulation / Full-Stack</span>
+                <span class="project__badge">Live</span>
+                <span class="project__type">Monte Carlo / Full-Stack</span>
               </div>
               <div class="project__body">
-                <h3 class="project__title">LineLab — Decision Coach</h3>
+                <h3 class="project__title">LineLab</h3>
                 <p class="project__desc">
-                  A beginner-focused Teamfight Tactics coach built on an original Monte Carlo
-                  expected-value engine. Describe a game state and the FastAPI solver simulates
-                  thousands of rollouts, then collapses the EV table into one move — roll,
-                  level, save, or stabilize — with a plain-English why. Includes a playable
-                  Arena that grades every decision post-game.
+                  A Teamfight Tactics coach for beginners, built on a Monte Carlo expected-value
+                  engine I wrote. You describe a game state and the FastAPI solver plays out 3,000
+                  seeded games for each candidate move. Every move is simulated with the same random
+                  numbers, which cuts the variance of the comparison. It recommends one move (roll,
+                  level, save, or stabilize) and says why. A playable Arena grades your decisions
+                  after each game.
                 </p>
                 <dl class="stats">
+                  <div class="stat"><dt>Rollouts / move</dt><dd>3,000</dd></div>
+                  <div class="stat"><dt>Moves compared</dt><dd>4</dd></div>
                   <div class="stat"><dt>Lessons</dt><dd>14</dd></div>
-                  <div class="stat"><dt>Modules</dt><dd>5</dd></div>
-                  <div class="stat"><dt>Coach verbs</dt><dd>4</dd></div>
                 </dl>
                 <ul class="tags">
                   <li>Python</li><li>FastAPI</li><li>Monte Carlo</li><li>Next.js</li><li>TypeScript</li><li>Supabase</li>
                 </ul>
                 <div class="project__links">
+                  <a href="https://linelab-yougijain.vercel.app" target="_blank" rel="noopener">Live site ↗</a>
                   <a href="https://github.com/yougijain/LineLab" target="_blank" rel="noopener">GitHub ↗</a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Project 6 -->
-            <article class="project reveal">
-              <div class="project__meta">
-                <span class="project__year">Dec 2025</span>
-                <span class="project__type">Machine Learning</span>
-              </div>
-              <div class="project__body">
-                <h3 class="project__title">Bank Customer Churn Prediction</h3>
-                <p class="project__desc">
-                  An end-to-end R report flagging at-risk customers across 10,000 records and
-                  14 features. Logistic regression vs. Random Forest under 5-fold
-                  cross-validation, handling a 20.4% churn class imbalance, with decision
-                  thresholds tied to retention strategy.
-                </p>
-                <dl class="stats">
-                  <div class="stat"><dt>Records</dt><dd>10,000</dd></div>
-                  <div class="stat"><dt>Features</dt><dd>14</dd></div>
-                  <div class="stat"><dt>Churn rate</dt><dd>20.4%</dd></div>
-                </dl>
-                <ul class="tags">
-                  <li>R</li><li>Classification</li><li>Random Forest</li><li>Class imbalance</li><li>Cross-validation</li>
-                </ul>
-                <div class="project__links">
-                  <a href="https://drive.google.com/file/d/1z5jXN66sjxblivLzVYl0mpibCz6VO1iD/view" target="_blank" rel="noopener">Read report ↗</a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Project 7 -->
-            <article class="project reveal">
-              <div class="project__meta">
-                <span class="project__year">Aug 2025</span>
-                <span class="project__type">Data Architecture</span>
-              </div>
-              <div class="project__body">
-                <h3 class="project__title">Plug — Campus Marketplace</h3>
-                <p class="project__desc">
-                  Selected for Purdue's Market Readiness Incubator. As project manager, I
-                  designed the analytics-ready PostgreSQL (Supabase) backend — a relational
-                  schema with SQL CRUD plus multi-field search, sorting, and pagination,
-                  backed by integrity checks.
-                </p>
-                <dl class="stats">
-                  <div class="stat"><dt>Backend</dt><dd>PostgreSQL</dd></div>
-                  <div class="stat"><dt>Queries</dt><dd>CRUD + search</dd></div>
-                  <div class="stat"><dt>Selected</dt><dd>Purdue Incubator</dd></div>
-                </dl>
-                <ul class="tags">
-                  <li>PostgreSQL</li><li>Supabase</li><li>SQL</li><li>Data Modeling</li>
-                </ul>
-                <div class="project__links">
-                  <a href="https://github.com/yougijain/plug" target="_blank" rel="noopener">GitHub ↗</a>
                 </div>
               </div>
             </article>
 
             <!-- Add new projects above this line. -->
 
+          </div>
+
+          <!-- Compact index: real work that sits off the main thread, one
+               hairline row each. Copy an <li class="also__item"> to add one. -->
+          <div class="also reveal">
+            <h3 class="also__label">Also built</h3>
+            <ul class="also__list">
+              <li class="also__item">
+                <a href="https://github.com/yougijain/text-vs-timing" target="_blank" rel="noopener">
+                  <span class="also__name">Text vs. Timing</span>
+                  <span class="also__year">Oct 2026</span>
+                  <span class="also__desc">Does posting time predict engagement beyond what a post says? TF-IDF, frozen MiniLM, and fine-tuned BERT, each run with and without the timestamp on the same split. 401 offline tests. Real-corpus results pending.</span>
+                </a>
+              </li>
+              <li class="also__item">
+                <a href="https://github.com/yougijain/seed-miner" target="_blank" rel="noopener">
+                  <span class="also__name">Seed Miner</span>
+                  <span class="also__year">Jul 2026</span>
+                  <span class="also__desc">A weekday GitHub Actions job that drafts small analysis-project ideas with the Claude API. My promote/reject reviews change which topics get sampled next, through decay-weighted, Laplace-smoothed rates.</span>
+                </a>
+              </li>
+              <li class="also__item">
+                <a href="https://drive.google.com/file/d/1z5jXN66sjxblivLzVYl0mpibCz6VO1iD/view" target="_blank" rel="noopener">
+                  <span class="also__name">Bank Customer Churn</span>
+                  <span class="also__year">Dec 2025</span>
+                  <span class="also__desc">Logistic regression vs. Random Forest in R on 10,000 customers (20.4% churned), compared with 5-fold cross-validation. Decision thresholds were set around retention strategy.</span>
+                </a>
+              </li>
+              <li class="also__item">
+                <a href="https://github.com/yougijain/plug" target="_blank" rel="noopener">
+                  <span class="also__name">Plug</span>
+                  <span class="also__year">Aug 2025</span>
+                  <span class="also__desc">Campus marketplace selected for Purdue's Market Readiness Incubator. I was project manager and designed the PostgreSQL (Supabase) schema and search queries.</span>
+                </a>
+              </li>
+            </ul>
           </div>
 
           <a class="work__more" href="https://github.com/yougijain" target="_blank" rel="noopener">More projects on GitHub ↗</a>
@@ -370,11 +367,11 @@
           <dl class="facts">
             <div class="fact">
               <dt>Focus</dt>
-              <dd>Analytics, ML, data engineering</dd>
+              <dd>ML and applied statistics</dd>
             </div>
             <div class="fact">
               <dt>Education</dt>
-              <dd>UMass Amherst — Informatics &amp; Psychology</dd>
+              <dd>UMass Amherst, Informatics &amp; Psychology</dd>
             </div>
             <div class="fact">
               <dt>Graduating</dt>
@@ -388,15 +385,17 @@
 
           <!-- At-a-glance footprint. Keep this the ONLY stat strip on the page.
                Counts are derived from the public GitHub portfolio + resume:
-               shipped = NYC Collisions, Bank Churn, Plug, Spotify Listening
-               Analysis, When Average Effects Lie, LineLab, UMap, Seed Miner.
-               records = 27,164 (NYC) + 10,000 (Churn) + 64,000 (Hillstrom);
-               Spotify runs on a synthetic sample, so it isn't counted. -->
+               shipped = NYC Collisions, Hall Check, When Average Effects Lie,
+               Crate Intelligence, LineLab, Seed Miner, Bank Churn, Plug, UMap,
+               Retail Margin Intelligence (refactored-engine).
+               records = 637,256 (NYC, grows weekly) + 64,000 (Hillstrom)
+               + 10,000 (Churn); Crate Intelligence runs on a synthetic sample,
+               so it isn't counted.
+               live = NYC Collisions, Hall Check, Crate Intelligence, LineLab. -->
           <dl class="stat-strip reveal">
-            <div><dt>Projects shipped</dt><dd>8</dd></div>
-            <div><dt>Records analyzed</dt><dd>101K+</dd></div>
-            <div><dt>Survey participants</dt><dd>700+</dd></div>
-            <div><dt>Live apps</dt><dd>1</dd></div>
+            <div><dt>Projects shipped</dt><dd>10</dd></div>
+            <div><dt>Records modeled</dt><dd>700K+</dd></div>
+            <div><dt>Live apps</dt><dd>4</dd></div>
           </dl>
         </div>
       </div>
@@ -412,9 +411,9 @@
           <ol class="timeline">
 
             <li class="timeline__item reveal">
-              <div class="timeline__when">Summer 2026 — Present</div>
+              <div class="timeline__when">Summer 2026 – Present</div>
               <div class="timeline__what">
-                <h3>Analysis Working Group Member — AI/ML and Brain</h3>
+                <h3>Analysis Working Group Member, AI/ML and Brain</h3>
                 <p class="timeline__org">NASA Open Science Data Repository · Remote</p>
                 <p>
                   Volunteer member of two of NASA OSDR's open-science Analysis Working
@@ -422,9 +421,9 @@
                   biology, and Brain. In Brain's Behavior &amp; Neuroinflammation subgroup
                   I work on linking a rodent behavioral phenotype from Rodent Research-1
                   to inflammasome-related neuroinflammation under spaceflight and
-                  ground-based radiation — pairing OSDR omics and behavioral datasets
+                  ground-based radiation. The work pairs OSDR omics and behavioral datasets
                   with environmental telemetry and RadLab radiation records. The subgroup
-                  is defining its research question and analysis plan.
+                  is still defining its research question and analysis plan.
                 </p>
               </div>
             </li>
@@ -437,8 +436,8 @@
                 <p>
                   Built a benchmarking harness comparing a proprietary model against
                   baselines on 3+ metrics, designed evaluation splits and error slices to
-                  surface failure modes, and produced a stakeholder evaluation report aligned
-                  to business and compliance needs.
+                  surface failure modes, and wrote the evaluation report for stakeholders,
+                  covering business and compliance requirements.
                 </p>
               </div>
             </li>
@@ -446,7 +445,7 @@
             <li class="timeline__item reveal">
               <div class="timeline__when">Jun 2022</div>
               <div class="timeline__what">
-                <h3>Research Intern — Impact of Social Media</h3>
+                <h3>Research Intern, Impact of Social Media</h3>
                 <p class="timeline__org">UC Berkeley · Lawrence Hall of Science · Berkeley, CA</p>
                 <p>
                   Cleaned and prepared survey data from 700+ participants into analysis-ready
@@ -475,11 +474,10 @@
               <h3 class="edu__school">University of Massachusetts Amherst</h3>
               <span class="edu__when">Amherst, MA · Expected May 2027</span>
             </div>
-            <p class="edu__degree">B.S. Informatics &amp; Psychology — Double Major</p>
+            <p class="edu__degree">B.S. Informatics &amp; Psychology (double major)</p>
             <p class="edu__note">
-              A double major bridging data and human behavior — informatics for the technical
-              foundation (programming, databases, analysis) and psychology for the research
-              methods and statistics behind asking sharper questions of the numbers.
+              Informatics for programming, databases, and analysis. Psychology for research
+              methods and statistics.
             </p>
           </article>
         </div>
@@ -496,23 +494,19 @@
           <div class="skills">
             <div class="skills__group">
               <h4>Languages</h4>
-              <ul><li>Python</li><li>SQL</li><li>R</li><li>TypeScript</li><li>Java</li></ul>
+              <ul><li>Python</li><li>SQL</li><li>TypeScript</li><li>R</li></ul>
             </div>
             <div class="skills__group">
-              <h4>Data</h4>
-              <ul><li>Pandas</li><li>NumPy</li><li>ETL</li><li>DuckDB</li><li>SQLite</li><li>PostgreSQL</li></ul>
+              <h4>ML</h4>
+              <ul><li>PyTorch</li><li>scikit-learn</li><li>Gradient boosting</li><li>Probability calibration</li><li>Transformers (BERT)</li><li>YOLO / CV</li><li>Uplift modeling</li></ul>
             </div>
             <div class="skills__group">
-              <h4>Analytics / BI</h4>
-              <ul><li>Streamlit</li><li>Tableau</li><li>Power BI</li><li>Excel</li><li>KPI design</li></ul>
+              <h4>Statistics</h4>
+              <ul><li>Causal inference</li><li>A/B testing</li><li>Bootstrap intervals</li><li>Permutation tests</li><li>FDR control</li><li>Stratified tests (CMH)</li><li>Monte Carlo</li><li>Time-split validation</li></ul>
             </div>
             <div class="skills__group">
-              <h4>ML / Stats</h4>
-              <ul><li>scikit-learn</li><li>Classification</li><li>Regression</li><li>A/B testing</li><li>Causal inference</li><li>Uplift modeling</li><li>Monte Carlo</li><li>Model evaluation</li><li>Statistics</li></ul>
-            </div>
-            <div class="skills__group">
-              <h4>Tools</h4>
-              <ul><li>Git / GitHub</li><li>GitHub Actions</li><li>pytest</li><li>CI/CD</li><li>FastAPI</li><li>Caching</li><li>LangChain</li><li>Claude API</li></ul>
+              <h4>Data / Infra</h4>
+              <ul><li>DuckDB</li><li>Parquet</li><li>PostgreSQL</li><li>FastAPI</li><li>Streamlit</li><li>Docker</li><li>GitHub Actions</li><li>pytest</li><li>Claude API</li></ul>
             </div>
           </div>
         </div>
@@ -526,9 +520,10 @@
       <div class="container section__grid">
         <div class="section__label"><span class="section__num">06</span> Contact</div>
         <div class="section__body">
-          <h2 class="contact__title">Let's build something with data.</h2>
+          <h2 class="contact__title">Looking for full-time roles from summer 2027.</h2>
           <p class="contact__lede">
-            Open to full-time data analyst roles and collaborations.
+            ML engineering, especially modeling where the statistics have to be right.
+            Email is the fastest way to reach me.
           </p>
           <a class="contact__email" href="mailto:yougi@yougijain.com">yougi@yougijain.com</a>
           <div class="contact__socials">

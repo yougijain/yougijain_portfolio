@@ -1,6 +1,7 @@
 # yougijain.com
 
-Personal portfolio for Madhiyougi (Yougi) Jain — data science & informatics.
+Personal portfolio for Madhiyougi (Yougi) Jain, focused on machine learning and
+applied statistics.
 Plain HTML/CSS/JS, no build step. Clean and minimal now, easy to push toward a
 more creative direction later.
 
@@ -9,7 +10,7 @@ more creative direction later.
 ```
 .
 ├── index.html        # all content + page structure
-├── css/style.css     # design tokens at the top — start there
+├── css/style.css     # design tokens at the top (start there)
 ├── js/main.js        # nav, mobile menu, scroll reveals
 ├── assets/           # résumé PDF (add images/og-image here)
 ├── CNAME             # custom domain for GitHub Pages
@@ -28,12 +29,14 @@ python3 -m http.server 8000
 ## Editing content
 
 Everything lives in `index.html` and is commented by section
-(About, Work, Experience, Skills, Contact). To add a project, copy any
-`<article class="project">` block. To add a role, copy a `<li class="timeline__item">`.
+(Work, About, Experience, Education, Skills, Contact). To add a project, copy any
+`<article class="project">` block; for a one-line entry, copy an
+`<li class="also__item">` in the "Also built" index below the cards. To add a
+role, copy a `<li class="timeline__item">`.
 
 ## Changing the look
 
-Open `css/style.css` — the `:root` block at the top holds all colors, fonts,
+Open `css/style.css`. The `:root` block at the top holds all colors, fonts,
 spacing, and the single accent color. Change `--accent`, swap the Google Fonts
 in `index.html`, and the whole site follows. A `[data-theme="dark"]` palette is
 already stubbed in if you want to wire up a light/dark toggle.
