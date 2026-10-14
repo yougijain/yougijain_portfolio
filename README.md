@@ -1,6 +1,7 @@
 # yougijain.com
 
-Personal portfolio for Madhiyougi (Yougi) Jain — data science & informatics.
+Personal portfolio for Madhiyougi (Yougi) Jain — ML engineering, low-latency
+inference, and applied statistics.
 Plain HTML/CSS/JS, no build step. Clean and minimal now, easy to push toward a
 more creative direction later.
 
@@ -28,8 +29,10 @@ python3 -m http.server 8000
 ## Editing content
 
 Everything lives in `index.html` and is commented by section
-(About, Work, Experience, Skills, Contact). To add a project, copy any
-`<article class="project">` block. To add a role, copy a `<li class="timeline__item">`.
+(Work, About, Experience, Education, Skills, Contact). To add a project, copy any
+`<article class="project">` block; for a one-line entry, copy an
+`<li class="also__item">` in the "Also built" index below the cards. To add a
+role, copy a `<li class="timeline__item">`.
 
 ## Changing the look
 
