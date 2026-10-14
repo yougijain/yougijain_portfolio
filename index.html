@@ -314,26 +314,29 @@
             <article class="project reveal">
               <div class="project__meta">
                 <span class="project__year">Jun 2026</span>
-                <span class="project__type">Simulation / Full-Stack</span>
+                <span class="project__badge">Live</span>
+                <span class="project__type">Monte Carlo / Full-Stack</span>
               </div>
               <div class="project__body">
                 <h3 class="project__title">LineLab — Decision Coach</h3>
                 <p class="project__desc">
                   A beginner-focused Teamfight Tactics coach built on an original Monte Carlo
-                  expected-value engine. Describe a game state and the FastAPI solver simulates
-                  thousands of rollouts, then collapses the EV table into one move — roll,
-                  level, save, or stabilize — with a plain-English why. Includes a playable
-                  Arena that grades every decision post-game.
+                  expected-value engine. Describe a game state and the FastAPI solver runs
+                  3,000 seeded rollouts per candidate move, sharing random numbers across
+                  moves so the comparison isn't drowned in simulation noise, then collapses
+                  the EV table into one call — roll, level, save, or stabilize — with a
+                  plain-English why. A playable Arena grades every decision post-game.
                 </p>
                 <dl class="stats">
+                  <div class="stat"><dt>Rollouts / move</dt><dd>3,000</dd></div>
+                  <div class="stat"><dt>Moves compared</dt><dd>4</dd></div>
                   <div class="stat"><dt>Lessons</dt><dd>14</dd></div>
-                  <div class="stat"><dt>Modules</dt><dd>5</dd></div>
-                  <div class="stat"><dt>Coach verbs</dt><dd>4</dd></div>
                 </dl>
                 <ul class="tags">
                   <li>Python</li><li>FastAPI</li><li>Monte Carlo</li><li>Next.js</li><li>TypeScript</li><li>Supabase</li>
                 </ul>
                 <div class="project__links">
+                  <a href="https://linelab-yougijain.vercel.app" target="_blank" rel="noopener">Live site ↗</a>
                   <a href="https://github.com/yougijain/LineLab" target="_blank" rel="noopener">GitHub ↗</a>
                 </div>
               </div>
