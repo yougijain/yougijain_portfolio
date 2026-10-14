@@ -63,7 +63,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/style.css?v=15" />
+  <link rel="stylesheet" href="css/style.css?v=16" />
 </head>
 <body>
   <!-- Skip link for accessibility -->
@@ -248,35 +248,6 @@
             <!-- Project 4 -->
             <article class="project reveal">
               <div class="project__meta">
-                <span class="project__year">Jul 2026</span>
-                <span class="project__type">Automation / LLM Pipeline</span>
-              </div>
-              <div class="project__body">
-                <h3 class="project__title">Seed Miner</h3>
-                <p class="project__desc">
-                  A scheduled GitHub Actions pipeline that samples one domain × technique
-                  pairing each weekday from an 89-cell matrix and has the Claude API draft a
-                  small, standalone analysis project for it. A manual promote/reject gate
-                  feeds back into sampling weights — decay-weighted, Laplace-smoothed
-                  promotion rates with a novelty bonus — so exploration never shuts off.
-                </p>
-                <dl class="stats">
-                  <div class="stat"><dt>Seeds generated</dt><dd>40+</dd></div>
-                  <div class="stat"><dt>Matrix cells</dt><dd>89</dd></div>
-                  <div class="stat"><dt>Cadence</dt><dd>Weekdays</dd></div>
-                </dl>
-                <ul class="tags">
-                  <li>Python</li><li>Claude API</li><li>GitHub Actions</li><li>Weighted sampling</li>
-                </ul>
-                <div class="project__links">
-                  <a href="https://github.com/yougijain/seed-miner" target="_blank" rel="noopener">GitHub ↗</a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Project 5 -->
-            <article class="project reveal">
-              <div class="project__meta">
                 <span class="project__year">Jun 2026</span>
                 <span class="project__type">Experimentation / Causal</span>
               </div>
@@ -305,7 +276,7 @@
               </div>
             </article>
 
-            <!-- Project 6 -->
+            <!-- Project 5 -->
             <article class="project reveal">
               <div class="project__meta">
                 <span class="project__year">Sep 2026</span>
@@ -339,7 +310,7 @@
               </div>
             </article>
 
-            <!-- Project 7 -->
+            <!-- Project 6 -->
             <article class="project reveal">
               <div class="project__meta">
                 <span class="project__year">Jun 2026</span>
@@ -368,64 +339,44 @@
               </div>
             </article>
 
-            <!-- Project 8 -->
-            <article class="project reveal">
-              <div class="project__meta">
-                <span class="project__year">Dec 2025</span>
-                <span class="project__type">Machine Learning</span>
-              </div>
-              <div class="project__body">
-                <h3 class="project__title">Bank Customer Churn Prediction</h3>
-                <p class="project__desc">
-                  An end-to-end R report flagging at-risk customers across 10,000 records and
-                  14 features. Logistic regression vs. Random Forest under 5-fold
-                  cross-validation, handling a 20.4% churn class imbalance, with decision
-                  thresholds tied to retention strategy.
-                </p>
-                <dl class="stats">
-                  <div class="stat"><dt>Records</dt><dd>10,000</dd></div>
-                  <div class="stat"><dt>Features</dt><dd>14</dd></div>
-                  <div class="stat"><dt>Churn rate</dt><dd>20.4%</dd></div>
-                </dl>
-                <ul class="tags">
-                  <li>R</li><li>Classification</li><li>Random Forest</li><li>Class imbalance</li><li>Cross-validation</li>
-                </ul>
-                <div class="project__links">
-                  <a href="https://drive.google.com/file/d/1z5jXN66sjxblivLzVYl0mpibCz6VO1iD/view" target="_blank" rel="noopener">Read report ↗</a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Project 9 -->
-            <article class="project reveal">
-              <div class="project__meta">
-                <span class="project__year">Aug 2025</span>
-                <span class="project__type">Data Architecture</span>
-              </div>
-              <div class="project__body">
-                <h3 class="project__title">Plug — Campus Marketplace</h3>
-                <p class="project__desc">
-                  Selected for Purdue's Market Readiness Incubator. As project manager, I
-                  designed the analytics-ready PostgreSQL (Supabase) backend — a relational
-                  schema with SQL CRUD plus multi-field search, sorting, and pagination,
-                  backed by integrity checks.
-                </p>
-                <dl class="stats">
-                  <div class="stat"><dt>Backend</dt><dd>PostgreSQL</dd></div>
-                  <div class="stat"><dt>Queries</dt><dd>CRUD + search</dd></div>
-                  <div class="stat"><dt>Selected</dt><dd>Purdue Incubator</dd></div>
-                </dl>
-                <ul class="tags">
-                  <li>PostgreSQL</li><li>Supabase</li><li>SQL</li><li>Data Modeling</li>
-                </ul>
-                <div class="project__links">
-                  <a href="https://github.com/yougijain/plug" target="_blank" rel="noopener">GitHub ↗</a>
-                </div>
-              </div>
-            </article>
-
             <!-- Add new projects above this line. -->
 
+          </div>
+
+          <!-- Compact index: real work that sits off the main thread, one
+               hairline row each. Copy an <li class="also__item"> to add one. -->
+          <div class="also reveal">
+            <h3 class="also__label">Also built</h3>
+            <ul class="also__list">
+              <li class="also__item">
+                <a href="https://github.com/yougijain/text-vs-timing" target="_blank" rel="noopener">
+                  <span class="also__name">Text vs. Timing</span>
+                  <span class="also__year">Oct 2026</span>
+                  <span class="also__desc">Engagement-prediction ablation: TF-IDF, frozen MiniLM, and fine-tuned BERT, each with and without the timestamp, on one split. 401 offline tests; real-corpus results pending.</span>
+                </a>
+              </li>
+              <li class="also__item">
+                <a href="https://github.com/yougijain/seed-miner" target="_blank" rel="noopener">
+                  <span class="also__name">Seed Miner</span>
+                  <span class="also__year">Jul 2026</span>
+                  <span class="also__desc">Weekday GitHub Actions pipeline that drafts analysis-project seeds with the Claude API; promote/reject reviews re-weight sampling through decay-weighted, Laplace-smoothed rates.</span>
+                </a>
+              </li>
+              <li class="also__item">
+                <a href="https://drive.google.com/file/d/1z5jXN66sjxblivLzVYl0mpibCz6VO1iD/view" target="_blank" rel="noopener">
+                  <span class="also__name">Bank Customer Churn</span>
+                  <span class="also__year">Dec 2025</span>
+                  <span class="also__desc">Logistic regression vs. Random Forest in R on 10,000 customers: 5-fold cross-validation, a 20.4% churn class, and decision thresholds tied to retention strategy.</span>
+                </a>
+              </li>
+              <li class="also__item">
+                <a href="https://github.com/yougijain/plug" target="_blank" rel="noopener">
+                  <span class="also__name">Plug</span>
+                  <span class="also__year">Aug 2025</span>
+                  <span class="also__desc">Campus marketplace selected for Purdue's Market Readiness Incubator; as project manager I designed its PostgreSQL (Supabase) schema and search queries.</span>
+                </a>
+              </li>
+            </ul>
           </div>
 
           <a class="work__more" href="https://github.com/yougijain" target="_blank" rel="noopener">More projects on GitHub ↗</a>
