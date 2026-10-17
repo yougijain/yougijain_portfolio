@@ -492,10 +492,15 @@ html.js .stat-strip.reveal.is-visible > div { opacity: 1; transform: none; }
 }
 .project__links a:hover { border-color: var(--accent); color: var(--accent); }
 
+/* Work groups: the full cards are split into labelled sets. The label
+   shares the "Also built" style below; groups stack with the same gap. */
+.work-group + .work-group { margin-top: var(--space-4); }
+
 /* "Also built" — a compact index under the full cards. Same hairline rhythm
    as .projects, one row per item: name and year on a line, the summary below
    on narrow screens, three columns once there's room. */
 .also { margin-top: var(--space-4); }
+.work-group__label,
 .also__label {
   font-family: var(--font-mono); font-size: var(--step--2); font-weight: 400;
   text-transform: uppercase; letter-spacing: 0.12em;

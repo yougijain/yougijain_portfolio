@@ -63,7 +63,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/style.css?v=16" />
+  <link rel="stylesheet" href="css/style.css?v=17" />
 </head>
 <body>
   <!-- Skip link for accessibility -->
@@ -138,214 +138,223 @@
 
     <!-- ============================================================
          WORK / PROJECTS
-         Duplicate an <article class="project"> block to add more.
+         Split into labelled .work-group blocks. Duplicate an
+         <article class="project"> inside a group to add more.
          ============================================================ -->
     <section class="section" id="work">
       <div class="container section__grid">
         <div class="section__label"><span class="section__num">01</span> Selected Work</div>
         <div class="section__body">
 
-          <div class="projects">
+          <!-- Group 1: pricing a decision under uncertainty. -->
+          <div class="work-group">
+            <h3 class="work-group__label">EV and sizing</h3>
+            <div class="projects">
 
-            <!-- Project 1 (featured) -->
-            <article class="project project--featured reveal" id="poker-trainer">
-              <div class="project__meta">
-                <span class="project__year">Aug 2026</span>
-                <span class="project__type">Game Theory / EV Engine</span>
-              </div>
-              <div class="project__body">
-                <h3 class="project__title">Poker Trainer</h3>
-                <p class="project__desc">
-                  A no-limit hold'em trainer for 2 to 6 handed cash games. You enter the spot
-                  and it returns the GTO baseline, the EV of every alternative in big blinds,
-                  and the adjustment for the players at the table. Equity is enumerated
-                  exactly when the work fits in 400K hand evaluations and estimated by Monte
-                  Carlo otherwise. Exploits are computed by changing the model of an opponent,
-                  such as how much equity they need before they call, and re-running the same
-                  EV comparison. Bluffs stay capped at the b/(p+b) ratio unless a read says the
-                  opponent folds too much.
-                </p>
-                <dl class="stats">
-                  <div class="stat"><dt>Test assertions</dt><dd>501</dd></div>
-                  <div class="stat"><dt>Starting hands</dt><dd>169</dd></div>
-                  <div class="stat"><dt>Players</dt><dd>2–6</dd></div>
-                </dl>
-                <ul class="tags">
-                  <li>JavaScript</li><li>Node.js</li><li>Monte Carlo</li><li>Exact enumeration</li><li>Game theory</li>
-                </ul>
-                <div class="project__links">
-                  <a href="https://github.com/yougijain/poker-trainer" target="_blank" rel="noopener">GitHub ↗</a>
+              <article class="project project--featured reveal" id="poker-trainer">
+                <div class="project__meta">
+                  <span class="project__year">Aug 2026</span>
+                  <span class="project__type">Game Theory / EV Engine</span>
                 </div>
-              </div>
-            </article>
-
-            <!-- Project 2 -->
-            <article class="project reveal" id="nyc-collisions">
-              <div class="project__meta">
-                <span class="project__year">Sep 2026</span>
-                <span class="project__badge">Live</span>
-                <span class="project__type">ML / Calibrated Risk Model</span>
-              </div>
-              <div class="project__body">
-                <h3 class="project__title">NYC Collisions</h3>
-                <p class="project__desc">
-                  A gradient-boosted model estimates how likely each of 637K NYC crashes was to
-                  injure someone. It sees what was involved in a crash but not where it happened,
-                  so each intersection can be compared with what its own crashes predict. The model
-                  is fit on 2020–2023, calibrated on 2024, and tested on 2025 onward. A backtest
-                  against a permutation null shows the ranking does predict later excess injuries,
-                  though about as well as a plain injury-rate sort. New data and a retrain land
-                  every Monday.
-                </p>
-                <dl class="stats">
-                  <div class="stat"><dt>Crashes</dt><dd>637,256</dd></div>
-                  <div class="stat"><dt>ROC-AUC</dt><dd>0.794</dd></div>
-                  <div class="stat"><dt>Brier skill</dt><dd>+26.9%</dd></div>
-                </dl>
-                <ul class="tags">
-                  <li>Python</li><li>scikit-learn</li><li>DuckDB</li><li>Parquet</li><li>GitHub Actions</li><li>Streamlit</li>
-                </ul>
-                <div class="project__links">
-                  <a href="https://nyc-collisions-current.streamlit.app/" target="_blank" rel="noopener">Live app ↗</a>
-                  <a href="https://github.com/yougijain/NYC-Collisions/blob/main/docs/model_card.md" target="_blank" rel="noopener">Model card ↗</a>
-                  <a href="https://github.com/yougijain/NYC-Collisions" target="_blank" rel="noopener">GitHub ↗</a>
+                <div class="project__body">
+                  <h4 class="project__title">Poker Trainer</h4>
+                  <p class="project__desc">
+                    A no-limit hold'em trainer for 2 to 6 handed cash games. You enter the spot
+                    and it returns the GTO baseline, the EV of every alternative in big blinds,
+                    and the adjustment for the players at the table. Equity is enumerated
+                    exactly when the work fits in 400K hand evaluations and estimated by Monte
+                    Carlo otherwise. Exploits are computed by changing the model of an opponent,
+                    such as how much equity they need before they call, and re-running the same
+                    EV comparison. Bluffs stay capped at the b/(p+b) ratio unless a read says the
+                    opponent folds too much.
+                  </p>
+                  <dl class="stats">
+                    <div class="stat"><dt>Test assertions</dt><dd>501</dd></div>
+                    <div class="stat"><dt>Starting hands</dt><dd>169</dd></div>
+                    <div class="stat"><dt>Players</dt><dd>2–6</dd></div>
+                  </dl>
+                  <ul class="tags">
+                    <li>JavaScript</li><li>Node.js</li><li>Monte Carlo</li><li>Exact enumeration</li><li>Game theory</li>
+                  </ul>
+                  <div class="project__links">
+                    <a href="https://github.com/yougijain/poker-trainer" target="_blank" rel="noopener">GitHub ↗</a>
+                  </div>
                 </div>
-              </div>
-            </article>
+              </article>
 
-            <!-- Project 3 -->
-            <article class="project reveal">
-              <div class="project__meta">
-                <span class="project__year">Sep 2026</span>
-                <span class="project__badge">Live</span>
-                <span class="project__type">Real-Time CV / Forecasting</span>
-              </div>
-              <div class="project__body">
-                <h3 class="project__title">Hall Check</h3>
-                <p class="project__desc">
-                  Counts the people in line at UMass dining halls from the public video streams
-                  every two minutes. YOLO11n runs on a CPU and counts people whose feet fall inside
-                  a queue polygon. The frame is discarded in the same function call, and a test
-                  fails the build if any code path could save pixels. The 30-minute forecast only
-                  ships if it beats last-week, yesterday, and persistence baselines on an embargoed
-                  time split. A separate check compares each camera with its own last two weeks to
-                  catch one that has been moved.
-                </p>
-                <dl class="stats">
-                  <div class="stat"><dt>Cadence</dt><dd>2 min</dd></div>
-                  <div class="stat"><dt>Frames stored</dt><dd>0</dd></div>
-                  <div class="stat"><dt>Worker tests</dt><dd>225</dd></div>
-                </dl>
-                <ul class="tags">
-                  <li>Python</li><li>YOLO11</li><li>HistGradientBoosting</li><li>PostgreSQL</li><li>Next.js</li><li>Docker</li>
-                </ul>
-                <div class="project__links">
-                  <a href="https://hall-check.vercel.app" target="_blank" rel="noopener">Live site ↗</a>
-                  <a href="https://github.com/yougijain/hall-check" target="_blank" rel="noopener">GitHub ↗</a>
+              <article class="project reveal">
+                <div class="project__meta">
+                  <span class="project__year">Jun 2026</span>
+                  <span class="project__badge">Live</span>
+                  <span class="project__type">Monte Carlo / Full-Stack</span>
                 </div>
-              </div>
-            </article>
-
-            <!-- Project 4 -->
-            <article class="project reveal">
-              <div class="project__meta">
-                <span class="project__year">Jun 2026</span>
-                <span class="project__type">Experimentation / Causal</span>
-              </div>
-              <div class="project__body">
-                <h3 class="project__title">When Average Effects Lie</h3>
-                <p class="project__desc">
-                  Turns a 64,000-customer randomized email test into a targeting plan. The Women's
-                  email raises site visits by 4.5 points on average, but that splits into 7.3 points
-                  for past buyers of women's merchandise and 1.1 for everyone else. After balance
-                  checks, Lin-adjusted effects, and FDR-corrected interaction tests, I compared T-,
-                  S-, and DR-learners by cross-fitted Qini. The chosen policy is worth $16.95 more
-                  per 1,000 customers (95% bootstrap interval $2.99 to $30.60) and sends 41% fewer
-                  emails.
-                </p>
-                <dl class="stats">
-                  <div class="stat"><dt>Customers</dt><dd>64,000</dd></div>
-                  <div class="stat"><dt>Gain / 1K</dt><dd>+$16.95</dd></div>
-                  <div class="stat"><dt>Contacts saved</dt><dd>41%</dd></div>
-                </dl>
-                <ul class="tags">
-                  <li>Python</li><li>Causal inference</li><li>Uplift modeling</li><li>Bootstrap</li><li>Randomization inference</li><li>statsmodels</li>
-                </ul>
-                <div class="project__links">
-                  <a href="https://yougijain.github.io/When-Average-Effects-Lie/" target="_blank" rel="noopener">Interactive write-up ↗</a>
-                  <a href="https://github.com/yougijain/When-Average-Effects-Lie" target="_blank" rel="noopener">GitHub ↗</a>
+                <div class="project__body">
+                  <h4 class="project__title">LineLab</h4>
+                  <p class="project__desc">
+                    A Teamfight Tactics coach for beginners, built on a Monte Carlo expected-value
+                    engine I wrote. You describe a game state and the FastAPI solver plays out 3,000
+                    seeded games for each candidate move. Every move is simulated with the same random
+                    numbers, which cuts the variance of the comparison. It recommends one move (roll,
+                    level, save, or stabilize) and says why. A playable Arena grades your decisions
+                    after each game.
+                  </p>
+                  <dl class="stats">
+                    <div class="stat"><dt>Rollouts / move</dt><dd>3,000</dd></div>
+                    <div class="stat"><dt>Moves compared</dt><dd>4</dd></div>
+                    <div class="stat"><dt>Lessons</dt><dd>14</dd></div>
+                  </dl>
+                  <ul class="tags">
+                    <li>Python</li><li>FastAPI</li><li>Monte Carlo</li><li>Next.js</li><li>TypeScript</li><li>Supabase</li>
+                  </ul>
+                  <div class="project__links">
+                    <a href="https://linelab-yougijain.vercel.app" target="_blank" rel="noopener">Live site ↗</a>
+                    <a href="https://github.com/yougijain/LineLab" target="_blank" rel="noopener">GitHub ↗</a>
+                  </div>
                 </div>
-              </div>
-            </article>
+              </article>
 
-            <!-- Project 5 -->
-            <article class="project reveal">
-              <div class="project__meta">
-                <span class="project__year">Sep 2026</span>
-                <span class="project__badge">Live</span>
-                <span class="project__type">Applied Statistics</span>
-              </div>
-              <div class="project__body">
-                <h3 class="project__title">Crate Intelligence</h3>
-                <p class="project__desc">
-                  Product analytics on Spotify listening history, pointed at DJ questions and built
-                  on DuckDB. Shuffle causes more skips and also more key clashes, so I tested
-                  harmonic mixing with a Cochran–Mantel–Haenszel test stratified on shuffle. On the
-                  bundled synthetic sample, pooling the data would overstate the clash effect by
-                  38%. Tracks are ranked by Wilson lower bounds, and the beam-search set builder is
-                  benchmarked against greedy and 200 random orderings. None of my own listening
-                  data is in the repo.
-                </p>
-                <dl class="stats">
-                  <div class="stat"><dt>Adjusted OR</dt><dd>1.70</dd></div>
-                  <div class="stat"><dt>Pooled OR</dt><dd>2.35</dd></div>
-                  <div class="stat"><dt>Data</dt><dd>Synthetic</dd></div>
-                </dl>
-                <ul class="tags">
-                  <li>SQL</li><li>DuckDB</li><li>Python</li><li>Stratified testing</li><li>Wilson intervals</li><li>Beam search</li>
-                </ul>
-                <div class="project__links">
-                  <a href="https://crate-intelligence-yougijain.vercel.app" target="_blank" rel="noopener">Live dashboard ↗</a>
-                  <a href="https://github.com/yougijain/spotify-listening-analysis/blob/main/REPORT.md" target="_blank" rel="noopener">Report ↗</a>
-                  <a href="https://github.com/yougijain/spotify-listening-analysis" target="_blank" rel="noopener">GitHub ↗</a>
+              <article class="project reveal">
+                <div class="project__meta">
+                  <span class="project__year">Jun 2026</span>
+                  <span class="project__type">Experimentation / Causal</span>
                 </div>
-              </div>
-            </article>
-
-            <!-- Project 6 -->
-            <article class="project reveal">
-              <div class="project__meta">
-                <span class="project__year">Jun 2026</span>
-                <span class="project__badge">Live</span>
-                <span class="project__type">Monte Carlo / Full-Stack</span>
-              </div>
-              <div class="project__body">
-                <h3 class="project__title">LineLab</h3>
-                <p class="project__desc">
-                  A Teamfight Tactics coach for beginners, built on a Monte Carlo expected-value
-                  engine I wrote. You describe a game state and the FastAPI solver plays out 3,000
-                  seeded games for each candidate move. Every move is simulated with the same random
-                  numbers, which cuts the variance of the comparison. It recommends one move (roll,
-                  level, save, or stabilize) and says why. A playable Arena grades your decisions
-                  after each game.
-                </p>
-                <dl class="stats">
-                  <div class="stat"><dt>Rollouts / move</dt><dd>3,000</dd></div>
-                  <div class="stat"><dt>Moves compared</dt><dd>4</dd></div>
-                  <div class="stat"><dt>Lessons</dt><dd>14</dd></div>
-                </dl>
-                <ul class="tags">
-                  <li>Python</li><li>FastAPI</li><li>Monte Carlo</li><li>Next.js</li><li>TypeScript</li><li>Supabase</li>
-                </ul>
-                <div class="project__links">
-                  <a href="https://linelab-yougijain.vercel.app" target="_blank" rel="noopener">Live site ↗</a>
-                  <a href="https://github.com/yougijain/LineLab" target="_blank" rel="noopener">GitHub ↗</a>
+                <div class="project__body">
+                  <h4 class="project__title">When Average Effects Lie</h4>
+                  <p class="project__desc">
+                    Turns a 64,000-customer randomized email test into a targeting plan. The Women's
+                    email raises site visits by 4.5 points on average, but that splits into 7.3 points
+                    for past buyers of women's merchandise and 1.1 for everyone else. After balance
+                    checks, Lin-adjusted effects, and FDR-corrected interaction tests, I compared T-,
+                    S-, and DR-learners by cross-fitted Qini. The chosen policy is worth $16.95 more
+                    per 1,000 customers (95% bootstrap interval $2.99 to $30.60) and sends 41% fewer
+                    emails.
+                  </p>
+                  <dl class="stats">
+                    <div class="stat"><dt>Customers</dt><dd>64,000</dd></div>
+                    <div class="stat"><dt>Gain / 1K</dt><dd>+$16.95</dd></div>
+                    <div class="stat"><dt>Contacts saved</dt><dd>41%</dd></div>
+                  </dl>
+                  <ul class="tags">
+                    <li>Python</li><li>Causal inference</li><li>Uplift modeling</li><li>Bootstrap</li><li>Randomization inference</li><li>statsmodels</li>
+                  </ul>
+                  <div class="project__links">
+                    <a href="https://yougijain.github.io/When-Average-Effects-Lie/" target="_blank" rel="noopener">Interactive write-up ↗</a>
+                    <a href="https://github.com/yougijain/When-Average-Effects-Lie" target="_blank" rel="noopener">GitHub ↗</a>
+                  </div>
                 </div>
-              </div>
-            </article>
+              </article>
 
-            <!-- Add new projects above this line. -->
+              <!-- Add new projects to this group above this line. -->
 
+            </div>
+          </div>
+
+          <!-- Group 2: checking a result against baselines and out-of-sample data. -->
+          <div class="work-group">
+            <h3 class="work-group__label">Not fooling myself</h3>
+            <div class="projects">
+
+              <article class="project reveal" id="nyc-collisions">
+                <div class="project__meta">
+                  <span class="project__year">Sep 2026</span>
+                  <span class="project__badge">Live</span>
+                  <span class="project__type">ML / Calibrated Risk Model</span>
+                </div>
+                <div class="project__body">
+                  <h4 class="project__title">NYC Collisions</h4>
+                  <p class="project__desc">
+                    A gradient-boosted model estimates how likely each of 637K NYC crashes was to
+                    injure someone. It sees what was involved in a crash but not where it happened,
+                    so each intersection can be compared with what its own crashes predict. The model
+                    is fit on 2020–2023, calibrated on 2024, and tested on 2025 onward. A backtest
+                    against a permutation null shows the ranking does predict later excess injuries,
+                    though about as well as a plain injury-rate sort. New data and a retrain land
+                    every Monday.
+                  </p>
+                  <dl class="stats">
+                    <div class="stat"><dt>Crashes</dt><dd>637,256</dd></div>
+                    <div class="stat"><dt>ROC-AUC</dt><dd>0.794</dd></div>
+                    <div class="stat"><dt>Brier skill</dt><dd>+26.9%</dd></div>
+                  </dl>
+                  <ul class="tags">
+                    <li>Python</li><li>scikit-learn</li><li>DuckDB</li><li>Parquet</li><li>GitHub Actions</li><li>Streamlit</li>
+                  </ul>
+                  <div class="project__links">
+                    <a href="https://nyc-collisions-current.streamlit.app/" target="_blank" rel="noopener">Live app ↗</a>
+                    <a href="https://github.com/yougijain/NYC-Collisions/blob/main/docs/model_card.md" target="_blank" rel="noopener">Model card ↗</a>
+                    <a href="https://github.com/yougijain/NYC-Collisions" target="_blank" rel="noopener">GitHub ↗</a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project reveal">
+                <div class="project__meta">
+                  <span class="project__year">Sep 2026</span>
+                  <span class="project__badge">Live</span>
+                  <span class="project__type">Real-Time CV / Forecasting</span>
+                </div>
+                <div class="project__body">
+                  <h4 class="project__title">Hall Check</h4>
+                  <p class="project__desc">
+                    Counts the people in line at UMass dining halls from the public video streams
+                    every two minutes. YOLO11n runs on a CPU and counts people whose feet fall inside
+                    a queue polygon. The frame is discarded in the same function call, and a test
+                    fails the build if any code path could save pixels. The 30-minute forecast only
+                    ships if it beats last-week, yesterday, and persistence baselines on an embargoed
+                    time split. A separate check compares each camera with its own last two weeks to
+                    catch one that has been moved.
+                  </p>
+                  <dl class="stats">
+                    <div class="stat"><dt>Cadence</dt><dd>2 min</dd></div>
+                    <div class="stat"><dt>Frames stored</dt><dd>0</dd></div>
+                    <div class="stat"><dt>Worker tests</dt><dd>225</dd></div>
+                  </dl>
+                  <ul class="tags">
+                    <li>Python</li><li>YOLO11</li><li>HistGradientBoosting</li><li>PostgreSQL</li><li>Next.js</li><li>Docker</li>
+                  </ul>
+                  <div class="project__links">
+                    <a href="https://hall-check.vercel.app" target="_blank" rel="noopener">Live site ↗</a>
+                    <a href="https://github.com/yougijain/hall-check" target="_blank" rel="noopener">GitHub ↗</a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project reveal">
+                <div class="project__meta">
+                  <span class="project__year">Sep 2026</span>
+                  <span class="project__badge">Live</span>
+                  <span class="project__type">Applied Statistics</span>
+                </div>
+                <div class="project__body">
+                  <h4 class="project__title">Crate Intelligence</h4>
+                  <p class="project__desc">
+                    Product analytics on Spotify listening history, pointed at DJ questions and built
+                    on DuckDB. Shuffle causes more skips and also more key clashes, so I tested
+                    harmonic mixing with a Cochran–Mantel–Haenszel test stratified on shuffle. On the
+                    bundled synthetic sample, pooling the data would overstate the clash effect by
+                    38%. Tracks are ranked by Wilson lower bounds, and the beam-search set builder is
+                    benchmarked against greedy and 200 random orderings. None of my own listening
+                    data is in the repo.
+                  </p>
+                  <dl class="stats">
+                    <div class="stat"><dt>Adjusted OR</dt><dd>1.70</dd></div>
+                    <div class="stat"><dt>Pooled OR</dt><dd>2.35</dd></div>
+                    <div class="stat"><dt>Data</dt><dd>Synthetic</dd></div>
+                  </dl>
+                  <ul class="tags">
+                    <li>SQL</li><li>DuckDB</li><li>Python</li><li>Stratified testing</li><li>Wilson intervals</li><li>Beam search</li>
+                  </ul>
+                  <div class="project__links">
+                    <a href="https://crate-intelligence-yougijain.vercel.app" target="_blank" rel="noopener">Live dashboard ↗</a>
+                    <a href="https://github.com/yougijain/spotify-listening-analysis/blob/main/REPORT.md" target="_blank" rel="noopener">Report ↗</a>
+                    <a href="https://github.com/yougijain/spotify-listening-analysis" target="_blank" rel="noopener">GitHub ↗</a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Add new projects to this group above this line. -->
+
+            </div>
           </div>
 
           <!-- Compact index: real work that sits off the main thread, one
