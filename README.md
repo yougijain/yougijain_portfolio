@@ -1,7 +1,7 @@
 # yougijain.com
 
-Personal portfolio for Madhiyougi (Yougi) Jain, focused on machine learning and
-applied statistics.
+Personal portfolio for Madhiyougi (Yougi) Jain, aimed at quant research and
+trading: expected-value modeling, applied statistics, and poker.
 Plain HTML/CSS/JS, no build step. Clean and minimal now, easy to push toward a
 more creative direction later.
 
@@ -29,10 +29,11 @@ python3 -m http.server 8000
 ## Editing content
 
 Everything lives in `index.html` and is commented by section
-(Work, About, Experience, Education, Skills, Contact). To add a project, copy any
-`<article class="project">` block; for a one-line entry, copy an
-`<li class="also__item">` in the "Also built" index below the cards. To add a
-role, copy a `<li class="timeline__item">`.
+(Work, About, Experience, Education, Skills, Contact). Work is split into
+labelled `.work-group` blocks; to add a project, copy an
+`<article class="project">` inside the right group. For a one-line entry, copy
+an `<li class="also__item">` in the "Also built" index below the groups. To add
+a role, copy a `<li class="timeline__item">`.
 
 ## Changing the look
 
