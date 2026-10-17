@@ -269,6 +269,13 @@ html.js .hero__line:nth-child(2) .hero__line-inner { animation-delay: .22s; }
   color: var(--ink-soft);
   margin-bottom: var(--space-4);
 }
+/* Lede links point at project cards further down; underline them quietly. */
+.hero__lede a {
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+  transition: color .2s var(--ease), border-color .2s var(--ease);
+}
+.hero__lede a:hover { color: var(--accent); border-color: var(--accent); }
 .hero__actions { display: flex; align-items: center; gap: 1rem 1.5rem; flex-wrap: wrap; }
 /* Load-in choreography: eyebrow → title lines → lede → actions. */
 .hero__lede.reveal { transition-delay: .3s; }
@@ -426,6 +433,8 @@ html.js .stat-strip.reveal.is-visible > div { opacity: 1; transform: none; }
   padding: clamp(2.25rem, 4vw, 3.25rem) 0;
 }
 .project + .project { border-top: 1px solid var(--line); }
+/* Cards the hero links to land below the sticky nav, not under it. */
+.project[id] { scroll-margin-top: var(--nav-h); }
 /* Hover tint is a layer wider than the card, giving the copy breathing
    room while the text and rules stay aligned with the rest of the page. */
 .project::after {
