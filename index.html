@@ -148,7 +148,39 @@
           <div class="projects">
 
             <!-- Project 1 (featured) -->
-            <article class="project project--featured reveal">
+            <article class="project project--featured reveal" id="poker-trainer">
+              <div class="project__meta">
+                <span class="project__year">Aug 2026</span>
+                <span class="project__type">Game Theory / EV Engine</span>
+              </div>
+              <div class="project__body">
+                <h3 class="project__title">Poker Trainer</h3>
+                <p class="project__desc">
+                  A no-limit hold'em trainer for 2 to 6 handed cash games. You enter the spot
+                  and it returns the GTO baseline, the EV of every alternative in big blinds,
+                  and the adjustment for the players at the table. Equity is enumerated
+                  exactly when the work fits in 400K hand evaluations and estimated by Monte
+                  Carlo otherwise. Exploits are computed by changing the model of an opponent,
+                  such as how much equity they need before they call, and re-running the same
+                  EV comparison. Bluffs stay capped at the b/(p+b) ratio unless a read says the
+                  opponent folds too much.
+                </p>
+                <dl class="stats">
+                  <div class="stat"><dt>Test assertions</dt><dd>501</dd></div>
+                  <div class="stat"><dt>Starting hands</dt><dd>169</dd></div>
+                  <div class="stat"><dt>Players</dt><dd>2–6</dd></div>
+                </dl>
+                <ul class="tags">
+                  <li>JavaScript</li><li>Node.js</li><li>Monte Carlo</li><li>Exact enumeration</li><li>Game theory</li>
+                </ul>
+                <div class="project__links">
+                  <a href="https://github.com/yougijain/poker-trainer" target="_blank" rel="noopener">GitHub ↗</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 2 -->
+            <article class="project reveal" id="nyc-collisions">
               <div class="project__meta">
                 <span class="project__year">Sep 2026</span>
                 <span class="project__badge">Live</span>
@@ -181,7 +213,7 @@
               </div>
             </article>
 
-            <!-- Project 2 -->
+            <!-- Project 3 -->
             <article class="project reveal">
               <div class="project__meta">
                 <span class="project__year">Sep 2026</span>
@@ -214,7 +246,7 @@
               </div>
             </article>
 
-            <!-- Project 3 -->
+            <!-- Project 4 -->
             <article class="project reveal">
               <div class="project__meta">
                 <span class="project__year">Jun 2026</span>
@@ -246,7 +278,7 @@
               </div>
             </article>
 
-            <!-- Project 4 -->
+            <!-- Project 5 -->
             <article class="project reveal">
               <div class="project__meta">
                 <span class="project__year">Sep 2026</span>
@@ -280,7 +312,7 @@
               </div>
             </article>
 
-            <!-- Project 5 -->
+            <!-- Project 6 -->
             <article class="project reveal">
               <div class="project__meta">
                 <span class="project__year">Jun 2026</span>
