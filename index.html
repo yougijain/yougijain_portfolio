@@ -63,7 +63,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/style.css?v=20" />
+  <link rel="stylesheet" href="css/style.css?v=21" />
 </head>
 <body>
   <!-- Skip link for accessibility -->
@@ -79,6 +79,7 @@
       <div class="nav__right">
         <nav class="nav__links" aria-label="Primary">
           <a href="#work">Work</a>
+          <a href="#notes">Notes</a>
           <a href="#about">About</a>
           <a href="#experience">Experience</a>
           <a href="#education">Education</a>
@@ -415,11 +416,47 @@
     </section>
 
     <!-- ============================================================
+         NOTES
+         Short write-ups in notes/. Copy an <li class="index-list__item">
+         to add one.
+         ============================================================ -->
+    <section class="section" id="notes">
+      <div class="container section__grid">
+        <div class="section__label"><span class="section__num">02</span> Notes</div>
+        <div class="section__body">
+          <ul class="index-list index-list--stacked reveal">
+            <li class="index-list__item">
+              <a href="notes/win-rate-sample-size.html">
+                <span class="index-list__name">How many hands until a win rate means something?</span>
+                <span class="index-list__year">Oct 2026</span>
+                <span class="index-list__desc">A 5&nbsp;bb/100 edge needs about 124,000 hands before its 95% interval clears zero, and about 254,000 to clear it 80% of the time. With a calculator for your own numbers.</span>
+              </a>
+            </li>
+            <li class="index-list__item">
+              <a href="notes/bankroll-unknown-edge.html">
+                <span class="index-list__name">Sizing a bankroll when you don't know your edge</span>
+                <span class="index-list__year">Oct 2026</span>
+                <span class="index-list__desc">24 buy-ins give a 5&nbsp;bb/100 winner a 5% risk of ruin. If the true edge is half that, the risk is 22%, and sizing for the larger edge means zero long-run growth.</span>
+              </a>
+            </li>
+            <li class="index-list__item">
+              <a href="notes/correct-call-that-loses.html">
+                <span class="index-list__name">A correct call that loses 70% of the time</span>
+                <span class="index-list__year">Oct 2026</span>
+                <span class="index-list__desc">A +EV river call that loses 7 times in 10, and how often the correct strategy still shows a loss after 20, 100, and 500 calls.</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
          ABOUT
          ============================================================ -->
     <section class="section" id="about">
       <div class="container section__grid">
-        <div class="section__label"><span class="section__num">02</span> About</div>
+        <div class="section__label"><span class="section__num">03</span> About</div>
         <div class="section__body">
           <dl class="facts">
             <div class="fact">
@@ -464,7 +501,7 @@
          ============================================================ -->
     <section class="section" id="experience">
       <div class="container section__grid">
-        <div class="section__label"><span class="section__num">03</span> Experience</div>
+        <div class="section__label"><span class="section__num">04</span> Experience</div>
         <div class="section__body">
           <ol class="timeline">
 
@@ -525,7 +562,7 @@
          ============================================================ -->
     <section class="section" id="education">
       <div class="container section__grid">
-        <div class="section__label"><span class="section__num">04</span> Education</div>
+        <div class="section__label"><span class="section__num">05</span> Education</div>
         <div class="section__body">
           <article class="edu reveal">
             <div class="edu__head">
@@ -547,7 +584,7 @@
          ============================================================ -->
     <section class="section" id="skills">
       <div class="container section__grid">
-        <div class="section__label"><span class="section__num">05</span> Skills</div>
+        <div class="section__label"><span class="section__num">06</span> Skills</div>
         <div class="section__body">
           <div class="skills">
             <div class="skills__group">
@@ -580,7 +617,7 @@
          ============================================================ -->
     <section class="section section--contact" id="contact">
       <div class="container section__grid">
-        <div class="section__label"><span class="section__num">06</span> Contact</div>
+        <div class="section__label"><span class="section__num">07</span> Contact</div>
         <div class="section__body">
           <h2 class="contact__title">Looking for full-time roles from summer 2027.</h2>
           <p class="contact__lede">
