@@ -32,7 +32,7 @@ Everything lives in `index.html` and is commented by section
 (Work, About, Experience, Education, Skills, Contact). Work is split into
 labelled `.work-group` blocks; to add a project, copy an
 `<article class="project">` inside the right group. For a one-line entry, copy
-an `<li class="also__item">` in the "Also built" index below the groups. To add
+an `<li class="index-list__item">` in the "Also built" index below the groups. To add
 a role, copy a `<li class="timeline__item">`.
 
 ## Changing the look
