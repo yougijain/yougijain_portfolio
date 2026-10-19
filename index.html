@@ -259,25 +259,25 @@
 
               <article class="project reveal" id="nyc-collisions">
                 <div class="project__meta">
-                  <span class="project__year">Sep 2026</span>
+                  <span class="project__year">2025–2026</span>
                   <span class="project__badge">Live</span>
                   <span class="project__type">ML / Calibrated Risk Model</span>
                 </div>
                 <div class="project__body">
                   <h4 class="project__title">NYC Collisions</h4>
                   <p class="project__desc">
-                    A gradient-boosted model estimates how likely each of 637K NYC crashes was to
-                    injure someone. It sees what was involved in a crash but not where it happened,
-                    so each intersection can be compared with what its own crashes predict. The model
-                    is fit on 2020–2023, calibrated on 2024, and tested on 2025 onward. A backtest
-                    against a permutation null shows the ranking does predict later excess injuries,
-                    though about as well as a plain injury-rate sort. New data and a retrain land
-                    every Monday.
+                    A gradient-boosted model estimates how likely each crash was to injure someone
+                    from what was involved but not where it happened. On 121,970 held-out 2025–26
+                    crashes it scores ROC-AUC 0.79 against 0.54 for a borough-and-hour base rate.
+                    Five rolling-forward fits score 413,780 crashes so none is scored by a model that
+                    trained on it. Of 1,093 ranked intersections, 102 clear z = 1.96 where chance
+                    predicts about 27, and a backtest shows the ranking persists, though it only ties
+                    a no-model sort. A weekly job rebuilds all 637,256 crashes behind 318 tests.
                   </p>
                   <dl class="stats">
-                    <div class="stat"><dt>Crashes</dt><dd>637,256</dd></div>
-                    <div class="stat"><dt>ROC-AUC</dt><dd>0.794</dd></div>
+                    <div class="stat"><dt>ROC-AUC</dt><dd>0.79</dd></div>
                     <div class="stat"><dt>Brier skill</dt><dd>+26.9%</dd></div>
+                    <div class="stat"><dt>Sites past z = 1.96</dt><dd>102</dd></div>
                   </dl>
                   <ul class="tags">
                     <li>Python</li><li>scikit-learn</li><li>DuckDB</li><li>Parquet</li><li>GitHub Actions</li><li>Streamlit</li>
