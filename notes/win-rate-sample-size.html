@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Set theme before first paint to avoid a flash; flag JS so the
+       reveal animation only hides content when scripting is available. -->
+  <script>
+    (function () {
+      try {
+        var s = localStorage.getItem("theme");
+        var dark = s ? s === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme = dark ? "dark" : "light";
+        document.documentElement.classList.add("js");
+      } catch (e) {}
+    })();
+  </script>
+
+  <title>How many hands until a win rate means something? | Yougi Jain</title>
+  <meta name="description" content="A poker win rate is a sample mean with a huge standard deviation. The arithmetic for how many hands it takes before a 5 bb/100 edge is distinguishable from zero." />
+  <meta name="author" content="Madhiyougi Jain" />
+  <link rel="canonical" href="https://yougijain.com/notes/win-rate-sample-size.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="How many hands until a win rate means something?" />
+  <meta property="og:description" content="A poker win rate is a sample mean with a huge standard deviation. The arithmetic for how many hands it takes before a 5 bb/100 edge is distinguishable from zero." />
+  <meta property="og:url" content="https://yougijain.com/notes/win-rate-sample-size.html" />
+
+  <meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0c100e" media="(prefers-color-scheme: dark)" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/style.css?v=20" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="nav__brand" href="../index.html">Yougi Jain<span class="nav__dot">.</span></a>
+
+      <div class="nav__right">
+        <nav class="nav__links" aria-label="Primary">
+          <a href="../index.html#work">Work</a>
+          <a href="../index.html#notes">Notes</a>
+          <a href="../index.html#contact">Contact</a>
+        </nav>
+
+        <button class="nav__theme" id="themeToggle" type="button" aria-label="Switch theme" aria-pressed="false">
+          <svg class="nav__theme-sun" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2 2M17 17l2 2M19.1 4.9l-2 2M7 17l-2 2" />
+          </svg>
+          <svg class="nav__theme-moon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+          </svg>
+        </button>
+
+        <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <span class="nav__progress" aria-hidden="true"></span>
+  </header>
+
+  <main id="main">
+    <article class="note">
+      <div class="container note__inner">
+        <p class="note__meta"><a href="../index.html#notes">Notes</a> · Oct 2026</p>
+        <h1 class="note__title">How many hands until a win rate means something?</h1>
+        <p class="note__lede">
+          A poker win rate is a sample mean with a huge standard deviation. Before you
+          can say you beat a game, you need far more hands than most players expect.
+        </p>
+
+        <div class="note__body">
+          <h2>The setup</h2>
+          <p>
+            Results in no-limit hold'em cash games are quoted in big blinds won per 100
+            hands (bb/100). For a 6-max player, the standard deviation of that number is
+            commonly quoted at 80 to 100 bb/100. I'll use 90.
+          </p>
+          <p>
+            Over <i>n</i> hands you have <i>n</i>/100 blocks of 100 hands, so the standard
+            error of your observed win rate is
+          </p>
+          <p class="note__formula">SE = σ / √(n / 100)</p>
+          <p>and a 95% confidence interval is the observed rate plus or minus 1.96 × SE.</p>
+
+          <h2>What that looks like</h2>
+          <p>
+            Say you are a real 5 bb/100 winner, which is a good rate. Here is the 95%
+            interval around that +5 at different sample sizes, with σ = 90:
+          </p>
+          <div class="note__table-wrap">
+            <table class="note__table">
+              <thead>
+                <tr><th scope="col">Hands</th><th scope="col">Standard error</th><th scope="col">95% interval (bb/100)</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>10,000</td><td>9.0</td><td>−12.6 to +22.6</td></tr>
+                <tr><td>50,000</td><td>4.0</td><td>−2.9 to +12.9</td></tr>
+                <tr><td>100,000</td><td>2.8</td><td>−0.6 to +10.6</td></tr>
+                <tr><td>250,000</td><td>1.8</td><td>+1.5 to +8.5</td></tr>
+                <tr><td>1,000,000</td><td>0.9</td><td>+3.2 to +6.8</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            At 10,000 hands, which is a few months of regular play, the data can't tell a
+            strong winner from someone losing 12 bb/100.
+          </p>
+
+          <h2>The two numbers worth knowing</h2>
+          <p>For the interval around a true win rate <i>w</i> to clear zero, you need</p>
+          <p class="note__formula">n = 100 × (1.96 × σ / w)²</p>
+          <p>For <i>w</i> = 5 and σ = 90, that is about 124,000 hands.</p>
+          <p>
+            That number has a catch. If your true rate is exactly 5 and you play exactly
+            124,000 hands, your observed rate is as likely to land below 5 as above it, so
+            the interval clears zero only half the time. To clear it 80% of the time, which
+            is the usual bar for statistical power, add 0.84 to the 1.96:
+          </p>
+          <p class="note__formula">n = 100 × ((1.96 + 0.84) × σ / w)²</p>
+          <p>That comes to about 254,000 hands.</p>
+
+          <h2>Why I care outside poker</h2>
+          <p>
+            The same arithmetic decides whether a backtest or an A/B test means anything. A
+            strategy that looks good over a short window is a 10,000-hand sample. That is
+            why <a href="https://yougijain.github.io/When-Average-Effects-Lie/">When Average
+            Effects Lie</a> puts a bootstrap interval on every dollar figure, and why the
+            <a href="https://github.com/yougijain/NYC-Collisions#does-the-ranking-actually-predict-anything">NYC
+            Collisions backtest</a> checks its ranking against a permutation null before
+            calling it predictive.
+          </p>
+        </div>
+
+        <footer class="note__end">
+          <a href="../index.html#notes">← All notes</a>
+        </footer>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© <span id="year"></span> Madhiyougi Jain</span>
+      <span class="footer__meta">Amherst, MA · <span id="localTime"></span></span>
+    </div>
+  </footer>
+
+  <script src="../js/main.js?v=2"></script>
+</body>
+</html>
