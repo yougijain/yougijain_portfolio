@@ -129,6 +129,22 @@
           <p class="note__formula">n = 100 × ((1.96 + 0.84) × σ / w)²</p>
           <p>That comes to about 254,000 hands.</p>
 
+          <h2>Try your own numbers</h2>
+          <form class="calc" id="calc" novalidate>
+            <div class="calc__fields">
+              <label>Win rate (bb/100)
+                <input name="winrate" type="number" inputmode="decimal" min="0.1" step="0.1" value="5" />
+              </label>
+              <label>Standard deviation (bb/100)
+                <input name="sd" type="number" inputmode="decimal" min="1" step="1" value="90" />
+              </label>
+            </div>
+            <dl class="calc__out" aria-live="polite">
+              <div><dt>Clears zero half the time</dt><dd><output id="calc-n95">124,463</output> hands</dd></div>
+              <div><dt>Clears zero 80% of the time</dt><dd><output id="calc-n80">254,304</output> hands</dd></div>
+            </dl>
+          </form>
+
           <h2>Why I care outside poker</h2>
           <p>
             The same arithmetic decides whether a backtest or an A/B test means anything. A
@@ -156,5 +172,29 @@
   </footer>
 
   <script src="../js/main.js?v=2"></script>
+  <script>
+    // Hands needed for a 95% interval around win rate w to exclude zero,
+    // n = 100 * ((z + zPower) * sd / w)^2, with zPower = 0 (a coin flip) or
+    // 0.8416 (80% power). Mirrors the formulas in the note above.
+    (function () {
+      var form = document.getElementById("calc");
+      if (!form) return;
+      var Z95 = 1.959964, Z80 = 0.841621;
+      var out95 = document.getElementById("calc-n95");
+      var out80 = document.getElementById("calc-n80");
+      var hands = function (z, sd, w) {
+        return Math.round(100 * Math.pow(z * sd / w, 2)).toLocaleString("en-US");
+      };
+      var update = function () {
+        var w = parseFloat(form.winrate.value), sd = parseFloat(form.sd.value);
+        var ok = w > 0 && sd > 0 && isFinite(w) && isFinite(sd);
+        out95.textContent = ok ? hands(Z95, sd, w) : "–";
+        out80.textContent = ok ? hands(Z95 + Z80, sd, w) : "–";
+      };
+      form.addEventListener("input", update);
+      form.addEventListener("submit", function (e) { e.preventDefault(); });
+      update();
+    })();
+  </script>
 </body>
 </html>
