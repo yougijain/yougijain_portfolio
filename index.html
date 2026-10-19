@@ -225,20 +225,22 @@
                   <h4 class="project__title">When Average Effects Lie</h4>
                   <p class="project__desc">
                     Turns a 64,000-customer randomized email test into a targeting plan. The Women's
-                    email raises site visits by 4.5 points on average, but that splits into 7.3 points
-                    for past buyers of women's merchandise and 1.1 for everyone else. After balance
-                    checks, Lin-adjusted effects, and FDR-corrected interaction tests, I compared T-,
-                    S-, and DR-learners by cross-fitted Qini. The chosen policy is worth $16.95 more
-                    per 1,000 customers (95% bootstrap interval $2.99 to $30.60) and sends 41% fewer
-                    emails.
+                    email's +4.5-point visit lift splits into +7.3 for past buyers of women's
+                    merchandise and +1.1 for everyone else, with Benjamini–Hochberg control across the
+                    interaction tests. I picked among T-, S-, and DR-learners by 5-fold cross-fitted
+                    Qini on training rows. Picking on the reporting split would have quoted a
+                    men's-email Qini of 19.3 instead of 2.6. At cost break-even, targeting the Women's
+                    email adds $16.95 per 1,000 customers (95% CI $2.99 to $30.60) and sends 415 fewer
+                    emails. The Men's email goes to everyone, because its targeting gain can't be told
+                    from zero.
                   </p>
                   <dl class="stats">
                     <div class="stat"><dt>Customers</dt><dd>64,000</dd></div>
                     <div class="stat"><dt>Gain / 1K</dt><dd>+$16.95</dd></div>
-                    <div class="stat"><dt>Contacts saved</dt><dd>41%</dd></div>
+                    <div class="stat"><dt>Fewer emails / 1K</dt><dd>415</dd></div>
                   </dl>
                   <ul class="tags">
-                    <li>Python</li><li>Causal inference</li><li>Uplift modeling</li><li>Bootstrap</li><li>Randomization inference</li><li>statsmodels</li>
+                    <li>Python</li><li>scikit-learn</li><li>statsmodels</li><li>Uplift modeling</li><li>Causal inference</li><li>Bootstrap</li>
                   </ul>
                   <div class="project__links">
                     <a href="https://yougijain.github.io/When-Average-Effects-Lie/" target="_blank" rel="noopener">Interactive write-up ↗</a>
