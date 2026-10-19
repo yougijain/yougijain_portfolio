@@ -293,30 +293,30 @@
               <article class="project reveal">
                 <div class="project__meta">
                   <span class="project__year">Sep 2026</span>
-                  <span class="project__badge">Live</span>
+                  <span class="project__badge">In progress</span>
                   <span class="project__type">Real-Time CV / Forecasting</span>
                 </div>
                 <div class="project__body">
                   <h4 class="project__title">Hall Check</h4>
                   <p class="project__desc">
-                    Counts the people in line at UMass dining halls from the public video streams
+                    Counts the people in line at five public UMass dining-hall cameras, one frame
                     every two minutes. YOLO11n runs on a CPU and counts people whose feet fall inside
-                    a queue polygon. The frame is discarded in the same function call, and a test
-                    fails the build if any code path could save pixels. The 30-minute forecast only
-                    ships if it beats last-week, yesterday, and persistence baselines on an embargoed
-                    time split. A separate check compares each camera with its own last two weeks to
-                    catch one that has been moved.
+                    a queue polygon, and the frame is never stored: CI fails the build on any
+                    pixel-writing call or a detector save flag that isn't pinned off. The evaluation
+                    was fixed before any data came in. The accuracy report fails until 150+ blind
+                    hand counts cover every hall, meal, and lighting condition, and the 30-minute
+                    forecast fails unless it beats persistence and same-slot baselines. A daily drift
+                    check tells a moved camera from an outage.
                   </p>
                   <dl class="stats">
-                    <div class="stat"><dt>Cadence</dt><dd>2 min</dd></div>
+                    <div class="stat"><dt>Cameras</dt><dd>5</dd></div>
                     <div class="stat"><dt>Frames stored</dt><dd>0</dd></div>
-                    <div class="stat"><dt>Worker tests</dt><dd>225</dd></div>
+                    <div class="stat"><dt>Worker tests</dt><dd>228</dd></div>
                   </dl>
                   <ul class="tags">
-                    <li>Python</li><li>YOLO11</li><li>HistGradientBoosting</li><li>PostgreSQL</li><li>Next.js</li><li>Docker</li>
+                    <li>Python</li><li>PyTorch (YOLO)</li><li>HistGradientBoosting</li><li>Docker</li><li>Linux</li>
                   </ul>
                   <div class="project__links">
-                    <a href="https://hall-check.vercel.app" target="_blank" rel="noopener">Live site ↗</a>
                     <a href="https://github.com/yougijain/hall-check" target="_blank" rel="noopener">GitHub ↗</a>
                   </div>
                 </div>
