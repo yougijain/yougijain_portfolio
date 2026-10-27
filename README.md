@@ -1,7 +1,7 @@
 # yougijain.com
 
-Personal portfolio for Madhiyougi (Yougi) Jain, aimed at quant research and
-trading: expected-value modeling, applied statistics, and poker.
+Personal portfolio for Madhiyougi (Yougi) Jain, aimed at machine learning
+roles: production ML, computer vision, and model evaluation.
 Plain HTML/CSS/JS, no build step. Clean and minimal now, easy to push toward a
 more creative direction later.
 
@@ -10,7 +10,7 @@ more creative direction later.
 ```
 .
 ├── index.html        # all content + page structure
-├── notes/            # long-form notes, one standalone HTML page each
+├── notes/            # standalone note pages, not linked from the home page
 ├── css/style.css     # design tokens at the top (start there)
 ├── js/main.js        # nav, mobile menu, scroll reveals
 ├── assets/           # résumé PDF (add images/og-image here)
@@ -31,7 +31,7 @@ python3 -m http.server 8000
 ## Editing content
 
 Everything lives in `index.html` and is commented by section
-(Work, Notes, About, Experience, Education, Skills, Contact). Work is split
+(Work, About, Experience, Education, Skills, Contact). Work is split
 into labelled `.work-group` blocks. To add a project, copy an
 `<article class="project">` inside the right group. For a one-line entry, copy
 an `<li class="index-list__item">` in the "Also built" index below the groups.
@@ -39,8 +39,7 @@ To add a role, copy a `<li class="timeline__item">`.
 
 To add a note, copy any page in `notes/`, keep its header, footer, and
 stylesheet link, and replace the title, meta tags, and `.note__body`. Then
-list it in the Notes section of `index.html` and point the previous note's
-"Next" link at it. Formulas go in a `<p class="note__formula">` and tables in a
+point the previous note's "Next" link at it. Formulas go in a `<p class="note__formula">` and tables in a
 `.note__table` inside a `.note__table-wrap`.
 
 ## Changing the look
