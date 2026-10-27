@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Set theme before first paint to avoid a flash; flag JS so the
+       reveal animation only hides content when scripting is available. -->
+  <script>
+    (function () {
+      try {
+        var s = localStorage.getItem("theme");
+        var dark = s ? s === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme = dark ? "dark" : "light";
+        document.documentElement.classList.add("js");
+      } catch (e) {}
+    })();
+  </script>
+
+  <title>A correct call that loses 70% of the time | Yougi Jain</title>
+  <meta name="description" content="Judging a decision by its result is called resulting. A worked river call that is +EV yet loses 7 times in 10, and how often a correct strategy still shows a loss." />
+  <meta name="author" content="Madhiyougi Jain" />
+  <link rel="canonical" href="https://yougijain.com/notes/correct-call-that-loses.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="A correct call that loses 70% of the time" />
+  <meta property="og:description" content="Judging a decision by its result is called resulting. A worked river call that is +EV yet loses 7 times in 10, and how often a correct strategy still shows a loss." />
+  <meta property="og:url" content="https://yougijain.com/notes/correct-call-that-loses.html" />
+
+  <meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0c100e" media="(prefers-color-scheme: dark)" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/style.css?v=21" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="nav__brand" href="../index.html">Yougi Jain<span class="nav__dot">.</span></a>
+
+      <div class="nav__right">
+        <nav class="nav__links" aria-label="Primary">
+          <a href="../index.html#work">Work</a>
+          <a href="../index.html#contact">Contact</a>
+        </nav>
+
+        <button class="nav__theme" id="themeToggle" type="button" aria-label="Switch theme" aria-pressed="false">
+          <svg class="nav__theme-sun" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2 2M17 17l2 2M19.1 4.9l-2 2M7 17l-2 2" />
+          </svg>
+          <svg class="nav__theme-moon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+          </svg>
+        </button>
+
+        <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <span class="nav__progress" aria-hidden="true"></span>
+  </header>
+
+  <main id="main">
+    <article class="note">
+      <div class="container note__inner">
+        <p class="note__meta">Note · Oct 2026</p>
+        <h1 class="note__title">A correct call that loses 70% of the time</h1>
+        <p class="note__lede">
+          Poker players call it resulting: judging a decision by how it turned out.
+          Here is how badly that misleads in a spot where the right play loses most of the
+          time.
+        </p>
+
+        <div class="note__body">
+          <h2>The spot</h2>
+          <p>
+            On the river the pot is 10 big blinds and your opponent bets 5. Calling costs 5
+            to win 15, so the call breaks even if you win 5&nbsp;/&nbsp;20&nbsp;=&nbsp;25% of
+            the time. Say your hand wins 30% against the range they bet with.
+          </p>
+          <p class="note__formula">EV(call) = 0.30 × 15 − 0.70 × 5 = +1.0&nbsp;bb</p>
+          <p>Calling is correct. It also loses 7&nbsp;times out of&nbsp;10.</p>
+
+          <h2>How often the right play shows a loss</h2>
+          <p>
+            Make the same call <i>n</i> times. With <i>W</i> wins you net
+          </p>
+          <p class="note__formula">15W − 5(n − W) = 20W − 5n</p>
+          <p>
+            which is below zero whenever you win fewer than a quarter of the calls.
+            <i>W</i> is binomial with p&nbsp;=&nbsp;0.3, so:
+          </p>
+          <div class="note__table-wrap">
+            <table class="note__table">
+              <thead>
+                <tr><th scope="col">Calls</th><th scope="col">Expected result</th><th scope="col">Chance you're down</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>20</td><td>+20&nbsp;bb</td><td>24%</td></tr>
+                <tr><td>100</td><td>+100&nbsp;bb</td><td>11%</td></tr>
+                <tr><td>500</td><td>+500&nbsp;bb</td><td>0.6%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            Someone who makes this call 20 times and judges it by the result has about a
+            one-in-four chance of deciding that calling is a mistake.
+          </p>
+
+          <h2>Grade the decision</h2>
+          <p>
+            The useful question is whether the call had positive expected value given what
+            you knew, and that question has an answer as soon as you make the call. The
+            poker trainer I built shows the EV of every
+            alternative in a spot, and
+            <a href="https://linelab-yougijain.vercel.app/play">LineLab's Arena</a> grades
+            each decision against the EV of the other moves, whatever happened next.
+          </p>
+
+          <h2>The same mistake with models</h2>
+          <p>
+            A model that wins one backtest window, or a campaign that has one good week, is
+            the sample of 20&nbsp;calls.
+            <a href="https://github.com/yougijain/hall-check#forecast-m4">Hall Check's
+            forecast</a> only ships if it beats simple baselines on a held-out stretch of
+            time, and the
+            <a href="https://github.com/yougijain/NYC-Collisions#does-the-ranking-actually-predict-anything">NYC
+            Collisions backtest</a> reports where its ranking only ties a plain injury-rate
+            sort. Both are ways of judging the process on enough samples before trusting a
+            result.
+          </p>
+        </div>
+
+        <footer class="note__end">
+          <a href="../index.html">← Home</a>
+          <a href="win-rate-sample-size.html">First note: How many hands until a win rate means something? →</a>
+        </footer>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© <span id="year"></span> Madhiyougi Jain</span>
+      <span class="footer__meta">Amherst, MA · <span id="localTime"></span></span>
+    </div>
+  </footer>
+
+  <script src="../js/main.js?v=2"></script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Set theme before first paint to avoid a flash; flag JS so the
+       reveal animation only hides content when scripting is available. -->
+  <script>
+    (function () {
+      try {
+        var s = localStorage.getItem("theme");
+        var dark = s ? s === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme = dark ? "dark" : "light";
+        document.documentElement.classList.add("js");
+      } catch (e) {}
+    })();
+  </script>
+
+  <title>Sizing a bankroll when you don't know your edge | Yougi Jain</title>
+  <meta name="description" content="Risk of ruin and Kelly sizing both take your win rate as an input. What happens to a 5% risk-of-ruin bankroll when the true edge is half the estimate." />
+  <meta name="author" content="Madhiyougi Jain" />
+  <link rel="canonical" href="https://yougijain.com/notes/bankroll-unknown-edge.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Sizing a bankroll when you don't know your edge" />
+  <meta property="og:description" content="Risk of ruin and Kelly sizing both take your win rate as an input. What happens to a 5% risk-of-ruin bankroll when the true edge is half the estimate." />
+  <meta property="og:url" content="https://yougijain.com/notes/bankroll-unknown-edge.html" />
+
+  <meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0c100e" media="(prefers-color-scheme: dark)" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/style.css?v=21" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="nav__brand" href="../index.html">Yougi Jain<span class="nav__dot">.</span></a>
+
+      <div class="nav__right">
+        <nav class="nav__links" aria-label="Primary">
+          <a href="../index.html#work">Work</a>
+          <a href="../index.html#contact">Contact</a>
+        </nav>
+
+        <button class="nav__theme" id="themeToggle" type="button" aria-label="Switch theme" aria-pressed="false">
+          <svg class="nav__theme-sun" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2 2M17 17l2 2M19.1 4.9l-2 2M7 17l-2 2" />
+          </svg>
+          <svg class="nav__theme-moon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+          </svg>
+        </button>
+
+        <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <span class="nav__progress" aria-hidden="true"></span>
+  </header>
+
+  <main id="main">
+    <article class="note">
+      <div class="container note__inner">
+        <p class="note__meta">Note · Oct 2026</p>
+        <h1 class="note__title">Sizing a bankroll when you don't know your edge</h1>
+        <p class="note__lede">
+          Bankroll formulas take your win rate as an input. Your win rate is an estimate
+          with a wide interval, and the answer moves a lot when the input does.
+        </p>
+
+        <div class="note__body">
+          <h2>Risk of ruin</h2>
+          <p>
+            Treat each hand as a draw with mean μ and standard deviation σ, both in big
+            blinds per hand. The chance of ever losing a bankroll of <i>B</i> big blinds is
+            approximately
+          </p>
+          <p class="note__formula">RoR = exp(−2μB / σ²)</p>
+          <p>Solve for <i>B</i> and you get the bankroll for a target risk <i>r</i>:</p>
+          <p class="note__formula">B = −σ² ln(r) / (2μ)</p>
+          <p>
+            A 5&nbsp;bb/100 winner with a standard deviation of 90&nbsp;bb/100 has μ&nbsp;=&nbsp;0.05 and σ&nbsp;=&nbsp;9
+            per hand. Standard deviation grows with the square root of the number of hands,
+            so 90&nbsp;/&nbsp;√100&nbsp;=&nbsp;9. That gives:
+          </p>
+          <div class="note__table-wrap">
+            <table class="note__table">
+              <thead>
+                <tr><th scope="col">Target risk of ruin</th><th scope="col">Bankroll (bb)</th><th scope="col">100bb buy-ins</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>5%</td><td>2,427</td><td>24</td></tr>
+                <tr><td>1%</td><td>3,730</td><td>37</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>When the edge is wrong</h2>
+          <p>
+            The <a href="win-rate-sample-size.html">win-rate note</a> showed that after
+            50,000 hands, a measured +5&nbsp;bb/100 is consistent with anything from about −3 to
+            +13. Suppose you size for 5% risk with 24&nbsp;buy-ins and your true rate is lower:
+          </p>
+          <div class="note__table-wrap">
+            <table class="note__table">
+              <thead>
+                <tr><th scope="col">True win rate</th><th scope="col">Risk of ruin with 24&nbsp;buy-ins</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>5&nbsp;bb/100</td><td>5%</td></tr>
+                <tr><td>2.5&nbsp;bb/100</td><td>22%</td></tr>
+                <tr><td>1&nbsp;bb/100</td><td>55%</td></tr>
+                <tr><td>0 or below</td><td>100%, eventually</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Halving the edge raises the risk of ruin more than fourfold.</p>
+
+          <h2>The Kelly version</h2>
+          <p>
+            Kelly sizing asks the same question as a growth rate. For a repeated bet that
+            returns mean μ and standard deviation σ per unit staked, staking a fraction
+            <i>f</i> of the bankroll grows it at roughly
+          </p>
+          <p class="note__formula">g(f) = μf − σ²f² / 2</p>
+          <p>
+            per bet, which peaks at <i>f</i>*&nbsp;=&nbsp;μ&nbsp;/&nbsp;σ². In poker the stake is the limit you
+            play relative to your bankroll, so moving up a limit raises <i>f</i>. Two facts
+            fall out of the formula:
+          </p>
+          <ul>
+            <li>
+              Staking twice the Kelly fraction gives a growth rate of zero. If you size for
+              a 5&nbsp;bb/100 edge and your real edge is 2.5, that is exactly what you are doing.
+            </li>
+            <li>
+              Staking half the Kelly fraction keeps 75% of the growth rate with a quarter of
+              the variance.
+            </li>
+          </ul>
+          <p>
+            The second fact is why people bet fractional Kelly. It is cheap insurance
+            against an edge that turns out smaller than the estimate.
+          </p>
+
+          <h2>What I take from it</h2>
+          <p>
+            Size from the low end of the interval rather than the point estimate. The same
+            rule decides whether a model gets deployed. In
+            <a href="https://yougijain.github.io/When-Average-Effects-Lie/">When Average
+            Effects Lie</a>, targeting is recommended for the Women's email, where the
+            bootstrap interval for the gain stays above zero, and not for the Men's email,
+            where it straddles zero.
+          </p>
+        </div>
+
+        <footer class="note__end">
+          <a href="../index.html">← Home</a>
+          <a href="correct-call-that-loses.html">Next: A correct call that loses 70% of the time →</a>
+        </footer>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© <span id="year"></span> Madhiyougi Jain</span>
+      <span class="footer__meta">Amherst, MA · <span id="localTime"></span></span>
+    </div>
+  </footer>
+
+  <script src="../js/main.js?v=2"></script>
+</body>
+</html>

@@ -10,3 +10,10 @@ desktop.ini
 # Logs / deps (in case you add a build later)
 node_modules/
 *.log
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
