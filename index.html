@@ -326,30 +326,33 @@
               <article class="project reveal">
                 <div class="project__meta">
                   <span class="project__year">Sep 2026</span>
-                  <span class="project__badge">In progress</span>
+                  <span class="project__badge">Live</span>
                   <span class="project__type">Real-Time CV / Forecasting</span>
                 </div>
                 <div class="project__body">
                   <h4 class="project__title">Hall Check</h4>
                   <p class="project__desc">
-                    Counts the people in line at five public UMass dining-hall cameras, one frame
-                    every two minutes. YOLO11n runs on a CPU and counts people whose feet fall inside
-                    a queue polygon, and the frame is never stored: CI fails the build on any
-                    pixel-writing call or a detector save flag that isn't pinned off. The evaluation
-                    was fixed before any data came in. The accuracy report fails until 150+ blind
-                    hand counts cover every hall, meal, and lighting condition, and the 30-minute
-                    forecast fails unless it beats persistence and same-slot baselines. A daily drift
-                    check tells a moved camera from an outage.
+                    Counts the people in line at four public UMass dining-hall cameras, one frame
+                    every two minutes, collecting since October 26. YOLO11n runs on a CPU and counts
+                    people whose feet fall inside a queue polygon, and the frame is never stored: CI
+                    fails the build on any pixel-writing call or a detector save flag that isn't
+                    pinned off. The worker runs on a laptop because YouTube won't serve the streams to
+                    datacenter IPs. One of the five original streams died within a month, so a health
+                    check now flags a camera that stops. The evaluation was fixed before any data came
+                    in. The accuracy report fails until 150+ blind hand counts cover every hall, meal,
+                    and lighting condition, and the 30-minute forecast fails unless it beats
+                    persistence and same-slot baselines. Neither has a number yet.
                   </p>
                   <dl class="stats">
-                    <div class="stat"><dt>Cameras</dt><dd>5</dd></div>
+                    <div class="stat"><dt>Cameras</dt><dd>4</dd></div>
                     <div class="stat"><dt>Frames stored</dt><dd>0</dd></div>
-                    <div class="stat"><dt>Worker tests</dt><dd>228</dd></div>
+                    <div class="stat"><dt>Worker tests</dt><dd>261</dd></div>
                   </dl>
                   <ul class="tags">
-                    <li>Python</li><li>PyTorch (YOLO)</li><li>HistGradientBoosting</li><li>Docker</li><li>Linux</li>
+                    <li>Python</li><li>PyTorch (YOLO)</li><li>HistGradientBoosting</li><li>Docker</li><li>Supabase</li><li>Next.js</li>
                   </ul>
                   <div class="project__links">
+                    <a href="https://hall-check.vercel.app" target="_blank" rel="noopener">Live site ↗</a>
                     <a href="https://github.com/yougijain/hall-check" target="_blank" rel="noopener">GitHub ↗</a>
                   </div>
                 </div>
