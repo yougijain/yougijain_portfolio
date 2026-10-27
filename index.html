@@ -294,6 +294,37 @@
 
               <article class="project reveal">
                 <div class="project__meta">
+                  <span class="project__year">Oct 2026</span>
+                  <span class="project__type">Power Analysis / Multiple Testing</span>
+                </div>
+                <div class="project__body">
+                  <h4 class="project__title">When Evals Can't Tell</h4>
+                  <p class="project__desc">
+                    How large an LLM eval has to be before a 5-point gap between two prompts means
+                    anything. On 100 items, the usual two-proportion test catches a real 80% vs. 85%
+                    gap 15% of the time, and 80% power takes 903 items. Both systems answer the same
+                    items, so McNemar's paired test applies, and when they disagree on 10% of items it
+                    needs 312. Score 50 prompts that are no better than baseline on 300 items, keep the
+                    best, and it averages +6.5 points from selection alone. The CLI prints what an eval could detect before
+                    any p-value, and CI fails if the regenerated results drift from the committed ones.
+                  </p>
+                  <dl class="stats">
+                    <div class="stat"><dt>Items, unpaired</dt><dd>903</dd></div>
+                    <div class="stat"><dt>Items, paired</dt><dd>312</dd></div>
+                    <div class="stat"><dt>Best-of-50 bias</dt><dd>+6.5 pts</dd></div>
+                  </dl>
+                  <ul class="tags">
+                    <li>Python</li><li>NumPy</li><li>SciPy</li><li>statsmodels</li><li>Power analysis</li><li>Multiple testing</li>
+                  </ul>
+                  <div class="project__links">
+                    <a href="https://github.com/yougijain/when-evals-cant-tell/blob/main/RESULTS.md" target="_blank" rel="noopener">Results ↗</a>
+                    <a href="https://github.com/yougijain/when-evals-cant-tell" target="_blank" rel="noopener">GitHub ↗</a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project reveal">
+                <div class="project__meta">
                   <span class="project__year">Sep 2026</span>
                   <span class="project__badge">In progress</span>
                   <span class="project__type">Real-Time CV / Forecasting</span>
