@@ -272,14 +272,17 @@
                     from what was involved but not where it happened. On 121,970 held-out 2025–26
                     crashes it scores ROC-AUC 0.79 against 0.54 for a borough-and-hour base rate.
                     Five rolling-forward fits score 413,780 crashes so none is scored by a model that
-                    trained on it. Of 1,093 ranked intersections, 102 clear z = 1.96 where chance
-                    predicts about 27, and a backtest shows the ranking persists, though it only ties
-                    a no-model sort. A weekly job rebuilds all 637,256 crashes behind 318 tests.
+                    trained on it. Of 1,093 ranked intersections, 101 clear z = 1.96 where chance
+                    predicts about 27, but only 2 survive Benjamini–Hochberg, so the list is a
+                    screening queue. A backtest shows the ranking persists, though it only ties a
+                    no-model sort. Partial pooling fixes the size of each estimate, not the order: the
+                    top 50 kept 82% of their pooled excess in the later window against 29% raw. A
+                    weekly job rebuilds all 637,256 crashes behind 386 tests.
                   </p>
                   <dl class="stats">
                     <div class="stat"><dt>ROC-AUC</dt><dd>0.79</dd></div>
                     <div class="stat"><dt>Brier skill</dt><dd>+26.9%</dd></div>
-                    <div class="stat"><dt>Sites past z = 1.96</dt><dd>102</dd></div>
+                    <div class="stat"><dt>Sites past z = 1.96</dt><dd>101</dd></div>
                   </dl>
                   <ul class="tags">
                     <li>Python</li><li>scikit-learn</li><li>DuckDB</li><li>Parquet</li><li>GitHub Actions</li><li>Streamlit</li>
